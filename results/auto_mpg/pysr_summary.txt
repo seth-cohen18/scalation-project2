@@ -1,0 +1,21 @@
+PySR Symbolic Regression: mpg ~ f(cylinders, displacement, horsepower, weight, acceleration, model_year, origin)
+
+Best equation (by PySR's default complexity/loss trade-off score):
+  mpg = ((model_year + -45.713825) * 2104.7366) / weight
+
+  complexity = 7, training loss (MSE) = 9.064245
+  in-sample R^2 = 0.8508
+
+Pareto front (complexity, loss, equation):
+ complexity      loss    score                                                                                                                                                equation
+          1 60.762722 0.000000                                                                                                                                               23.445328
+          3 17.836945 0.612852                                                                                                                                      64651.406 / weight
+          5 12.198197 0.189992                                                                                                                       model_year * (848.88367 / weight)
+          7  9.064245 0.148475                                                                                                        ((model_year + -45.713825) * 2104.7366) / weight
+          9  8.828083 0.013200                                                                                          ((model_year + -46.839104) * 2412.744) / (weight - -251.71303)
+         11  8.698897 0.007371                                                                         (2173.1958 - horsepower) * (((model_year + -48.722385) / weight) + 0.001290774)
+         13  8.656892 0.002420                                                            ((((horsepower * -2.9167163) + 2536.0588) / weight) * (model_year + -51.731678)) + 3.2788882
+         15  8.416559 0.014077                                               (((784.1942 - ((horsepower * 5.7383723) + -1747.7924)) * (model_year + -52.505714)) / weight) + 6.2664757
+         17  8.414558 0.000119                                 (((model_year + -52.560097) * (784.1931 - ((horsepower * 5.7682023) + (cylinders + -1754.0769)))) / weight) + 6.2891397
+         19  8.264770 0.008981                        origin + (((model_year + -53.25122) * (((model_year * 6.800723) - ((horsepower * 6.526182) + -1879.5338)) / weight)) + 6.930177)
+         21  8.129455 0.008254 (((model_year + -71.601265) / (horsepower - (model_year + -32.734615))) + (((model_year + 2192.8599) * (model_year + -50.51602)) / weight)) + 2.0604424

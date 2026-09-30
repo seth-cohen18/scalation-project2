@@ -1,0 +1,16 @@
+Lasso Regression (statsmodels OLS.fit_regularized): mpg ~ cylinders + displacement + horsepower + weight + acceleration + model_year + origin
+L1_wt = 1.0 (Lasso/L1)
+alpha chosen by 5-fold CV over [0.001, 0.01, 0.05, 0.1, 0.5, 1.0, 5.0, 10.0] -> alpha = 0.1 (cv_mse = 561.1241)
+
+Standardized coefficients (x centered/scaled, y centered):
+             cylinders:  0.000000
+          displacement:  0.000000
+            horsepower: -0.381192
+                weight: -4.718071
+          acceleration:  0.000000
+            model_year:  2.646284
+                origin:  0.891849
+
+In-sample (full-data) fit at chosen alpha:
+  SSE = 4340.7625
+  R^2 = 0.8178

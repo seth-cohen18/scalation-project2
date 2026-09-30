@@ -1,0 +1,19 @@
+# Python virtualenv (includes the managed Julia/PySR backend, several GB)
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# LaTeX build artifacts
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.synctex.gz
+report/*.fls
+report/*.fdb_latexmk
+
+# OS / editor junk
+.DS_Store
+Thumbs.db

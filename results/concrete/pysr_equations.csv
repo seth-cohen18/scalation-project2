@@ -1,0 +1,16 @@
+complexity,loss,score,equation
+1,278.8088,0.0,35.811157
+3,231.62663,0.09269976020780786,cement * 0.12166306
+4,212.40965,0.08661000033693665,sqrt(cement) * 2.1908064
+5,164.7554,0.25405477170052476,sqrt(sqrt(age) * cement)
+6,149.51495,0.09706556194913983,sqrt(log(square(age)) * cement)
+7,110.02244,0.30671204284382875,superplasticizer + sqrt(cement * log(age))
+8,109.843765,0.0016253069846060718,sqrt(cement * (sqrt(superplasticizer) + log(age)))
+9,102.60404,0.06818172982286994,sqrt((blast_furnace_slag + cement) * log(age)) + superplasticizer
+11,95.201645,0.03744004355998637,-2.6282265 + (superplasticizer + sqrt((cement + blast_furnace_slag) * log(age)))
+12,93.73625,0.015512233632550772,sqrt((sqrt(blast_furnace_slag * age) + cement) * log(age)) + superplasticizer
+13,87.61576,0.06752409699072641,sqrt(((sqrt(cement) * (superplasticizer + sqrt(blast_furnace_slag))) + cement) * log(age))
+14,86.78394,0.009539308930564446,(((cement / water) * log(water)) * (log(age) + 0.5231891)) + sqrt(blast_furnace_slag)
+15,82.94678,0.045222384188362566,superplasticizer + ((log(water) * (blast_furnace_slag + (blast_furnace_slag + (cement * log(age))))) / water)
+16,77.997536,0.061521960870557155,((log(fly_ash + water) * (log(age) * (cement - -28.627516))) / water) + sqrt(blast_furnace_slag)
+18,67.91589,0.06920360432119092,(((log(fly_ash + water) * ((log(age) * cement) - -958.15625)) / water) + sqrt(blast_furnace_slag)) - 24.84837

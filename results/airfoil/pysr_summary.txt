@@ -1,0 +1,25 @@
+PySR Symbolic Regression: scaled_sound_pressure_level ~ f(frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+
+Best equation (by PySR's default complexity/loss trade-off score):
+  scaled_sound_pressure_level = 131.3755 - sqrt(frequency * (chord_length * (suction_side_displacement_thickness * 25.816442)))
+
+  complexity = 10, training loss (MSE) = 21.136038
+  in-sample R^2 = 0.5556
+
+Pareto front (complexity, loss, equation):
+ complexity      loss    score                                                                                                                                                                                        equation
+          1 47.559795 0.000000                                                                                                                                                                                      124.835724
+          3 47.263950 0.003120                                                                                                                                                                        124.97124 - chord_length
+          4 43.214718 0.089567                                                                                                                                            126.32835 / exp(suction_side_displacement_thickness)
+          5 41.294075 0.045462                                                                                                                                                               131.55179 - sqrt(sqrt(frequency))
+          6 30.483350 0.303538                                                                                                                               128.69722 - sqrt(suction_side_displacement_thickness * frequency)
+          7 25.621640 0.173743                                                                                                                  127.63869 - ((frequency * suction_side_displacement_thickness) * chord_length)
+          9 25.512154 0.002141                                                                                                 (127.63869 - ((suction_side_displacement_thickness * frequency) * chord_length)) - chord_length
+         10 21.136038 0.188175                                                                                                 131.3755 - sqrt(frequency * (chord_length * (suction_side_displacement_thickness * 25.816442)))
+         12 20.957706 0.004237                                                                                  131.20012 - sqrt((frequency - 131.20012) * ((suction_side_displacement_thickness * chord_length) * 25.816442))
+         14 20.715912 0.005802                                                                    131.20012 - sqrt(suction_side_displacement_thickness * (131.20012 + (chord_length * ((frequency - 131.20012) * 27.552517))))
+         15 20.522690 0.009371                                                        134.01155 - ((angle_of_attack * 0.3895293) + sqrt(frequency / (0.3895293 / (sqrt(suction_side_displacement_thickness) * chord_length))))
+         17 20.409628 0.002762         134.82394 - sqrt(((suction_side_displacement_thickness * free_stream_velocity) / chord_length) + (frequency / (0.62657434 / sqrt(suction_side_displacement_thickness * chord_length))))
+         18 20.304571 0.005161      (-1.3882899 - sqrt((frequency / (0.031719964 / (chord_length * suction_side_displacement_thickness))) + (suction_side_displacement_thickness / (chord_length * 0.031719964)))) + 133.52864
+         19 19.705690 0.029939  134.82394 - sqrt((suction_side_displacement_thickness / (chord_length * (0.122671425 * 0.122671425))) + (frequency / (0.62657434 / sqrt(suction_side_displacement_thickness * chord_length))))
+         20 19.153430 0.028426 134.8463 - sqrt((frequency / (0.62657434 / sqrt(suction_side_displacement_thickness * chord_length))) + ((131.16241 - sqrt(frequency)) * (suction_side_displacement_thickness / chord_length)))

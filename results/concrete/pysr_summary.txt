@@ -1,0 +1,25 @@
+PySR Symbolic Regression: concrete_compressive_strength ~ f(cement, blast_furnace_slag, fly_ash, water, superplasticizer, coarse_aggregate, fine_aggregate, age)
+
+Best equation (by PySR's default complexity/loss trade-off score):
+  concrete_compressive_strength = (((log(fly_ash + water) * ((log(age) * cement) - -958.15625)) / water) + sqrt(blast_furnace_slag)) - 24.84837
+
+  complexity = 18, training loss (MSE) = 67.915890
+  in-sample R^2 = 0.7564
+
+Pareto front (complexity, loss, equation):
+ complexity       loss    score                                                                                                      equation
+          1 278.808800 0.000000                                                                                                     35.811157
+          3 231.626630 0.092700                                                                                           cement * 0.12166306
+          4 212.409650 0.086610                                                                                      sqrt(cement) * 2.1908064
+          5 164.755400 0.254055                                                                                      sqrt(sqrt(age) * cement)
+          6 149.514950 0.097066                                                                               sqrt(log(square(age)) * cement)
+          7 110.022440 0.306712                                                                    superplasticizer + sqrt(cement * log(age))
+          8 109.843765 0.001625                                                            sqrt(cement * (sqrt(superplasticizer) + log(age)))
+          9 102.604040 0.068182                                             sqrt((blast_furnace_slag + cement) * log(age)) + superplasticizer
+         11  95.201645 0.037440                              -2.6282265 + (superplasticizer + sqrt((cement + blast_furnace_slag) * log(age)))
+         12  93.736250 0.015512                                 sqrt((sqrt(blast_furnace_slag * age) + cement) * log(age)) + superplasticizer
+         13  87.615760 0.067524                    sqrt(((sqrt(cement) * (superplasticizer + sqrt(blast_furnace_slag))) + cement) * log(age))
+         14  86.783940 0.009539                         (((cement / water) * log(water)) * (log(age) + 0.5231891)) + sqrt(blast_furnace_slag)
+         15  82.946780 0.045222 superplasticizer + ((log(water) * (blast_furnace_slag + (blast_furnace_slag + (cement * log(age))))) / water)
+         16  77.997536 0.061522              ((log(fly_ash + water) * (log(age) * (cement - -28.627516))) / water) + sqrt(blast_furnace_slag)
+         18  67.915890 0.069204 (((log(fly_ash + water) * ((log(age) * cement) - -958.15625)) / water) + sqrt(blast_furnace_slag)) - 24.84837

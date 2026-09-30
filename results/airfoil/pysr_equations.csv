@@ -1,0 +1,16 @@
+complexity,loss,score,equation
+1,47.559795,0.0,124.835724
+3,47.26395,0.0031199565038320855,124.97124 - chord_length
+4,43.214718,0.08956671678946457,126.32835 / exp(suction_side_displacement_thickness)
+5,41.294075,0.04546210446580626,131.55179 - sqrt(sqrt(frequency))
+6,30.48335,0.3035383942900572,128.69722 - sqrt(suction_side_displacement_thickness * frequency)
+7,25.62164,0.17374332600535372,127.63869 - ((frequency * suction_side_displacement_thickness) * chord_length)
+9,25.512154,0.002141170422770668,(127.63869 - ((suction_side_displacement_thickness * frequency) * chord_length)) - chord_length
+10,21.136038,0.18817542040582996,131.3755 - sqrt(frequency * (chord_length * (suction_side_displacement_thickness * 25.816442)))
+12,20.957706,0.004236569380251606,131.20012 - sqrt((frequency - 131.20012) * ((suction_side_displacement_thickness * chord_length) * 25.816442))
+14,20.715912,0.0058021531349654225,131.20012 - sqrt(suction_side_displacement_thickness * (131.20012 + (chord_length * ((frequency - 131.20012) * 27.552517))))
+15,20.52269,0.009370997299565592,134.01155 - ((angle_of_attack * 0.3895293) + sqrt(frequency / (0.3895293 / (sqrt(suction_side_displacement_thickness) * chord_length))))
+17,20.409628,0.0027621765163617505,134.82394 - sqrt(((suction_side_displacement_thickness * free_stream_velocity) / chord_length) + (frequency / (0.62657434 / sqrt(suction_side_displacement_thickness * chord_length))))
+18,20.304571,0.005160717181992074,(-1.3882899 - sqrt((frequency / (0.031719964 / (chord_length * suction_side_displacement_thickness))) + (suction_side_displacement_thickness / (chord_length * 0.031719964)))) + 133.52864
+19,19.70569,0.029938606586851945,134.82394 - sqrt((suction_side_displacement_thickness / (chord_length * (0.122671425 * 0.122671425))) + (frequency / (0.62657434 / sqrt(suction_side_displacement_thickness * chord_length))))
+20,19.15343,0.02842561466767213,134.8463 - sqrt((frequency / (0.62657434 / sqrt(suction_side_displacement_thickness * chord_length))) + ((131.16241 - sqrt(frequency)) * (suction_side_displacement_thickness / chord_length)))

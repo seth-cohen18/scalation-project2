@@ -1,0 +1,178 @@
+=== auto_mpg: ScalaTion digest ===
+
+
+--- [AutoMPG] Section 1: Regression (ScalaTion) ---
+  QoF: rSq=0.821478, rSqBar=0.818224, sse=4252.212530, rmse=3.293551, smape=11.469335, aic=-1007.474750
+  Coefficients:
+                             one = -17.2184
+                       cylinders = -0.493376
+                    displacement = 0.0198956
+                      horsepower = -0.0169511
+                          weight = -0.00647404
+                    acceleration = 0.0805758
+                      model_year = 0.750773
+                          origin = 1.42614
+
+--- [AutoMPG] Section 1: Regression 5-fold Cross-Validation ---
+
+--- [AutoMPG] Section 2: Ridge Regression lambda search (ScalaTion) ---
+  QoF: rSq=0.821414, rSqBar=0.818159, sse=4253.735258, rmse=3.294141, smape=62.183135, aic=-1007.544925
+  Coefficients:
+                       cylinders = -0.441325
+                    displacement = 0.0184330
+                      horsepower = -0.0158187
+                          weight = -0.00649962
+                    acceleration = 0.0805576
+                      model_year = 0.749257
+                          origin = 1.32980
+
+--- [AutoMPG] Section 2: Lasso Regression lambda search (ScalaTion) ---
+  QoF: rSq=0.821458, rSqBar=0.818203, sse=4252.696113, rmse=3.293739, smape=62.070856, aic=-1007.497039
+  Coefficients:
+                       cylinders = -0.485727
+                    displacement = 0.0193136
+                      horsepower = -0.0193939
+                          weight = -0.00646283
+                    acceleration = 0.0308695
+                      model_year = 0.767178
+                          origin = 1.28158
+
+--- [AutoMPG] Section 3: Forward Feature Selection (ScalaTion) ---
+  QoF: rSq=0.821478, rSqBar=0.818224, sse=4252.212530, rmse=3.293551, smape=11.469335, aic=-1007.474750
+  Coefficients:
+                             one = -17.2184
+                       cylinders = -0.493376
+                    displacement = 0.0198956
+                      horsepower = -0.0169511
+                          weight = -0.00647404
+                    acceleration = 0.0805758
+                      model_year = 0.750773
+                          origin = 1.42614
+  Forward selection order:
+    step 0: INITIAL one
+    step 1: ADD weight (metric=11.918273736923489)
+    step 2: ADD model_year (metric=10.931346067251715)
+    step 3: ADD origin (metric=10.60333767283311)
+    step 4: ADD cylinders (metric=10.548232398256777)
+    step 5: ADD acceleration (metric=10.485444717163375)
+    step 6: ADD displacement (metric=10.49998223614183)
+    step 7: ADD horsepower (metric=10.586269770793178)
+  columns added, in order = LinkedHashSet(0, 4, 6, 7, 1, 5, 2, 3)
+  features added, in order = one, weight, model_year, origin, cylinders, acceleration, displacement, horsepower
+  best step by R^2bar = 8 of 8, features = one, weight, model_year, origin, cylinders, acceleration, displacement, horsepower
+
+--- [AutoMPG] Section 4a: Transformed Regression -- log(y) (ScalaTion) ---
+  QoF: rSq=0.855249, rSqBar=0.852610, sse=3447.830802, rmse=2.965719, smape=9.017517, aic=-966.376308
+  Coefficients:
+                             one = 1.83990
+                       cylinders = -0.0265166
+                    displacement = 0.000611948
+                      horsepower = -0.00135901
+                          weight = -0.000244734
+                    acceleration = -0.00103933
+                      model_year = 0.0283677
+                          origin = 0.0397121
+
+--- [AutoMPG] Section 4b: Transformed Regression -- sqrt(y) (ScalaTion) ---
+  QoF: rSq=0.843710, rSqBar=0.840861, sse=3722.679397, rmse=3.081660, smape=9.766630, aic=-981.407660
+  Coefficients:
+                             one = 1.07531
+                       cylinders = -0.0594164
+                    displacement = 0.00175227
+                      horsepower = -0.00251184
+                          weight = -0.000636681
+                    acceleration = 0.00273832
+                      model_year = 0.0738117
+                          origin = 0.121662
+
+--- [AutoMPG] Section 4c: Transformed Regression -- Box-Cox(y), lambda = 0.4 (ScalaTion) ---
+  QoF: rSq=0.846791, rSqBar=0.843998, sse=3649.292908, rmse=3.051134, smape=9.552540, aic=-977.505362
+  Coefficients:
+                             one = 0.948700
+                       cylinders = -0.0890924
+                    displacement = 0.00248357
+                      horsepower = -0.00393378
+                          weight = -0.000921838
+                    acceleration = 0.00232109
+                      model_year = 0.106865
+                          origin = 0.170492
+
+--- [AutoMPG] Section 5: Symbolic Regression (ScalaTion) ---
+  QoF: rSq=0.894595, rSqBar=0.884233, sse=2510.633317, rmse=2.530746, smape=7.615375, aic=-848.201487
+  Coefficients:
+                             one = 814.119
+                   cylinders^0.5 = 17.8804
+                displacement^0.5 = -9.43281
+                  horsepower^0.5 = 1.45915
+                      weight^0.5 = 1.14444
+                acceleration^0.5 = -37.2218
+                  model_year^0.5 = -101.075
+                      origin^0.5 = -35.6933
+                   cylinders^2.0 = 0.0577574
+                displacement^2.0 = -0.000323487
+                  horsepower^2.0 = -0.000181517
+                      weight^2.0 = 8.51797e-07
+                acceleration^2.0 = -0.0342968
+                  model_year^2.0 = 0.0404923
+                      origin^2.0 = -1.94085
+          displacement_cylinders = -0.00476966
+            horsepower_cylinders = -0.00818055
+         horsepower_displacement = 0.000596289
+                weight_cylinders = 0.000911320
+             weight_displacement = 3.32363e-06
+               weight_horsepower = -1.42382e-05
+          acceleration_cylinders = 0.132644
+       acceleration_displacement = 0.00227052
+         acceleration_horsepower = -0.00360192
+             acceleration_weight = -5.10942e-05
+            model_year_cylinders = -0.103498
+         model_year_displacement = 0.00434541
+           model_year_horsepower = -0.000908754
+               model_year_weight = -0.000284706
+         model_year_acceleration = 0.0547872
+                origin_cylinders = 0.151413
+             origin_displacement = 0.0521768
+               origin_horsepower = 0.00179206
+                   origin_weight = -0.00134730
+             origin_acceleration = 0.570265
+               origin_model_year = 0.111416
+
+--- [AutoMPG] Section 5: Symbolic Regression Forward Selection (ScalaTion) ---
+  Forward selection order:
+    step 0: INITIAL one
+    step 1: ADD weight^0.5 (metric=11.27197741781676)
+    step 2: ADD model_year_weight (metric=9.390382948893883)
+    step 3: ADD weight^2.0 (metric=8.974454554711619)
+    step 4: ADD model_year^2.0 (metric=8.433143581051688)
+    step 5: ADD acceleration_horsepower (metric=8.073704280319621)
+    step 6: ADD model_year^0.5 (metric=7.927272542517651)
+    step 7: ADD displacement^0.5 (metric=7.698606742668829)
+    step 8: ADD origin_acceleration (metric=7.6659437555643)
+    step 9: ADD origin_weight (metric=7.645550752573686)
+    step 10: ADD horsepower^0.5 (metric=7.511050507830948)
+    step 11: ADD origin_displacement (metric=7.404638016172746)
+    step 12: ADD acceleration_displacement (metric=7.350595991818091)
+    step 13: ADD acceleration^2.0 (metric=7.2594043869772715)
+    step 14: ADD origin^0.5 (metric=7.211727638045685)
+    step 15: ADD horsepower_displacement (metric=7.153919480703019)
+    step 16: ADD acceleration_weight (metric=7.118812661041662)
+    step 17: ADD displacement^2.0 (metric=7.110150342950398)
+    step 18: ADD horsepower^2.0 (metric=7.042208851669199)
+    step 19: ADD weight_horsepower (metric=6.999179731285959)
+    step 20: ADD acceleration^0.5 (metric=6.995350485528381)
+    step 21: ADD horsepower_cylinders (metric=6.986049931564012)
+    step 22: ADD weight_cylinders (metric=6.980044782448306)
+    step 23: ADD cylinders^2.0 (metric=6.984337544505989)
+    step 24: ADD weight_displacement (metric=6.9899052475052255)
+    step 25: ADD displacement_cylinders (metric=6.996692117355819)
+    step 26: ADD acceleration_cylinders (metric=6.990877008314425)
+    step 27: ADD model_year_cylinders (metric=6.9794712628483895)
+    step 28: ADD origin_cylinders (metric=6.9828945174374395)
+    step 29: ADD model_year_horsepower (metric=6.989387079594373)
+    step 30: ADD cylinders^0.5 (metric=6.991805920891667)
+    step 31: ADD model_year_acceleration (metric=6.993059557073396)
+    step 32: ADD model_year_displacement (metric=6.9978210767021025)
+    step 33: ADD origin_horsepower (metric=7.0042360840107545)
+    step 34: ADD origin_model_year (metric=7.037945979390989)
+    step 35: ADD origin^2.0 (metric=7.063170566262361)
+  k = 36 terms selected out of n = 36 candidate terms

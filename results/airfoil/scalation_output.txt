@@ -1,0 +1,1290 @@
+[info] running (fork) project2.project2_airfoil 
+readFileIntoArray: ../project 2/data/airfoil.csv
+readFileIntoArray: number lines = 1504
+readFileIntoArray: lines 0 = frequency,angle_of_attack,chord_length,free_stream_velocity,suction_side_displacement_thickness,scaled_sound_pressure_level
+readFileIntoArray: lines 1 = 800,0,0.3048,71.3,0.00266337,126.201
+load: read 999 data rows so far ...
+load: read in an 1503-by-6 matrix from ../project 2/data/airfoil.csv
+-----------------------------------------------
+| [Airfoil] Section 1: Regression (ScalaTion) |
+-----------------------------------------------
+----------------------------------
+| In-Sample Test: Regression_5.0 |
+----------------------------------
+DEBUG @ Predictor.trainNTest: b = VectorD(132.834,	-0.00128221,	-0.421912,	-35.6880,	0.0998540,	-147.301)
+b = VectorD(132.834,	-0.00128221,	-0.421912,	-35.6880,	0.0998540,	-147.301), fn = [Ljava.lang.String;@51b7e5df
+
+REPORT
+    ----------------------------------------------------------------------------
+    modelName  mn  = Regression_5.0
+    ----------------------------------------------------------------------------
+    hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+    ----------------------------------------------------------------------------
+    features   fn  = Array(one, frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+    ----------------------------------------------------------------------------
+    parameter  b   = VectorD(132.834,	-0.00128221,	-0.421912,	-35.6880,	0.0998540,	-147.301)
+    ----------------------------------------------------------------------------
+    fitMap     qof = LinkedHashMap(rSq -> 0.515710, rSqBar -> 0.514092, sst -> 71482.377701, sse -> 34618.219133, sde -> 4.800842, rse -> 4.808853, mse0 -> 23.032747, rmse -> 4.799244, mae -> 3.728517, smape -> 2.988658, bmae -> 6.169359, m -> 1503.000000, dfr -> 5.000000, df -> 1497.000000, fStat -> 318.824288, aic -> -4478.057739, bic -> -4446.166428, mape -> 2.994523, mase -> 1.610859, smapeC -> 2.996642, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+    ----------------------------------------------------------------------------
+        
+VizFrame: run Plot Regression_5.0 predictions: yy black/actual vs. yp red/predicted
+fname = Array(one, frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+SUMMARY
+    Parameters/Coefficients:
+    Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+----------------------------------------------------------------------------------
+    x0	 132.833806	 0.544701	 243.865682	 0.000000	 NA
+    x1	 -0.001282	 0.000042	 -30.452267	 0.000000	 1.144444
+    x2	 -0.421912	 0.038896	 -10.847149	 0.000000	 3.441658
+    x3	 -35.688001	 1.630432	 -21.888679	 0.000000	 1.510754
+    x4	 0.099854	 0.008132	 12.278758	 0.000000	 1.041698
+    x5	 -147.300519	 15.014668	 -9.810441	 0.000000	 2.532127
+
+    Residual standard error: 4.808853 on 1497.0 degrees of freedom
+    Multiple R-squared:  0.515710,	Adjusted R-squared:  0.514092
+    F-statistic: 318.8242882478476 on 5.0 and 1497.0 DF,  p-value: -0.0
+----------------------------------------------------------------------------------
+        
+-----------------------------------------------------------
+| [Airfoil] Section 1: Regression 5-fold Cross-Validation |
+-----------------------------------------------------------
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.462909, rSqBar -> 0.453775, sst -> 13805.490439, sse -> 7414.800063, sde -> 4.972486, rse -> 5.021992, mse0 -> 24.716000, rmse -> 4.971519, mae -> 3.944806, smape -> 3.162470, bmae -> 8.234661, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 50.678722, aic -> -895.181238, bic -> -872.958544, mape -> 3.161836, mase -> 0.885256, smapeC -> 3.202470, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.462909,	0.453775,	13805.5,	7414.80,	4.97249,	5.02199,	24.7160,	4.97152,	3.94481,	3.16247,	8.23466,	300.000,	5.00000,	294.000,	50.6787,	-895.181,	-872.959,	3.16184,	0.885256,	3.20247,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.544438, rSqBar -> 0.536691, sst -> 14658.680363, sse -> 6677.934590, sde -> 4.725902, rse -> 4.765927, mse0 -> 22.259782, rmse -> 4.718027, mae -> 3.708563, smape -> 2.965551, bmae -> 8.279031, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 70.271406, aic -> -879.185199, bic -> -856.962504, mape -> 2.967122, mase -> 0.883507, smapeC -> 3.005551, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.544438,	0.536691,	14658.7,	6677.93,	4.72590,	4.76593,	22.2598,	4.71803,	3.70856,	2.96555,	8.27903,	300.000,	5.00000,	294.000,	70.2714,	-879.185,	-856.963,	2.96712,	0.883507,	3.00555,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.509900, rSqBar -> 0.501565, sst -> 14777.883957, sse -> 7242.642838, sde -> 4.921671, rse -> 4.963350, mse0 -> 24.142143, rmse -> 4.913465, mae -> 3.748623, smape -> 3.004042, bmae -> 8.318535, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 61.175484, aic -> -891.444011, bic -> -869.221316, mape -> 3.011240, mase -> 0.906310, smapeC -> 3.044042, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.509900,	0.501565,	14777.9,	7242.64,	4.92167,	4.96335,	24.1421,	4.91347,	3.74862,	3.00404,	8.31853,	300.000,	5.00000,	294.000,	61.1755,	-891.444,	-869.221,	3.01124,	0.906310,	3.04404,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.537583, rSqBar -> 0.529719, sst -> 14767.778228, sse -> 6828.873905, sde -> 4.778483, rse -> 4.819488, mse0 -> 22.762913, rmse -> 4.771049, mae -> 3.725814, smape -> 2.996315, bmae -> 8.230809, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 68.357914, aic -> -882.461823, bic -> -860.239128, mape -> 3.005460, mase -> 0.867755, smapeC -> 3.036315, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.537583,	0.529719,	14767.8,	6828.87,	4.77848,	4.81949,	22.7629,	4.77105,	3.72581,	2.99632,	8.23081,	300.000,	5.00000,	294.000,	68.3579,	-882.462,	-860.239,	3.00546,	0.867755,	3.03632,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.501961, rSqBar -> 0.493491, sst -> 13362.694337, sse -> 6655.141123, sde -> 4.709115, rse -> 4.757787, mse0 -> 22.183804, rmse -> 4.709969, mae -> 3.576006, smape -> 2.863337, bmae -> 7.840998, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 59.263075, aic -> -878.690393, bic -> -856.467698, mape -> 2.873508, mase -> 0.835933, smapeC -> 2.903337, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.501961,	0.493491,	13362.7,	6655.14,	4.70912,	4.75779,	22.1838,	4.70997,	3.57601,	2.86334,	7.84100,	300.000,	5.00000,	294.000,	59.2631,	-878.690,	-856.468,	2.87351,	0.835933,	2.90334,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-----------------------------------------------
+| showQofStatTable: Statistical Table for QoF |
+-----------------------------------------------
+|        name |   num |        min |        max |       mean |      stdev |   interval |
+----------------------------------------------------------------------------------------
+|         rSq |     5 |      0.463 |      0.544 |      0.511 |      0.032 |      0.040 |
+|      rSqBar |     5 |      0.454 |      0.537 |      0.503 |      0.033 |      0.041 |
+|         sst |     5 |  13362.694 |  14777.884 |  14274.505 |    651.090 |    808.593 |
+|         sse |     5 |   6655.141 |   7414.800 |   6963.879 |    345.090 |    428.570 |
+|         sde |     5 |      4.709 |      4.972 |      4.822 |      0.119 |      0.148 |
+|         rse |     5 |      4.758 |      5.022 |      4.866 |      0.120 |      0.149 |
+|        mse0 |     5 |     22.184 |     24.716 |     23.213 |      1.150 |      1.429 |
+|        rmse |     5 |      4.710 |      4.972 |      4.817 |      0.119 |      0.148 |
+|         mae |     5 |      3.576 |      3.945 |      3.741 |      0.132 |      0.164 |
+|       smape |     5 |      2.863 |      3.162 |      2.998 |      0.108 |      0.134 |
+|        bmae |     5 |      7.841 |      8.319 |      8.181 |      0.193 |      0.240 |
+|           m |     5 |    300.000 |    300.000 |    300.000 |      0.000 |      0.000 |
+|         dfr |     5 |      5.000 |      5.000 |      5.000 |      0.000 |      0.000 |
+|          df |     5 |    294.000 |    294.000 |    294.000 |      0.000 |      0.000 |
+|       fStat |     5 |     50.679 |     70.271 |     61.949 |      7.829 |      9.723 |
+|         aic |     5 |   -895.181 |   -878.690 |   -885.393 |      7.491 |      9.303 |
+|         bic |     5 |   -872.959 |   -856.468 |   -863.170 |      7.491 |      9.303 |
+|        mape |     5 |      2.874 |      3.162 |      3.004 |      0.104 |      0.129 |
+|        mase |     5 |      0.836 |      0.906 |      0.876 |      0.026 |      0.032 |
+|      smapeC |     5 |      2.903 |      3.202 |      3.038 |      0.108 |      0.134 |
+|        picp |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|        pinc |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|         ace |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|       pinaw |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|         mis |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|         wis |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------
+| [Airfoil] Section 4a: Transformed Regression -- log(y) (ScalaTion) |
+----------------------------------------------------------------------
+----------------------------------
+| In-Sample Test: TranRegression |
+----------------------------------
+DEBUG @ TranRegression.trainNTest: b = VectorD(4.89830,	-1.04570e-05,	-0.00334188,	-0.285468,	0.000800624,	-1.23384)
+b = VectorD(4.89830,	-1.04570e-05,	-0.00334188,	-0.285468,	0.000800624,	-1.23384), fn = [Ljava.lang.String;@51b7e5df
+
+REPORT
+    ----------------------------------------------------------------------------
+    modelName  mn  = TranRegression
+    ----------------------------------------------------------------------------
+    hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+    ----------------------------------------------------------------------------
+    features   fn  = Array(one, frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+    ----------------------------------------------------------------------------
+    parameter  b   = VectorD(4.89830,	-1.04570e-05,	-0.00334188,	-0.285468,	0.000800624,	-1.23384)
+    ----------------------------------------------------------------------------
+    fitMap     qof = LinkedHashMap(rSq -> 0.508165, rSqBar -> 0.506523, sst -> 71482.377701, sse -> 35157.515441, sde -> 4.837229, rse -> 4.846165, mse0 -> 23.391561, rmse -> 4.836482, mae -> 3.747060, smape -> 3.002154, bmae -> 6.160365, m -> 1503.000000, dfr -> 5.000000, df -> 1497.000000, fStat -> 309.341079, aic -> -4489.674698, bic -> -4457.783387, mape -> 3.006062, mase -> 1.608510, smapeC -> 3.010138, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+    ----------------------------------------------------------------------------
+        
+VizFrame: run Plot TranRegression predictions: yy black/actual vs. yp red/predicted
+VizFrame: run Plot TranRegression predictions: yy black/actual vs. yp red/predicted
+fname = Array(one, frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+SUMMARY
+    Parameters/Coefficients:
+    Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+----------------------------------------------------------------------------------
+    x0	 4.898301	 0.548927	 8.923409	 0.000000	 NA
+    x1	 -0.000010	 0.000042	 -0.246439	 0.805342	 1.144444
+    x2	 -0.003342	 0.039198	 -0.085257	 0.932057	 3.441658
+    x3	 -0.285468	 1.643083	 -0.173739	 0.862070	 1.510754
+    x4	 0.000801	 0.008195	 0.097692	 0.922177	 1.041698
+    x5	 -1.233840	 15.131169	 -0.081543	 0.935010	 2.532127
+
+    Residual standard error: 4.846165 on 1497.0 degrees of freedom
+    Multiple R-squared:  0.508165,	Adjusted R-squared:  0.506523
+    F-statistic: 309.3410789736447 on 5.0 and 1497.0 DF,  p-value: -0.0
+----------------------------------------------------------------------------------
+        
+-----------------------------------------------------------------------
+| [Airfoil] Section 4b: Transformed Regression -- sqrt(y) (ScalaTion) |
+-----------------------------------------------------------------------
+----------------------------------
+| In-Sample Test: TranRegression |
+----------------------------------
+DEBUG @ TranRegression.trainNTest: b = VectorD(11.5302,	-5.81169e-05,	-0.0188481,	-1.60189,	0.00448711,	-6.76645)
+b = VectorD(11.5302,	-5.81169e-05,	-0.0188481,	-1.60189,	0.00448711,	-6.76645), fn = [Ljava.lang.String;@51b7e5df
+
+REPORT
+    ----------------------------------------------------------------------------
+    modelName  mn  = TranRegression
+    ----------------------------------------------------------------------------
+    hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+    ----------------------------------------------------------------------------
+    features   fn  = Array(one, frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+    ----------------------------------------------------------------------------
+    parameter  b   = VectorD(11.5302,	-5.81169e-05,	-0.0188481,	-1.60189,	0.00448711,	-6.76645)
+    ----------------------------------------------------------------------------
+    fitMap     qof = LinkedHashMap(rSq -> 0.512162, rSqBar -> 0.510533, sst -> 71482.377701, sse -> 34871.785574, sde -> 4.818169, rse -> 4.826432, mse0 -> 23.201454, rmse -> 4.816789, mae -> 3.737032, smape -> 2.994793, bmae -> 6.163615, m -> 1503.000000, dfr -> 5.000000, df -> 1497.000000, fStat -> 314.328937, aic -> -4483.542157, bic -> -4451.650847, mape -> 2.999659, mase -> 1.609359, smapeC -> 3.002777, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+    ----------------------------------------------------------------------------
+        
+VizFrame: run Plot TranRegression predictions: yy black/actual vs. yp red/predicted
+VizFrame: run Plot TranRegression predictions: yy black/actual vs. yp red/predicted
+fname = Array(one, frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+SUMMARY
+    Parameters/Coefficients:
+    Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+----------------------------------------------------------------------------------
+    x0	 11.530154	 0.546692	 21.090771	 0.000000	 NA
+    x1	 -0.000058	 0.000042	 -1.375242	 0.169056	 1.144444
+    x2	 -0.018848	 0.039038	 -0.482810	 0.629231	 3.441658
+    x3	 -1.601895	 1.636392	 -0.978919	 0.327620	 1.510754
+    x4	 0.004487	 0.008162	 0.549756	 0.582486	 1.041698
+    x5	 -6.766452	 15.069557	 -0.449015	 0.653421	 2.532127
+
+    Residual standard error: 4.826432 on 1497.0 degrees of freedom
+    Multiple R-squared:  0.512162,	Adjusted R-squared:  0.510533
+    F-statistic: 314.32893676488624 on 5.0 and 1497.0 DF,  p-value: -0.0
+----------------------------------------------------------------------------------
+        
+----------------------------------------------------------------------------------------
+| [Airfoil] Section 4c: Transformed Regression -- Box-Cox(y), lambda = 0.4 (ScalaTion) |
+----------------------------------------------------------------------------------------
+----------------------------------
+| In-Sample Test: TranRegression |
+----------------------------------
+DEBUG @ TranRegression.trainNTest: b = VectorD(15.1782,	-7.19182e-05,	-0.0232552,	-1.97844,	0.00554318,	-8.39595)
+b = VectorD(15.1782,	-7.19182e-05,	-0.0232552,	-1.97844,	0.00554318,	-8.39595), fn = [Ljava.lang.String;@51b7e5df
+
+REPORT
+    ----------------------------------------------------------------------------
+    modelName  mn  = TranRegression
+    ----------------------------------------------------------------------------
+    hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+    ----------------------------------------------------------------------------
+    features   fn  = Array(one, frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+    ----------------------------------------------------------------------------
+    parameter  b   = VectorD(15.1782,	-7.19182e-05,	-0.0232552,	-1.97844,	0.00554318,	-8.39595)
+    ----------------------------------------------------------------------------
+    fitMap     qof = LinkedHashMap(rSq -> 0.511392, rSqBar -> 0.509760, sst -> 71482.377701, sse -> 34926.891996, sde -> 4.821877, rse -> 4.830244, mse0 -> 23.238118, rmse -> 4.820593, mae -> 3.738936, smape -> 2.996184, bmae -> 6.162713, m -> 1503.000000, dfr -> 5.000000, df -> 1497.000000, fStat -> 313.360617, aic -> -4484.728788, bic -> -4452.837477, mape -> 3.000853, mase -> 1.609123, smapeC -> 3.004168, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+    ----------------------------------------------------------------------------
+        
+VizFrame: run Plot TranRegression predictions: yy black/actual vs. yp red/predicted
+VizFrame: run Plot TranRegression predictions: yy black/actual vs. yp red/predicted
+fname = Array(one, frequency, angle_of_attack, chord_length, free_stream_velocity, suction_side_displacement_thickness)
+SUMMARY
+    Parameters/Coefficients:
+    Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+----------------------------------------------------------------------------------
+    x0	 15.178212	 0.547124	 27.741829	 0.000000	 NA
+    x1	 -0.000072	 0.000042	 -1.700485	 0.089040	 1.144444
+    x2	 -0.023255	 0.039069	 -0.595233	 0.551687	 3.441658
+    x3	 -1.978436	 1.637685	 -1.208069	 0.227021	 1.510754
+    x4	 0.005543	 0.008168	 0.678610	 0.497385	 1.041698
+    x5	 -8.395949	 15.081459	 -0.556707	 0.577728	 2.532127
+
+    Residual standard error: 4.830244 on 1497.0 degrees of freedom
+    Multiple R-squared:  0.511392,	Adjusted R-squared:  0.509760
+    F-statistic: 313.3606168454125 on 5.0 and 1497.0 DF,  p-value: -0.0
+----------------------------------------------------------------------------------
+        
+--------------------------------------------------------
+| [Airfoil] Section 5: Symbolic Regression (ScalaTion) |
+--------------------------------------------------------
+DEBUG @ SymbolicRegression.buildMatrix: add custom terms = ArraySeq()
+DEBUG @ MatrixD.crossAll: create matrix with dims = (1503, 10)
+-------------------------------------------------------------------
+| In-Sample Test: SymbolicRegression_LinkedHashSet(0.5, 2.0)_null |
+-------------------------------------------------------------------
+DEBUG @ Predictor.trainNTest: b = VectorD(134.948,	-0.0134804,	-1.28882,	-21.6283,	0.0212750,	22.3291,	-3.48873e-09,	-0.000113693,	23.3407,	0.000688147,	1192.64,	-1.18693e-05,	-0.00518399,	3.65848,	-2.09839e-07,	-0.00422532,	0.0914023,	-0.0620727,	-12.7796,	-1912.76,	3.54073)
+b = VectorD(134.948,	-0.0134804,	-1.28882,	-21.6283,	0.0212750,	22.3291,	-3.48873e-09,	-0.000113693,	23.3407,	0.000688147,	1192.64,	-1.18693e-05,	-0.00518399,	3.65848,	-2.09839e-07,	-0.00422532,	0.0914023,	-0.0620727,	-12.7796,	-1912.76,	3.54073), fn = [Ljava.lang.String;@7b36aa0c
+
+REPORT
+    ----------------------------------------------------------------------------
+    modelName  mn  = SymbolicRegression_LinkedHashSet(0.5, 2.0)_null
+    ----------------------------------------------------------------------------
+    hparameter hp  = HyperParameter(factorization -> (Fac_QR,Fac_QR))
+    ----------------------------------------------------------------------------
+    features   fn  = Array(one, frequency^0.5, angle_of_attack^0.5, chord_length^0.5, free_stream_velocity^0.5, suction_side_displacement_thickness^0.5, frequency^2.0, angle_of_attack^2.0, chord_length^2.0, free_stream_velocity^2.0, suction_side_displacement_thickness^2.0, angle_of_attack_frequency, chord_length_frequency, chord_length_angle_of_attack, free_stream_velocity_frequency, free_stream_velocity_angle_of_attack, free_stream_velocity_chord_length, suction_side_displacement_thickness_frequency, suction_side_displacement_thickness_angle_of_attack, suction_side_displacement_thickness_chord_length, suction_side_displacement_thickness_free_stream_velocity)
+    ----------------------------------------------------------------------------
+    parameter  b   = VectorD(134.948,	-0.0134804,	-1.28882,	-21.6283,	0.0212750,	22.3291,	-3.48873e-09,	-0.000113693,	23.3407,	0.000688147,	1192.64,	-1.18693e-05,	-0.00518399,	3.65848,	-2.09839e-07,	-0.00422532,	0.0914023,	-0.0620727,	-12.7796,	-1912.76,	3.54073)
+    ----------------------------------------------------------------------------
+    fitMap     qof = LinkedHashMap(rSq -> 0.641114, rSqBar -> 0.636271, sst -> 71482.377701, sse -> 25654.019217, sde -> 4.132784, rse -> 4.160577, mse0 -> 17.068542, rmse -> 4.131409, mae -> 3.185783, smape -> 2.552527, bmae -> 5.690606, m -> 1503.000000, dfr -> 20.000000, df -> 1482.000000, fStat -> 132.372294, aic -> -4222.848329, bic -> -4111.228742, mape -> 2.558024, mase -> 1.485853, smapeC -> 2.580471, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+    ----------------------------------------------------------------------------
+        
+VizFrame: run Plot SymbolicRegression_LinkedHashSet(0.5, 2.0)_null predictions: yy black/actual vs. yp red/predicted
+fname = Array(one, frequency^0.5, angle_of_attack^0.5, chord_length^0.5, free_stream_velocity^0.5, suction_side_displacement_thickness^0.5, frequency^2.0, angle_of_attack^2.0, chord_length^2.0, free_stream_velocity^2.0, suction_side_displacement_thickness^2.0, angle_of_attack_frequency, chord_length_frequency, chord_length_angle_of_attack, free_stream_velocity_frequency, free_stream_velocity_angle_of_attack, free_stream_velocity_chord_length, suction_side_displacement_thickness_frequency, suction_side_displacement_thickness_angle_of_attack, suction_side_displacement_thickness_chord_length, suction_side_displacement_thickness_free_stream_velocity)
+SUMMARY
+    Parameters/Coefficients:
+    Var      Estimate    Std. Error 	 t value 	 Pr(>|t|) 	 VIF
+----------------------------------------------------------------------------------
+    x0	 134.947536	 4.004991	 33.694839	 0.000000	 NA
+    x1	 -0.013480	 0.013608	 -0.990630	 0.321866	 10.464426
+    x2	 -1.288825	 0.370807	 -3.475733	 0.000509	 23.739144
+    x3	 -21.628259	 3.698295	 -5.848170	 0.000000	 20.926840
+    x4	 0.021275	 0.714653	 0.029770	 0.976251	 52.793239
+    x5	 22.329146	 14.071822	 1.586798	 0.112558	 51.508202
+    x6	 -0.000000	 0.000000	 -0.489825	 0.624258	 8.195628
+    x7	 -0.000114	 0.007524	 -0.015111	 0.987944	 60.205289
+    x8	 23.340733	 13.489236	 1.730323	 0.083573	 14.689092
+    x9	 0.000688	 0.000493	 1.395592	 0.162838	 57.297762
+    x10	 1192.639756	 1863.700818	 0.639931	 0.522218	 115.679332
+    x11	 -0.000012	 0.000014	 -0.846078	 0.397509	 7.291604
+    x12	 -0.005184	 0.000420	 -12.341699	 0.000000	 5.526761
+    x13	 3.658483	 0.959539	 3.812751	 0.000137	 23.549086
+    x14	 -0.000000	 0.000003	 -0.079651	 0.936515	 22.666048
+    x15	 -0.004225	 0.002279	 -1.854395	 0.063683	 52.798751
+    x16	 0.091402	 0.094748	 0.964691	 0.334700	 22.799468
+    x17	 -0.062073	 0.006641	 -9.346188	 0.000000	 5.586969
+    x18	 -12.779635	 8.098890	 -1.577949	 0.114577	 240.163301
+    x19	 -1912.760932	 580.714293	 -3.293807	 0.000988	 70.023097
+    x20	 3.540732	 0.964503	 3.671043	 0.000242	 40.369862
+
+    Residual standard error: 4.160577 on 1482.0 degrees of freedom
+    Multiple R-squared:  0.641114,	Adjusted R-squared:  0.636271
+    F-statistic: 132.37229359593258 on 20.0 and 1482.0 DF,  p-value: -0.0
+----------------------------------------------------------------------------------
+        
+--------------------------------------------------------------------------
+| [Airfoil] Section 5: Symbolic Regression Forward Selection (ScalaTion) |
+--------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 1
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> -0.000035, rSqBar -> -0.000035, sst -> 13805.490439, sse -> 13805.968479, sde -> 6.795014, rse -> 6.795131, mse0 -> 46.019895, rmse -> 6.783796, mae -> 5.626195, smape -> 4.530151, bmae -> 8.539411, m -> 300.000000, dfr -> 0.000000, df -> 299.000000, fStat -> 0.000000, aic -> -998.122996, bic -> -994.419214, mape -> 4.566107, mase -> 0.918018, smapeC -> 4.536817, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(-3.46268e-05,	-3.46268e-05,	13805.5,	13806.0,	6.79501,	6.79513,	46.0199,	6.78380,	5.62620,	4.53015,	8.53941,	300.000,	0.00000,	299.000,	0.00000,	-998.123,	-994.419,	4.56611,	0.918018,	4.53682,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> -0.001688, rSqBar -> -0.001688, sst -> 14658.680363, sse -> 14683.429656, sde -> 7.001835, rse -> 7.007743, mse0 -> 48.944766, rmse -> 6.996054, mae -> 5.721894, smape -> 4.602311, bmae -> 8.662962, m -> 300.000000, dfr -> 0.000000, df -> 299.000000, fStat -> 0.000000, aic -> -1007.347816, bic -> -1003.644034, mape -> 4.633178, mase -> 0.924479, smapeC -> 4.608977, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(-0.00168837,	-0.00168837,	14658.7,	14683.4,	7.00183,	7.00774,	48.9448,	6.99605,	5.72189,	4.60231,	8.66296,	300.000,	0.00000,	299.000,	0.00000,	-1007.35,	-1003.64,	4.63318,	0.924479,	4.60898,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> -0.000010, rSqBar -> -0.000010, sst -> 14777.883957, sse -> 14778.028838, sde -> 7.030246, rse -> 7.030281, mse0 -> 49.260096, rmse -> 7.018554, mae -> 5.714454, smape -> 4.604497, bmae -> 8.650310, m -> 300.000000, dfr -> 0.000000, df -> 299.000000, fStat -> 0.000000, aic -> -1008.342345, bic -> -1004.638563, mape -> 4.646227, mase -> 0.942457, smapeC -> 4.611164, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(-9.80393e-06,	-9.80393e-06,	14777.9,	14778.0,	7.03025,	7.03028,	49.2601,	7.01855,	5.71445,	4.60450,	8.65031,	300.000,	0.00000,	299.000,	0.00000,	-1008.34,	-1004.64,	4.64623,	0.942457,	4.61116,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> -0.000027, rSqBar -> -0.000027, sst -> 14767.778228, sse -> 14768.176214, sde -> 7.027842, rse -> 7.027937, mse0 -> 49.227254, rmse -> 7.016214, mae -> 5.788850, smape -> 4.673009, bmae -> 8.768749, m -> 300.000000, dfr -> 0.000000, df -> 299.000000, fStat -> 0.000000, aic -> -1008.238764, bic -> -1004.534981, mape -> 4.723799, mase -> 0.924469, smapeC -> 4.679676, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(-2.69496e-05,	-2.69496e-05,	14767.8,	14768.2,	7.02784,	7.02794,	49.2273,	7.01621,	5.78885,	4.67301,	8.76875,	300.000,	0.00000,	299.000,	0.00000,	-1008.24,	-1004.53,	4.72380,	0.924469,	4.67968,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> -0.001006, rSqBar -> -0.001006, sst -> 13362.694337, sse -> 13376.135427, sde -> 6.685154, rse -> 6.688515, mse0 -> 44.587118, rmse -> 6.677359, mae -> 5.332678, smape -> 4.300201, bmae -> 8.114251, m -> 300.000000, dfr -> 0.000000, df -> 299.000000, fStat -> 0.000000, aic -> -993.604127, bic -> -989.900344, mape -> 4.343017, mase -> 0.865065, smapeC -> 4.306868, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(-0.00100587,	-0.00100587,	13362.7,	13376.1,	6.68515,	6.68852,	44.5871,	6.67736,	5.33268,	4.30020,	8.11425,	300.000,	0.00000,	299.000,	0.00000,	-993.604,	-989.900,	4.34302,	0.865065,	4.30687,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------
+| forwardSelAll: (l = 0) INITIAL variable (0, one) => cols = LinkedHashSet(0) |
+-------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+DEBUG @ Regression.buildModel: 1503 by 2
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.262885, rSqBar -> 0.260412, sst -> 13805.490439, sse -> 10176.227543, sde -> 5.831827, rse -> 5.843664, mse0 -> 33.920758, rmse -> 5.824153, mae -> 4.660984, smape -> 3.752153, bmae -> 8.880902, m -> 300.000000, dfr -> 1.000000, df -> 298.000000, fStat -> 106.279104, aic -> -951.510448, bic -> -944.102883, mape -> 3.787388, mase -> 0.954729, smapeC -> 3.765486, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.262885,	0.260412,	13805.5,	10176.2,	5.83183,	5.84366,	33.9208,	5.82415,	4.66098,	3.75215,	8.88090,	300.000,	1.00000,	298.000,	106.279,	-951.510,	-944.103,	3.78739,	0.954729,	3.76549,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.321859, rSqBar -> 0.319583, sst -> 14658.680363, sse -> 9940.656869, sde -> 5.759873, rse -> 5.775631, mse0 -> 33.135523, rmse -> 5.756346, mae -> 4.513773, smape -> 3.621620, bmae -> 8.889228, m -> 300.000000, dfr -> 1.000000, df -> 298.000000, fStat -> 141.436428, aic -> -947.575240, bic -> -940.167675, mape -> 3.641476, mase -> 0.948625, smapeC -> 3.634954, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.321859,	0.319583,	14658.7,	9940.66,	5.75987,	5.77563,	33.1355,	5.75635,	4.51377,	3.62162,	8.88923,	300.000,	1.00000,	298.000,	141.436,	-947.575,	-940.168,	3.64148,	0.948625,	3.63495,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.292365, rSqBar -> 0.289990, sst -> 14777.883957, sse -> 10457.349343, sde -> 5.911617, rse -> 5.923831, mse0 -> 34.857831, rmse -> 5.904052, mae -> 4.637673, smape -> 3.733592, bmae -> 8.957314, m -> 300.000000, dfr -> 1.000000, df -> 298.000000, fStat -> 123.121001, aic -> -956.206589, bic -> -948.799024, mape -> 3.760895, mase -> 0.975905, smapeC -> 3.746926, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.292365,	0.289990,	14777.9,	10457.3,	5.91162,	5.92383,	34.8578,	5.90405,	4.63767,	3.73359,	8.95731,	300.000,	1.00000,	298.000,	123.121,	-956.207,	-948.799,	3.76090,	0.975905,	3.74693,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.280038, rSqBar -> 0.277622, sst -> 14767.778228, sse -> 10632.246002, sde -> 5.962452, rse -> 5.973163, mse0 -> 35.440820, rmse -> 5.953219, mae -> 4.654212, smape -> 3.762047, bmae -> 9.208840, m -> 300.000000, dfr -> 1.000000, df -> 298.000000, fStat -> 115.910467, aic -> -959.128238, bic -> -951.720673, mape -> 3.796609, mase -> 0.970867, smapeC -> 3.775381, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.280038,	0.277622,	14767.8,	10632.2,	5.96245,	5.97316,	35.4408,	5.95322,	4.65421,	3.76205,	9.20884,	300.000,	1.00000,	298.000,	115.910,	-959.128,	-951.721,	3.79661,	0.970867,	3.77538,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.292996, rSqBar -> 0.290624, sst -> 13362.694337, sse -> 9447.477465, sde -> 5.613919, rse -> 5.630537, mse0 -> 31.491592, rmse -> 5.611737, mae -> 4.385818, smape -> 3.534289, bmae -> 8.569213, m -> 300.000000, dfr -> 1.000000, df -> 298.000000, fStat -> 123.496947, aic -> -939.336676, bic -> -931.929111, mape -> 3.566114, mase -> 0.913568, smapeC -> 3.547622, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.292996,	0.290624,	13362.7,	9447.48,	5.61392,	5.63054,	31.4916,	5.61174,	4.38582,	3.53429,	8.56921,	300.000,	1.00000,	298.000,	123.497,	-939.337,	-931.929,	3.56611,	0.913568,	3.54762,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 1) ADD variable (12, chord_length_frequency) => cols = LinkedHashSet(0, 12) @ 3.4421086668380094 |
+------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+DEBUG @ Regression.buildModel: 1503 by 3
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.564732, rSqBar -> 0.561801, sst -> 13805.490439, sse -> 6009.085227, sde -> 4.472186, rse -> 4.498067, mse0 -> 20.030284, rmse -> 4.475521, mae -> 3.580007, smape -> 2.875107, bmae -> 8.653730, m -> 300.000000, dfr -> 2.000000, df -> 297.000000, fStat -> 192.669288, aic -> -869.342153, bic -> -858.230805, mape -> 2.872842, mase -> 0.930307, smapeC -> 2.895107, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.564732,	0.561801,	13805.5,	6009.09,	4.47219,	4.49807,	20.0303,	4.47552,	3.58001,	2.87511,	8.65373,	300.000,	2.00000,	297.000,	192.669,	-869.342,	-858.231,	2.87284,	0.930307,	2.89511,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.550955, rSqBar -> 0.547931, sst -> 14658.680363, sse -> 6582.406064, sde -> 4.690649, rse -> 4.707758, mse0 -> 21.941354, rmse -> 4.684160, mae -> 3.665544, smape -> 2.931369, bmae -> 8.868785, m -> 300.000000, dfr -> 2.000000, df -> 297.000000, fStat -> 182.201876, aic -> -883.209277, bic -> -872.097930, mape -> 2.935637, mase -> 0.946443, smapeC -> 2.951369, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.550955,	0.547931,	14658.7,	6582.41,	4.69065,	4.70776,	21.9414,	4.68416,	3.66554,	2.93137,	8.86878,	300.000,	2.00000,	297.000,	182.202,	-883.209,	-872.098,	2.93564,	0.946443,	2.95137,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.508051, rSqBar -> 0.504739, sst -> 14777.883957, sse -> 7269.959223, sde -> 4.930790, rse -> 4.947522, mse0 -> 24.233197, rmse -> 4.922723, mae -> 3.725175, smape -> 2.998214, bmae -> 9.019402, m -> 300.000000, dfr -> 2.000000, df -> 297.000000, fStat -> 153.360808, aic -> -899.839382, bic -> -888.728034, mape -> 3.007436, mase -> 0.982670, smapeC -> 3.018214, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.508051,	0.504739,	14777.9,	7269.96,	4.93079,	4.94752,	24.2332,	4.92272,	3.72517,	2.99821,	9.01940,	300.000,	2.00000,	297.000,	153.361,	-899.839,	-888.728,	3.00744,	0.982670,	3.01821,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.569103, rSqBar -> 0.566201, sst -> 14767.778228, sse -> 6363.392751, sde -> 4.612995, rse -> 4.628776, mse0 -> 21.211309, rmse -> 4.605574, mae -> 3.648905, smape -> 2.937600, bmae -> 9.186435, m -> 300.000000, dfr -> 2.000000, df -> 297.000000, fStat -> 196.129846, aic -> -877.911921, bic -> -866.800573, mape -> 2.948927, mase -> 0.968505, smapeC -> 2.957600, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.569103,	0.566201,	14767.8,	6363.39,	4.61299,	4.62878,	21.2113,	4.60557,	3.64891,	2.93760,	9.18643,	300.000,	2.00000,	297.000,	196.130,	-877.912,	-866.801,	2.94893,	0.968505,	2.95760,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.533288, rSqBar -> 0.530145, sst -> 13362.694337, sse -> 6236.531875, sde -> 4.544731, rse -> 4.582404, mse0 -> 20.788440, rmse -> 4.559434, mae -> 3.522035, smape -> 2.825263, bmae -> 8.734010, m -> 300.000000, dfr -> 2.000000, df -> 297.000000, fStat -> 169.683271, aic -> -874.843489, bic -> -863.732142, mape -> 2.843727, mase -> 0.931138, smapeC -> 2.845263, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.533288,	0.530145,	13362.7,	6236.53,	4.54473,	4.58240,	20.7884,	4.55943,	3.52204,	2.82526,	8.73401,	300.000,	2.00000,	297.000,	169.683,	-874.843,	-863.732,	2.84373,	0.931138,	2.84526,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+---------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 2) ADD variable (17, suction_side_displacement_thickness_frequency) => cols = LinkedHashSet(0, 12, 17) @ 2.8346797140030215 |
+---------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+DEBUG @ Regression.buildModel: 1503 by 4
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.594017, rSqBar -> 0.589902, sst -> 13805.490439, sse -> 5604.794112, sde -> 4.316813, rse -> 4.351450, mse0 -> 18.682647, rmse -> 4.322343, mae -> 3.482332, smape -> 2.793175, bmae -> 8.671077, m -> 300.000000, dfr -> 3.000000, df -> 296.000000, fStat -> 144.364870, aic -> -856.848592, bic -> -842.033463, mape -> 2.788575, mase -> 0.932172, smapeC -> 2.819842, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.594017,	0.589902,	13805.5,	5604.79,	4.31681,	4.35145,	18.6826,	4.32234,	3.48233,	2.79318,	8.67108,	300.000,	3.00000,	296.000,	144.365,	-856.849,	-842.033,	2.78858,	0.932172,	2.81984,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.605080, rSqBar -> 0.601077, sst -> 14658.680363, sse -> 5789.008486, sde -> 4.400140, rse -> 4.422382, mse0 -> 19.296695, rmse -> 4.392800, mae -> 3.363205, smape -> 2.688372, bmae -> 8.790506, m -> 300.000000, dfr -> 3.000000, df -> 296.000000, fStat -> 151.172858, aic -> -861.684438, bic -> -846.869308, mape -> 2.695748, mase -> 0.938090, smapeC -> 2.715039, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.605080,	0.601077,	14658.7,	5789.01,	4.40014,	4.42238,	19.2967,	4.39280,	3.36320,	2.68837,	8.79051,	300.000,	3.00000,	296.000,	151.173,	-861.684,	-846.869,	2.69575,	0.938090,	2.71504,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.549645, rSqBar -> 0.545080, sst -> 14777.883957, sse -> 6655.295886, sde -> 4.717136, rse -> 4.741741, mse0 -> 22.184320, rmse -> 4.710023, mae -> 3.628007, smape -> 2.922324, bmae -> 8.953185, m -> 300.000000, dfr -> 3.000000, df -> 296.000000, fStat -> 120.419693, aic -> -884.425507, bic -> -869.610377, mape -> 2.933372, mase -> 0.975455, smapeC -> 2.948991, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.549645,	0.545080,	14777.9,	6655.30,	4.71714,	4.74174,	22.1843,	4.71002,	3.62801,	2.92232,	8.95318,	300.000,	3.00000,	296.000,	120.420,	-884.426,	-869.610,	2.93337,	0.975455,	2.94899,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.592094, rSqBar -> 0.587960, sst -> 14767.778228, sse -> 6023.863328, sde -> 4.483651, rse -> 4.511196, mse0 -> 20.079544, rmse -> 4.481020, mae -> 3.505694, smape -> 2.819146, bmae -> 9.304210, m -> 300.000000, dfr -> 3.000000, df -> 296.000000, fStat -> 143.219208, aic -> -867.849655, bic -> -853.034525, mape -> 2.823689, mase -> 0.980922, smapeC -> 2.845812, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.592094,	0.587960,	14767.8,	6023.86,	4.48365,	4.51120,	20.0795,	4.48102,	3.50569,	2.81915,	9.30421,	300.000,	3.00000,	296.000,	143.219,	-867.850,	-853.035,	2.82369,	0.980922,	2.84581,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.574694, rSqBar -> 0.570384, sst -> 13362.694337, sse -> 5683.230685, sde -> 4.343147, rse -> 4.381792, mse0 -> 18.944102, rmse -> 4.352482, mae -> 3.324046, smape -> 2.662209, bmae -> 8.916283, m -> 300.000000, dfr -> 3.000000, df -> 296.000000, fStat -> 133.323302, aic -> -858.907645, bic -> -844.092515, mape -> 2.677609, mase -> 0.950570, smapeC -> 2.688876, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.574694,	0.570384,	13362.7,	5683.23,	4.34315,	4.38179,	18.9441,	4.35248,	3.32405,	2.66221,	8.91628,	300.000,	3.00000,	296.000,	133.323,	-858.908,	-844.093,	2.67761,	0.950570,	2.68888,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+--------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 3) ADD variable (4, free_stream_velocity^0.5) => cols = LinkedHashSet(0, 12, 17, 4) @ 2.7075620594112504 |
+--------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+DEBUG @ Regression.buildModel: 1503 by 5
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.610104, rSqBar -> 0.604817, sst -> 13805.490439, sse -> 5382.705539, sde -> 4.234473, rse -> 4.271587, mse0 -> 17.942352, rmse -> 4.235841, mae -> 3.373377, smape -> 2.699173, bmae -> 8.506193, m -> 300.000000, dfr -> 4.000000, df -> 295.000000, fStat -> 115.403004, aic -> -848.801577, bic -> -830.282664, mape -> 2.697078, mase -> 0.914447, smapeC -> 2.732506, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.610104,	0.604817,	13805.5,	5382.71,	4.23447,	4.27159,	17.9424,	4.23584,	3.37338,	2.69917,	8.50619,	300.000,	4.00000,	295.000,	115.403,	-848.802,	-830.283,	2.69708,	0.914447,	2.73251,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.604832, rSqBar -> 0.599474, sst -> 14658.680363, sse -> 5792.639518, sde -> 4.401426, rse -> 4.431260, mse0 -> 19.308798, rmse -> 4.394178, mae -> 3.361955, smape -> 2.684143, bmae -> 8.685794, m -> 300.000000, dfr -> 4.000000, df -> 295.000000, fStat -> 112.879545, aic -> -859.946379, bic -> -841.427466, mape -> 2.689129, mase -> 0.926915, smapeC -> 2.717476, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.604832,	0.599474,	14658.7,	5792.64,	4.40143,	4.43126,	19.3088,	4.39418,	3.36196,	2.68414,	8.68579,	300.000,	4.00000,	295.000,	112.880,	-859.946,	-841.427,	2.68913,	0.926915,	2.71748,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.569072, rSqBar -> 0.563229, sst -> 14777.883957, sse -> 6368.203232, sde -> 4.613615, rse -> 4.646195, mse0 -> 21.227344, rmse -> 4.607314, mae -> 3.477496, smape -> 2.796316, bmae -> 8.808168, m -> 300.000000, dfr -> 4.000000, df -> 295.000000, fStat -> 97.392299, aic -> -875.594127, bic -> -857.075214, mape -> 2.806316, mase -> 0.959656, smapeC -> 2.829650, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.569072,	0.563229,	14777.9,	6368.20,	4.61361,	4.64620,	21.2273,	4.60731,	3.47750,	2.79632,	8.80817,	300.000,	4.00000,	295.000,	97.3923,	-875.594,	-857.075,	2.80632,	0.959656,	2.82965,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.611979, rSqBar -> 0.606718, sst -> 14767.778228, sse -> 5730.202794, sde -> 4.371133, rse -> 4.407314, mse0 -> 19.100676, rmse -> 4.370432, mae -> 3.379298, smape -> 2.713519, bmae -> 9.083360, m -> 300.000000, dfr -> 4.000000, df -> 295.000000, fStat -> 116.317208, aic -> -858.248922, bic -> -839.730010, mape -> 2.717275, mase -> 0.957638, smapeC -> 2.746852, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.611979,	0.606718,	14767.8,	5730.20,	4.37113,	4.40731,	19.1007,	4.37043,	3.37930,	2.71352,	9.08336,	300.000,	4.00000,	295.000,	116.317,	-858.249,	-839.730,	2.71727,	0.957638,	2.74685,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.590795, rSqBar -> 0.585246, sst -> 13362.694337, sse -> 5468.085765, sde -> 4.262580, rse -> 4.305332, mse0 -> 18.226953, rmse -> 4.269304, mae -> 3.246106, smape -> 2.593180, bmae -> 8.720066, m -> 300.000000, dfr -> 4.000000, df -> 295.000000, fStat -> 106.477368, aic -> -851.122794, bic -> -832.603881, mape -> 2.607435, mase -> 0.929651, smapeC -> 2.626514, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.590795,	0.585246,	13362.7,	5468.09,	4.26258,	4.30533,	18.2270,	4.26930,	3.24611,	2.59318,	8.72007,	300.000,	4.00000,	295.000,	106.477,	-851.123,	-832.604,	2.60744,	0.929651,	2.62651,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-----------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 4) ADD variable (13, chord_length_angle_of_attack) => cols = LinkedHashSet(0, 12, 17, 4, 13) @ 2.6322675832390394 |
+-----------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+DEBUG @ Regression.buildModel: 1503 by 6
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.605938, rSqBar -> 0.599236, sst -> 13805.490439, sse -> 5440.222471, sde -> 4.261222, rse -> 4.301646, mse0 -> 18.134075, rmse -> 4.258412, mae -> 3.390836, smape -> 2.712796, bmae -> 8.388534, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 90.415008, aic -> -848.388653, bic -> -826.165958, mape -> 2.712283, mase -> 0.901798, smapeC -> 2.752796, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.605938,	0.599236,	13805.5,	5440.22,	4.26122,	4.30165,	18.1341,	4.25841,	3.39084,	2.71280,	8.38853,	300.000,	5.00000,	294.000,	90.4150,	-848.389,	-826.166,	2.71228,	0.901798,	2.75280,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.620686, rSqBar -> 0.614235, sst -> 14658.680363, sse -> 5560.246128, sde -> 4.311889, rse -> 4.348839, mse0 -> 18.534154, rmse -> 4.305131, mae -> 3.324415, smape -> 2.656964, bmae -> 8.538357, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 96.216592, aic -> -851.773221, bic -> -829.550527, mape -> 2.659132, mase -> 0.911181, smapeC -> 2.696964, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.620686,	0.614235,	14658.7,	5560.25,	4.31189,	4.34884,	18.5342,	4.30513,	3.32442,	2.65696,	8.53836,	300.000,	5.00000,	294.000,	96.2166,	-851.773,	-829.551,	2.65913,	0.911181,	2.69696,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.592299, rSqBar -> 0.585365, sst -> 14777.883957, sse -> 6024.955427, sde -> 4.487763, rse -> 4.526925, mse0 -> 20.083185, rmse -> 4.481427, mae -> 3.396893, smape -> 2.731718, bmae -> 8.664196, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 85.423403, aic -> -864.877643, bic -> -842.654948, mape -> 2.740110, mase -> 0.943970, smapeC -> 2.771718, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.592299,	0.585365,	14777.9,	6024.96,	4.48776,	4.52692,	20.0832,	4.48143,	3.39689,	2.73172,	8.66420,	300.000,	5.00000,	294.000,	85.4234,	-864.878,	-842.655,	2.74011,	0.943970,	2.77172,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.612968, rSqBar -> 0.606386, sst -> 14767.778228, sse -> 5715.601500, sde -> 4.368026, rse -> 4.409175, mse0 -> 19.052005, rmse -> 4.364860, mae -> 3.381930, smape -> 2.720680, bmae -> 8.958987, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 93.125455, aic -> -856.154116, bic -> -833.931421, mape -> 2.724267, mase -> 0.944525, smapeC -> 2.760680, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.612968,	0.606386,	14767.8,	5715.60,	4.36803,	4.40917,	19.0520,	4.36486,	3.38193,	2.72068,	8.95899,	300.000,	5.00000,	294.000,	93.1255,	-856.154,	-833.931,	2.72427,	0.944525,	2.76068,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.611041, rSqBar -> 0.604426, sst -> 13362.694337, sse -> 5197.540236, sde -> 4.158785, rse -> 4.204606, mse0 -> 17.325134, rmse -> 4.162347, mae -> 3.204981, smape -> 2.563170, bmae -> 8.590040, m -> 300.000000, dfr -> 5.000000, df -> 294.000000, fStat -> 92.372745, aic -> -841.545212, bic -> -819.322518, mape -> 2.574216, mase -> 0.915789, smapeC -> 2.603170, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.611041,	0.604426,	13362.7,	5197.54,	4.15878,	4.20461,	17.3251,	4.16235,	3.20498,	2.56317,	8.59004,	300.000,	5.00000,	294.000,	92.3727,	-841.545,	-819.323,	2.57422,	0.915789,	2.60317,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 5) ADD variable (18, suction_side_displacement_thickness_angle_of_attack) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18) @ 2.618785840454351 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+DEBUG @ Regression.buildModel: 1503 by 7
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.602169, rSqBar -> 0.594022, sst -> 13805.490439, sse -> 5492.250341, sde -> 4.283759, rse -> 4.329536, mse0 -> 18.307501, rmse -> 4.278727, mae -> 3.393483, smape -> 2.717333, bmae -> 8.329301, m -> 300.000000, dfr -> 6.000000, df -> 293.000000, fStat -> 73.915645, aic -> -847.944684, bic -> -822.018206, mape -> 2.719635, mase -> 0.895430, smapeC -> 2.763999, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.602169,	0.594022,	13805.5,	5492.25,	4.28376,	4.32954,	18.3075,	4.27873,	3.39348,	2.71733,	8.32930,	300.000,	6.00000,	293.000,	73.9156,	-847.945,	-822.018,	2.71963,	0.895430,	2.76400,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.627587, rSqBar -> 0.619961, sst -> 14658.680363, sse -> 5459.085390, sde -> 4.272372, rse -> 4.316444, mse0 -> 18.196951, rmse -> 4.265788, mae -> 3.266699, smape -> 2.610564, bmae -> 8.398905, m -> 300.000000, dfr -> 6.000000, df -> 293.000000, fStat -> 82.293435, aic -> -846.995560, bic -> -821.069082, mape -> 2.614677, mase -> 0.896300, smapeC -> 2.657231, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.627587,	0.619961,	14658.7,	5459.09,	4.27237,	4.31644,	18.1970,	4.26579,	3.26670,	2.61056,	8.39891,	300.000,	6.00000,	293.000,	82.2934,	-846.996,	-821.069,	2.61468,	0.896300,	2.65723,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.588377, rSqBar -> 0.579948, sst -> 14777.883957, sse -> 6082.921294, sde -> 4.508604, rse -> 4.556405, mse0 -> 20.276404, rmse -> 4.502933, mae -> 3.399683, smape -> 2.734717, bmae -> 8.536772, m -> 300.000000, dfr -> 6.000000, df -> 293.000000, fStat -> 69.802647, aic -> -864.848675, bic -> -838.922198, mape -> 2.746382, mase -> 0.930087, smapeC -> 2.781383, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.588377,	0.579948,	14777.9,	6082.92,	4.50860,	4.55640,	20.2764,	4.50293,	3.39968,	2.73472,	8.53677,	300.000,	6.00000,	293.000,	69.8026,	-864.849,	-838.922,	2.74638,	0.930087,	2.78138,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.621593, rSqBar -> 0.613844, sst -> 14767.778228, sse -> 5588.228066, sde -> 4.317605, rse -> 4.367202, mse0 -> 18.627427, rmse -> 4.315950, mae -> 3.321350, smape -> 2.672765, bmae -> 8.818033, m -> 300.000000, dfr -> 6.000000, df -> 293.000000, fStat -> 80.216489, aic -> -850.691402, bic -> -824.764925, mape -> 2.677740, mase -> 0.929665, smapeC -> 2.719432, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.621593,	0.613844,	14767.8,	5588.23,	4.31761,	4.36720,	18.6274,	4.31595,	3.32135,	2.67277,	8.81803,	300.000,	6.00000,	293.000,	80.2165,	-850.691,	-824.765,	2.67774,	0.929665,	2.71943,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.616549, rSqBar -> 0.608696, sst -> 13362.694337, sse -> 5123.944010, sde -> 4.130277, rse -> 4.181849, mse0 -> 17.079813, rmse -> 4.132773, mae -> 3.138055, smape -> 2.511124, bmae -> 8.453185, m -> 300.000000, dfr -> 6.000000, df -> 293.000000, fStat -> 78.518743, aic -> -837.404387, bic -> -811.477910, mape -> 2.523815, mase -> 0.901199, smapeC -> 2.557791, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.616549,	0.608696,	13362.7,	5123.94,	4.13028,	4.18185,	17.0798,	4.13277,	3.13806,	2.51112,	8.45318,	300.000,	6.00000,	293.000,	78.5187,	-837.404,	-811.478,	2.52382,	0.901199,	2.55779,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 6) ADD variable (3, chord_length^0.5) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3) @ 2.585620662196915 |
+----------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+DEBUG @ Regression.buildModel: 1503 by 8
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.598556, rSqBar -> 0.588932, sst -> 13805.490439, sse -> 5542.133520, sde -> 4.299159, rse -> 4.356594, mse0 -> 18.473778, rmse -> 4.298113, mae -> 3.376623, smape -> 2.702908, bmae -> 8.319609, m -> 300.000000, dfr -> 7.000000, df -> 292.000000, fStat -> 62.196270, aic -> -847.669232, bic -> -818.038973, mape -> 2.703781, mase -> 0.894388, smapeC -> 2.756242, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.598556,	0.588932,	13805.5,	5542.13,	4.29916,	4.35659,	18.4738,	4.29811,	3.37662,	2.70291,	8.31961,	300.000,	7.00000,	292.000,	62.1963,	-847.669,	-818.039,	2.70378,	0.894388,	2.75624,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.631737, rSqBar -> 0.622908, sst -> 14658.680363, sse -> 5398.255296, sde -> 4.249028, rse -> 4.299672, mse0 -> 17.994184, rmse -> 4.241955, mae -> 3.241566, smape -> 2.591084, bmae -> 8.379150, m -> 300.000000, dfr -> 7.000000, df -> 292.000000, fStat -> 71.558679, aic -> -843.436953, bic -> -813.806693, mape -> 2.595781, mase -> 0.894191, smapeC -> 2.644417, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.631737,	0.622908,	14658.7,	5398.26,	4.24903,	4.29967,	17.9942,	4.24196,	3.24157,	2.59108,	8.37915,	300.000,	7.00000,	292.000,	71.5587,	-843.437,	-813.807,	2.59578,	0.894191,	2.64442,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.598983, rSqBar -> 0.589369, sst -> 14777.883957, sse -> 5926.187586, sde -> 4.450993, rse -> 4.505015, mse0 -> 19.753959, rmse -> 4.444543, mae -> 3.357926, smape -> 2.696564, bmae -> 8.473696, m -> 300.000000, dfr -> 7.000000, df -> 292.000000, fStat -> 62.306869, aic -> -858.966454, bic -> -829.336194, mape -> 2.709056, mase -> 0.923215, smapeC -> 2.749898, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.598983,	0.589369,	14777.9,	5926.19,	4.45099,	4.50502,	19.7540,	4.44454,	3.35793,	2.69656,	8.47370,	300.000,	7.00000,	292.000,	62.3069,	-858.966,	-829.336,	2.70906,	0.923215,	2.74990,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.633975, rSqBar -> 0.625200, sst -> 14767.778228, sse -> 5405.381873, sde -> 4.247194, rse -> 4.302509, mse0 -> 18.017940, rmse -> 4.244754, mae -> 3.261149, smape -> 2.619729, bmae -> 8.759836, m -> 300.000000, dfr -> 7.000000, df -> 292.000000, fStat -> 72.251265, aic -> -843.646586, bic -> -814.016326, mape -> 2.626498, mase -> 0.923529, smapeC -> 2.673063, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.633975,	0.625200,	14767.8,	5405.38,	4.24719,	4.30251,	18.0179,	4.24475,	3.26115,	2.61973,	8.75984,	300.000,	7.00000,	292.000,	72.2513,	-843.647,	-814.016,	2.62650,	0.923529,	2.67306,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.629207, rSqBar -> 0.620318, sst -> 13362.694337, sse -> 4954.796052, sde -> 4.059597, rse -> 4.119281, mse0 -> 16.515987, rmse -> 4.063987, mae -> 3.038470, smape -> 2.426905, bmae -> 8.410398, m -> 300.000000, dfr -> 7.000000, df -> 292.000000, fStat -> 70.785854, aic -> -830.392286, bic -> -800.762027, mape -> 2.441312, mase -> 0.896637, smapeC -> 2.480238, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.629207,	0.620318,	13362.7,	4954.80,	4.05960,	4.11928,	16.5160,	4.06399,	3.03847,	2.42690,	8.41040,	300.000,	7.00000,	292.000,	70.7859,	-830.392,	-800.762,	2.44131,	0.896637,	2.48024,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 7) ADD variable (11, angle_of_attack_frequency) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11) @ 2.535979980301001 |
+------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+DEBUG @ Regression.buildModel: 1503 by 9
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.598945, rSqBar -> 0.587920, sst -> 13805.490439, sse -> 5536.759997, sde -> 4.297709, rse -> 4.361957, mse0 -> 18.455867, rmse -> 4.296029, mae -> 3.383479, smape -> 2.706499, bmae -> 8.346935, m -> 300.000000, dfr -> 8.000000, df -> 291.000000, fStat -> 54.323299, aic -> -845.590498, bic -> -812.256456, mape -> 2.707661, mase -> 0.897326, smapeC -> 2.766499, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.598945,	0.587920,	13805.5,	5536.76,	4.29771,	4.36196,	18.4559,	4.29603,	3.38348,	2.70650,	8.34694,	300.000,	8.00000,	291.000,	54.3233,	-845.590,	-812.256,	2.70766,	0.897326,	2.76650,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.631313, rSqBar -> 0.621178, sst -> 14658.680363, sse -> 5404.461309, sde -> 4.251261, rse -> 4.309528, mse0 -> 18.014871, rmse -> 4.244393, mae -> 3.225673, smape -> 2.577726, bmae -> 8.394799, m -> 300.000000, dfr -> 8.000000, df -> 291.000000, fStat -> 62.285989, aic -> -841.675648, bic -> -808.341606, mape -> 2.581773, mase -> 0.895861, smapeC -> 2.637726, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.631313,	0.621178,	14658.7,	5404.46,	4.25126,	4.30953,	18.0149,	4.24439,	3.22567,	2.57773,	8.39480,	300.000,	8.00000,	291.000,	62.2860,	-841.676,	-808.342,	2.58177,	0.895861,	2.63773,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.599664, rSqBar -> 0.588658, sst -> 14777.883957, sse -> 5916.121758, sde -> 4.447236, rse -> 4.508915, mse0 -> 19.720406, rmse -> 4.440766, mae -> 3.348074, smape -> 2.688023, bmae -> 8.499217, m -> 300.000000, dfr -> 8.000000, df -> 291.000000, fStat -> 54.486134, aic -> -856.816189, bic -> -823.482147, mape -> 2.700415, mase -> 0.925995, smapeC -> 2.748023, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.599664,	0.588658,	14777.9,	5916.12,	4.44724,	4.50892,	19.7204,	4.44077,	3.34807,	2.68802,	8.49922,	300.000,	8.00000,	291.000,	54.4861,	-856.816,	-823.482,	2.70042,	0.925995,	2.74802,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.635970, rSqBar -> 0.625962, sst -> 14767.778228, sse -> 5375.916422, sde -> 4.235527, rse -> 4.298132, mse0 -> 17.919721, rmse -> 4.233169, mae -> 3.259489, smape -> 2.617747, bmae -> 8.769151, m -> 300.000000, dfr -> 8.000000, df -> 291.000000, fStat -> 63.548044, aic -> -840.830977, bic -> -807.496934, mape -> 2.624441, mase -> 0.924511, smapeC -> 2.677747, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.635970,	0.625962,	14767.8,	5375.92,	4.23553,	4.29813,	17.9197,	4.23317,	3.25949,	2.61775,	8.76915,	300.000,	8.00000,	291.000,	63.5480,	-840.831,	-807.497,	2.62444,	0.924511,	2.67775,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.629369, rSqBar -> 0.619180, sst -> 13362.694337, sse -> 4952.630844, sde -> 4.057029, rse -> 4.125451, mse0 -> 16.508769, rmse -> 4.063099, mae -> 3.044454, smape -> 2.431059, bmae -> 8.436767, m -> 300.000000, dfr -> 8.000000, df -> 291.000000, fStat -> 61.768395, aic -> -828.305536, bic -> -794.971493, mape -> 2.445789, mase -> 0.899448, smapeC -> 2.491059, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.629369,	0.619180,	13362.7,	4952.63,	4.05703,	4.12545,	16.5088,	4.06310,	3.04445,	2.43106,	8.43677,	300.000,	8.00000,	291.000,	61.7684,	-828.306,	-794.971,	2.44579,	0.899448,	2.49106,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 8) ADD variable (16, free_stream_velocity_chord_length) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16) @ 2.5264670179169926 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+DEBUG @ Regression.buildModel: 1503 by 10
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.600178, rSqBar -> 0.587769, sst -> 13805.490439, sse -> 5519.744700, sde -> 4.290276, rse -> 4.362752, mse0 -> 18.399149, rmse -> 4.289423, mae -> 3.393842, smape -> 2.715555, bmae -> 8.346976, m -> 300.000000, dfr -> 9.000000, df -> 290.000000, fStat -> 48.369110, aic -> -843.114912, bic -> -806.077087, mape -> 2.716622, mase -> 0.897330, smapeC -> 2.782222, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.600178,	0.587769,	13805.5,	5519.74,	4.29028,	4.36275,	18.3991,	4.28942,	3.39384,	2.71555,	8.34698,	300.000,	9.00000,	290.000,	48.3691,	-843.115,	-806.077,	2.71662,	0.897330,	2.78222,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.635349, rSqBar -> 0.624032, sst -> 14658.680363, sse -> 5345.301005, sde -> 4.227717, rse -> 4.293259, mse0 -> 17.817670, rmse -> 4.221098, mae -> 3.204810, smape -> 2.559890, bmae -> 8.412554, m -> 300.000000, dfr -> 9.000000, df -> 290.000000, fStat -> 56.142354, aic -> -837.942268, bic -> -800.904443, mape -> 2.563469, mase -> 0.897756, smapeC -> 2.626557, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.635349,	0.624032,	14658.7,	5345.30,	4.22772,	4.29326,	17.8177,	4.22110,	3.20481,	2.55989,	8.41255,	300.000,	9.00000,	290.000,	56.1424,	-837.942,	-800.904,	2.56347,	0.897756,	2.62656,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.604136, rSqBar -> 0.591850, sst -> 14777.883957, sse -> 5850.037416, sde -> 4.422573, rse -> 4.491385, mse0 -> 19.500125, rmse -> 4.415895, mae -> 3.323536, smape -> 2.669444, bmae -> 8.470927, m -> 300.000000, dfr -> 9.000000, df -> 290.000000, fStat -> 49.174909, aic -> -852.908826, bic -> -815.871001, mape -> 2.681411, mase -> 0.922913, smapeC -> 2.736111, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.604136,	0.591850,	14777.9,	5850.04,	4.42257,	4.49139,	19.5001,	4.41589,	3.32354,	2.66944,	8.47093,	300.000,	9.00000,	290.000,	49.1749,	-852.909,	-815.871,	2.68141,	0.922913,	2.73611,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.631514, rSqBar -> 0.620078, sst -> 14767.778228, sse -> 5441.724311, sde -> 4.262446, rse -> 4.331809, mse0 -> 18.139081, rmse -> 4.259000, mae -> 3.265299, smape -> 2.623537, bmae -> 8.786940, m -> 300.000000, dfr -> 9.000000, df -> 290.000000, fStat -> 55.222603, aic -> -840.801434, bic -> -803.763609, mape -> 2.630664, mase -> 0.926387, smapeC -> 2.690204, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.631514,	0.620078,	14767.8,	5441.72,	4.26245,	4.33181,	18.1391,	4.25900,	3.26530,	2.62354,	8.78694,	300.000,	9.00000,	290.000,	55.2226,	-840.801,	-803.764,	2.63066,	0.926387,	2.69020,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636089, rSqBar -> 0.624795, sst -> 13362.694337, sse -> 4862.832542, sde -> 4.017850, rse -> 4.094922, mse0 -> 16.209442, rmse -> 4.026095, mae -> 3.002464, smape -> 2.396376, bmae -> 8.417950, m -> 300.000000, dfr -> 9.000000, df -> 290.000000, fStat -> 56.321996, aic -> -823.636005, bic -> -786.598180, mape -> 2.411283, mase -> 0.897442, smapeC -> 2.463043, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.636089,	0.624795,	13362.7,	4862.83,	4.01785,	4.09492,	16.2094,	4.02610,	3.00246,	2.39638,	8.41795,	300.000,	9.00000,	290.000,	56.3220,	-823.636,	-786.598,	2.41128,	0.897442,	2.46304,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 9) ADD variable (20, suction_side_displacement_thickness_free_stream_velocity) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20) @ 2.5219276400412673 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+DEBUG @ Regression.buildModel: 1503 by 11
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.601786, rSqBar -> 0.588007, sst -> 13805.490439, sse -> 5497.535531, sde -> 4.281489, rse -> 4.361492, mse0 -> 18.325118, rmse -> 4.280785, mae -> 3.392471, smape -> 2.713866, bmae -> 8.317526, m -> 300.000000, dfr -> 10.000000, df -> 289.000000, fStat -> 43.674096, aic -> -840.467632, bic -> -799.726025, mape -> 2.715147, mase -> 0.894164, smapeC -> 2.787199, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.601786,	0.588007,	13805.5,	5497.54,	4.28149,	4.36149,	18.3251,	4.28078,	3.39247,	2.71387,	8.31753,	300.000,	10.0000,	289.000,	43.6741,	-840.468,	-799.726,	2.71515,	0.894164,	2.78720,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.637217, rSqBar -> 0.624663, sst -> 14658.680363, sse -> 5317.927267, sde -> 4.216942, rse -> 4.289654, mse0 -> 17.726424, rmse -> 4.210276, mae -> 3.176820, smape -> 2.535987, bmae -> 8.372743, m -> 300.000000, dfr -> 10.000000, df -> 289.000000, fStat -> 50.761838, aic -> -835.137258, bic -> -794.395650, mape -> 2.539900, mase -> 0.893508, smapeC -> 2.609320, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.637217,	0.624663,	14658.7,	5317.93,	4.21694,	4.28965,	17.7264,	4.21028,	3.17682,	2.53599,	8.37274,	300.000,	10.0000,	289.000,	50.7618,	-835.137,	-794.396,	2.53990,	0.893508,	2.60932,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.604045, rSqBar -> 0.590344, sst -> 14777.883957, sse -> 5851.376367, sde -> 4.423474, rse -> 4.499664, mse0 -> 19.504588, rmse -> 4.416400, mae -> 3.307521, smape -> 2.655690, bmae -> 8.438313, m -> 300.000000, dfr -> 10.000000, df -> 289.000000, fStat -> 44.088101, aic -> -850.968843, bic -> -810.227236, mape -> 2.667509, mase -> 0.919360, smapeC -> 2.729023, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.604045,	0.590344,	14777.9,	5851.38,	4.42347,	4.49966,	19.5046,	4.41640,	3.30752,	2.65569,	8.43831,	300.000,	10.0000,	289.000,	44.0881,	-850.969,	-810.227,	2.66751,	0.919360,	2.72902,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.633864, rSqBar -> 0.621195, sst -> 14767.778228, sse -> 5407.018884, sde -> 4.249020, rse -> 4.325437, mse0 -> 18.023396, rmse -> 4.245397, mae -> 3.257874, smape -> 2.617177, bmae -> 8.754523, m -> 300.000000, dfr -> 10.000000, df -> 289.000000, fStat -> 50.032365, aic -> -837.781299, bic -> -797.039692, mape -> 2.624427, mase -> 0.922969, smapeC -> 2.690510, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.633864,	0.621195,	14767.8,	5407.02,	4.24902,	4.32544,	18.0234,	4.24540,	3.25787,	2.61718,	8.75452,	300.000,	10.0000,	289.000,	50.0324,	-837.781,	-797.040,	2.62443,	0.922969,	2.69051,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.634468, rSqBar -> 0.621819, sst -> 13362.694337, sse -> 4884.496993, sde -> 4.025932, rse -> 4.111128, mse0 -> 16.281657, rmse -> 4.035053, mae -> 2.999206, smape -> 2.393053, bmae -> 8.391298, m -> 300.000000, dfr -> 10.000000, df -> 289.000000, fStat -> 50.162771, aic -> -822.274009, bic -> -781.532402, mape -> 2.408507, mase -> 0.894601, smapeC -> 2.466387, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.634468,	0.621819,	13362.7,	4884.50,	4.02593,	4.11113,	16.2817,	4.03505,	2.99921,	2.39305,	8.39130,	300.000,	10.0000,	289.000,	50.1628,	-822.274,	-781.532,	2.40851,	0.894601,	2.46639,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 10) ADD variable (19, suction_side_displacement_thickness_chord_length) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19) @ 2.5182785976686075 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+DEBUG @ Regression.buildModel: 1503 by 12
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.602267, rSqBar -> 0.587076, sst -> 13805.490439, sse -> 5490.899464, sde -> 4.280113, rse -> 4.366420, mse0 -> 18.302998, rmse -> 4.278200, mae -> 3.388191, smape -> 2.710895, bmae -> 8.322102, m -> 300.000000, dfr -> 11.000000, df -> 288.000000, fStat -> 39.645801, aic -> -838.272014, bic -> -793.826624, mape -> 2.712461, mase -> 0.894656, smapeC -> 2.790895, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.602267,	0.587076,	13805.5,	5490.90,	4.28011,	4.36642,	18.3030,	4.27820,	3.38819,	2.71089,	8.32210,	300.000,	11.0000,	288.000,	39.6458,	-838.272,	-793.827,	2.71246,	0.894656,	2.79089,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636051, rSqBar -> 0.622150, sst -> 14658.680363, sse -> 5335.014310, sde -> 4.223913, rse -> 4.303993, mse0 -> 17.783381, rmse -> 4.217035, mae -> 3.195400, smape -> 2.551726, bmae -> 8.381547, m -> 300.000000, dfr -> 11.000000, df -> 288.000000, fStat -> 45.756303, aic -> -833.645216, bic -> -789.199826, mape -> 2.555805, mase -> 0.894447, smapeC -> 2.631726, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.636051,	0.622150,	14658.7,	5335.01,	4.22391,	4.30399,	17.7834,	4.21703,	3.19540,	2.55173,	8.38155,	300.000,	11.0000,	288.000,	45.7563,	-833.645,	-789.200,	2.55581,	0.894447,	2.63173,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.602833, rSqBar -> 0.587663, sst -> 14777.883957, sse -> 5869.293628, sde -> 4.430310, rse -> 4.514365, mse0 -> 19.564312, rmse -> 4.423156, mae -> 3.339116, smape -> 2.682581, bmae -> 8.468899, m -> 300.000000, dfr -> 11.000000, df -> 288.000000, fStat -> 39.739551, aic -> -849.503061, bic -> -805.057671, mape -> 2.693529, mase -> 0.922692, smapeC -> 2.762581, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.602833,	0.587663,	14777.9,	5869.29,	4.43031,	4.51437,	19.5643,	4.42316,	3.33912,	2.68258,	8.46890,	300.000,	11.0000,	288.000,	39.7396,	-849.503,	-805.058,	2.69353,	0.922692,	2.76258,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.635409, rSqBar -> 0.621483, sst -> 14767.778228, sse -> 5384.204456, sde -> 4.239488, rse -> 4.323789, mse0 -> 17.947348, rmse -> 4.236431, mae -> 3.257480, smape -> 2.617321, bmae -> 8.750124, m -> 300.000000, dfr -> 11.000000, df -> 288.000000, fStat -> 45.629586, aic -> -835.105219, bic -> -790.659829, mape -> 2.624179, mase -> 0.922506, smapeC -> 2.697321, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.635409,	0.621483,	14767.8,	5384.20,	4.23949,	4.32379,	17.9473,	4.23643,	3.25748,	2.61732,	8.75012,	300.000,	11.0000,	288.000,	45.6296,	-835.105,	-790.660,	2.62418,	0.922506,	2.69732,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636285, rSqBar -> 0.622393, sst -> 13362.694337, sse -> 4860.214979, sde -> 4.016667, rse -> 4.108010, mse0 -> 16.200717, rmse -> 4.025011, mae -> 2.987883, smape -> 2.384158, bmae -> 8.369151, m -> 300.000000, dfr -> 11.000000, df -> 288.000000, fStat -> 45.802577, aic -> -819.552785, bic -> -775.107395, mape -> 2.399331, mase -> 0.892240, smapeC -> 2.464158, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.636285,	0.622393,	13362.7,	4860.21,	4.01667,	4.10801,	16.2007,	4.02501,	2.98788,	2.38416,	8.36915,	300.000,	11.0000,	288.000,	45.8026,	-819.553,	-775.107,	2.39933,	0.892240,	2.46416,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 11) ADD variable (8, chord_length^2.0) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8) @ 2.5191686601678613 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 13
+DEBUG @ Regression.buildModel: 1503 by 13
+DEBUG @ Regression.buildModel: 1503 by 13
+DEBUG @ Regression.buildModel: 1503 by 13
+DEBUG @ Regression.buildModel: 1503 by 13
+DEBUG @ Regression.buildModel: 1503 by 13
+DEBUG @ Regression.buildModel: 1503 by 13
+DEBUG @ Regression.buildModel: 1503 by 13
+DEBUG @ Regression.buildModel: 1503 by 13
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.591137, rSqBar -> 0.574042, sst -> 13805.490439, sse -> 5644.547659, sde -> 4.341861, rse -> 4.434796, mse0 -> 18.815159, rmse -> 4.337644, mae -> 3.431813, smape -> 2.745453, bmae -> 8.378269, m -> 300.000000, dfr -> 12.000000, df -> 287.000000, fStat -> 34.578953, aic -> -840.971892, bic -> -792.822720, mape -> 2.748448, mase -> 0.900694, smapeC -> 2.832120, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.591137,	0.574042,	13805.5,	5644.55,	4.34186,	4.43480,	18.8152,	4.33764,	3.43181,	2.74545,	8.37827,	300.000,	12.0000,	287.000,	34.5790,	-840.972,	-792.823,	2.74845,	0.900694,	2.83212,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.633539, rSqBar -> 0.618217, sst -> 14658.680363, sse -> 5371.833401, sde -> 4.238164, rse -> 4.326337, mse0 -> 17.906111, rmse -> 4.231561, mae -> 3.214359, smape -> 2.567813, bmae -> 8.386919, m -> 300.000000, dfr -> 12.000000, df -> 287.000000, fStat -> 41.347229, aic -> -832.815170, bic -> -784.665998, mape -> 2.570965, mase -> 0.895021, smapeC -> 2.654480, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.633539,	0.618217,	14658.7,	5371.83,	4.23816,	4.32634,	17.9061,	4.23156,	3.21436,	2.56781,	8.38692,	300.000,	12.0000,	287.000,	41.3472,	-832.815,	-784.666,	2.57097,	0.895021,	2.65448,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.602658, rSqBar -> 0.586044, sst -> 14777.883957, sse -> 5871.875596, sde -> 4.431267, rse -> 4.523218, mse0 -> 19.572919, rmse -> 4.424129, mae -> 3.352569, smape -> 2.694914, bmae -> 8.458915, m -> 300.000000, dfr -> 12.000000, df -> 287.000000, fStat -> 36.274957, aic -> -847.771136, bic -> -799.621964, mape -> 2.705472, mase -> 0.921604, smapeC -> 2.781580, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.602658,	0.586044,	14777.9,	5871.88,	4.43127,	4.52322,	19.5729,	4.42413,	3.35257,	2.69491,	8.45892,	300.000,	12.0000,	287.000,	36.2750,	-847.771,	-799.622,	2.70547,	0.921604,	2.78158,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.637136, rSqBar -> 0.621964, sst -> 14767.778228, sse -> 5358.690394, sde -> 4.229323, rse -> 4.321041, mse0 -> 17.862301, rmse -> 4.226382, mae -> 3.255325, smape -> 2.615785, bmae -> 8.749880, m -> 300.000000, dfr -> 12.000000, df -> 287.000000, fStat -> 41.994219, aic -> -832.422070, bic -> -784.272898, mape -> 2.622580, mase -> 0.922480, smapeC -> 2.702452, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.637136,	0.621964,	14767.8,	5358.69,	4.22932,	4.32104,	17.8623,	4.22638,	3.25533,	2.61579,	8.74988,	300.000,	12.0000,	287.000,	41.9942,	-832.422,	-784.273,	2.62258,	0.922480,	2.70245,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.637887, rSqBar -> 0.622747, sst -> 13362.694337, sse -> 4838.799488, sde -> 4.007903, rse -> 4.106084, mse0 -> 16.129332, rmse -> 4.016134, mae -> 2.980237, smape -> 2.378211, bmae -> 8.364407, m -> 300.000000, dfr -> 12.000000, df -> 287.000000, fStat -> 42.130936, aic -> -816.872441, bic -> -768.723269, mape -> 2.393305, mase -> 0.891734, smapeC -> 2.464877, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.637887,	0.622747,	13362.7,	4838.80,	4.00790,	4.10608,	16.1293,	4.01613,	2.98024,	2.37821,	8.36441,	300.000,	12.0000,	287.000,	42.1309,	-816.872,	-768.723,	2.39330,	0.891734,	2.46488,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 12) ADD variable (14, free_stream_velocity_frequency) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14) @ 2.520909815863669 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 14
+DEBUG @ Regression.buildModel: 1503 by 14
+DEBUG @ Regression.buildModel: 1503 by 14
+DEBUG @ Regression.buildModel: 1503 by 14
+DEBUG @ Regression.buildModel: 1503 by 14
+DEBUG @ Regression.buildModel: 1503 by 14
+DEBUG @ Regression.buildModel: 1503 by 14
+DEBUG @ Regression.buildModel: 1503 by 14
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.590719, rSqBar -> 0.572116, sst -> 13805.490439, sse -> 5650.318269, sde -> 4.344098, rse -> 4.444812, mse0 -> 18.834394, rmse -> 4.339861, mae -> 3.432833, smape -> 2.746144, bmae -> 8.377557, m -> 300.000000, dfr -> 13.000000, df -> 286.000000, fStat -> 31.752864, aic -> -839.222500, bic -> -787.369545, mape -> 2.749193, mase -> 0.900618, smapeC -> 2.839477, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.590719,	0.572116,	13805.5,	5650.32,	4.34410,	4.44481,	18.8344,	4.33986,	3.43283,	2.74614,	8.37756,	300.000,	13.0000,	286.000,	31.7529,	-839.222,	-787.370,	2.74919,	0.900618,	2.83948,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.629171, rSqBar -> 0.612315, sst -> 14658.680363, sse -> 5435.864612, sde -> 4.262563, rse -> 4.359647, mse0 -> 18.119549, rmse -> 4.256706, mae -> 3.227955, smape -> 2.582520, bmae -> 8.436718, m -> 300.000000, dfr -> 13.000000, df -> 286.000000, fStat -> 37.326527, aic -> -832.782391, bic -> -780.929436, mape -> 2.583350, mase -> 0.900335, smapeC -> 2.675853, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.629171,	0.612315,	14658.7,	5435.86,	4.26256,	4.35965,	18.1195,	4.25671,	3.22796,	2.58252,	8.43672,	300.000,	13.0000,	286.000,	37.3265,	-832.782,	-780.929,	2.58335,	0.900335,	2.67585,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.602195, rSqBar -> 0.584112, sst -> 14777.883957, sse -> 5878.723145, sde -> 4.433827, rse -> 4.533760, mse0 -> 19.595744, rmse -> 4.426708, mae -> 3.351204, smape -> 2.695215, bmae -> 8.481549, m -> 300.000000, dfr -> 13.000000, df -> 286.000000, fStat -> 33.303412, aic -> -846.081568, bic -> -794.228613, mape -> 2.705357, mase -> 0.924070, smapeC -> 2.788548, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.602195,	0.584112,	14777.9,	5878.72,	4.43383,	4.53376,	19.5957,	4.42671,	3.35120,	2.69521,	8.48155,	300.000,	13.0000,	286.000,	33.3034,	-846.082,	-794.229,	2.70536,	0.924070,	2.78855,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636705, rSqBar -> 0.620192, sst -> 14767.778228, sse -> 5365.056152, sde -> 4.232304, rse -> 4.331159, mse0 -> 17.883521, rmse -> 4.228891, mae -> 3.258851, smape -> 2.620656, bmae -> 8.752649, m -> 300.000000, dfr -> 13.000000, df -> 286.000000, fStat -> 38.556891, aic -> -830.655992, bic -> -778.803037, mape -> 2.627011, mase -> 0.922772, smapeC -> 2.713989, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.636705,	0.620192,	14767.8,	5365.06,	4.23230,	4.33116,	17.8835,	4.22889,	3.25885,	2.62066,	8.75265,	300.000,	13.0000,	286.000,	38.5569,	-830.656,	-778.803,	2.62701,	0.922772,	2.71399,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.638919, rSqBar -> 0.622506, sst -> 13362.694337, sse -> 4825.012277, sde -> 4.001527, rse -> 4.107392, mse0 -> 16.083374, rmse -> 4.010408, mae -> 2.979367, smape -> 2.377846, bmae -> 8.356409, m -> 300.000000, dfr -> 13.000000, df -> 286.000000, fStat -> 38.928192, aic -> -814.438309, bic -> -762.585355, mape -> 2.392903, mase -> 0.890881, smapeC -> 2.471179, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.638919,	0.622506,	13362.7,	4825.01,	4.00153,	4.10739,	16.0834,	4.01041,	2.97937,	2.37785,	8.35641,	300.000,	13.0000,	286.000,	38.9282,	-814.438,	-762.585,	2.39290,	0.890881,	2.47118,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 13) ADD variable (6, frequency^2.0) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6) @ 2.523964182648292 |
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 15
+DEBUG @ Regression.buildModel: 1503 by 15
+DEBUG @ Regression.buildModel: 1503 by 15
+DEBUG @ Regression.buildModel: 1503 by 15
+DEBUG @ Regression.buildModel: 1503 by 15
+DEBUG @ Regression.buildModel: 1503 by 15
+DEBUG @ Regression.buildModel: 1503 by 15
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.597985, rSqBar -> 0.578237, sst -> 13805.490439, sse -> 5550.009439, sde -> 4.305175, rse -> 4.412904, mse0 -> 18.500031, rmse -> 4.301166, mae -> 3.442997, smape -> 2.751837, bmae -> 8.375519, m -> 300.000000, dfr -> 14.000000, df -> 285.000000, fStat -> 30.280670, aic -> -834.632351, bic -> -779.075613, mape -> 2.754158, mase -> 0.900399, smapeC -> 2.851837, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.597985,	0.578237,	13805.5,	5550.01,	4.30517,	4.41290,	18.5000,	4.30117,	3.44300,	2.75184,	8.37552,	300.000,	14.0000,	285.000,	30.2807,	-834.632,	-779.076,	2.75416,	0.900399,	2.85184,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636307, rSqBar -> 0.618442, sst -> 14658.680363, sse -> 5331.252764, sde -> 4.222083, rse -> 4.325061, mse0 -> 17.770843, rmse -> 4.215548, mae -> 3.230027, smape -> 2.581417, bmae -> 8.438388, m -> 300.000000, dfr -> 14.000000, df -> 285.000000, fStat -> 35.616352, aic -> -827.912023, bic -> -772.355286, mape -> 2.582532, mase -> 0.900513, smapeC -> 2.681417, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.636307,	0.618442,	14658.7,	5331.25,	4.22208,	4.32506,	17.7708,	4.21555,	3.23003,	2.58142,	8.43839,	300.000,	14.0000,	285.000,	35.6164,	-827.912,	-772.355,	2.58253,	0.900513,	2.68142,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.612836, rSqBar -> 0.593818, sst -> 14777.883957, sse -> 5721.459028, sde -> 4.374284, rse -> 4.480546, mse0 -> 19.071530, rmse -> 4.367096, mae -> 3.338287, smape -> 2.686221, bmae -> 8.475743, m -> 300.000000, dfr -> 14.000000, df -> 285.000000, fStat -> 32.223063, aic -> -839.899377, bic -> -784.342640, mape -> 2.694053, mase -> 0.923438, smapeC -> 2.786221, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.612836,	0.593818,	14777.9,	5721.46,	4.37428,	4.48055,	19.0715,	4.36710,	3.33829,	2.68622,	8.47574,	300.000,	14.0000,	285.000,	32.2231,	-839.899,	-784.343,	2.69405,	0.923438,	2.78622,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636193, rSqBar -> 0.618322, sst -> 14767.778228, sse -> 5372.623117, sde -> 4.233543, rse -> 4.341809, mse0 -> 17.908744, rmse -> 4.231872, mae -> 3.264643, smape -> 2.630769, bmae -> 8.721582, m -> 300.000000, dfr -> 14.000000, df -> 285.000000, fStat -> 35.598722, aic -> -829.182944, bic -> -773.626207, mape -> 2.634543, mase -> 0.919496, smapeC -> 2.730769, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.636193,	0.618322,	14767.8,	5372.62,	4.23354,	4.34181,	17.9087,	4.23187,	3.26464,	2.63077,	8.72158,	300.000,	14.0000,	285.000,	35.5987,	-829.183,	-773.626,	2.63454,	0.919496,	2.73077,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.653829, rSqBar -> 0.636824, sst -> 13362.694337, sse -> 4625.779661, sde -> 3.915555, rse -> 4.028747, mse0 -> 15.419266, rmse -> 3.926737, mae -> 2.944060, smape -> 2.353824, bmae -> 8.232719, m -> 300.000000, dfr -> 14.000000, df -> 285.000000, fStat -> 38.449436, aic -> -806.239496, bic -> -750.682759, mape -> 2.368693, mase -> 0.877695, smapeC -> 2.453824, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.653829,	0.636824,	13362.7,	4625.78,	3.91555,	4.02875,	15.4193,	3.92674,	2.94406,	2.35382,	8.23272,	300.000,	14.0000,	285.000,	38.4494,	-806.239,	-750.683,	2.36869,	0.877695,	2.45382,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 14) ADD variable (2, angle_of_attack^0.5) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6, 2) @ 2.525936609000133 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 16
+DEBUG @ Regression.buildModel: 1503 by 16
+DEBUG @ Regression.buildModel: 1503 by 16
+DEBUG @ Regression.buildModel: 1503 by 16
+DEBUG @ Regression.buildModel: 1503 by 16
+DEBUG @ Regression.buildModel: 1503 by 16
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.598173, rSqBar -> 0.576949, sst -> 13805.490439, sse -> 5547.422722, sde -> 4.304270, rse -> 4.419636, mse0 -> 18.491409, rmse -> 4.300164, mae -> 3.436588, smape -> 2.747805, bmae -> 8.374087, m -> 300.000000, dfr -> 15.000000, df -> 284.000000, fStat -> 28.184755, aic -> -832.641278, bic -> -773.380758, mape -> 2.749918, mase -> 0.900245, smapeC -> 2.854472, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.598173,	0.576949,	13805.5,	5547.42,	4.30427,	4.41964,	18.4914,	4.30016,	3.43659,	2.74781,	8.37409,	300.000,	15.0000,	284.000,	28.1848,	-832.641,	-773.381,	2.74992,	0.900245,	2.85447,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636913, rSqBar -> 0.617736, sst -> 14658.680363, sse -> 5322.369784, sde -> 4.218577, rse -> 4.329057, mse0 -> 17.741233, rmse -> 4.212034, mae -> 3.223677, smape -> 2.576576, bmae -> 8.429064, m -> 300.000000, dfr -> 15.000000, df -> 284.000000, fStat -> 33.212176, aic -> -825.698058, bic -> -766.437539, mape -> 2.577625, mase -> 0.899518, smapeC -> 2.683243, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.636913,	0.617736,	14658.7,	5322.37,	4.21858,	4.32906,	17.7412,	4.21203,	3.22368,	2.57658,	8.42906,	300.000,	15.0000,	284.000,	33.2122,	-825.698,	-766.438,	2.57763,	0.899518,	2.68324,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.613663, rSqBar -> 0.593258, sst -> 14777.883957, sse -> 5709.237617, sde -> 4.369612, rse -> 4.483631, mse0 -> 19.030792, rmse -> 4.362430, mae -> 3.324561, smape -> 2.675356, bmae -> 8.476261, m -> 300.000000, dfr -> 15.000000, df -> 284.000000, fStat -> 30.074016, aic -> -837.633510, bic -> -778.372990, mape -> 2.683065, mase -> 0.923494, smapeC -> 2.782022, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.613663,	0.593258,	14777.9,	5709.24,	4.36961,	4.48363,	19.0308,	4.36243,	3.32456,	2.67536,	8.47626,	300.000,	15.0000,	284.000,	30.0740,	-837.634,	-778.373,	2.68306,	0.923494,	2.78202,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.635540, rSqBar -> 0.616290, sst -> 14767.778228, sse -> 5382.266116, sde -> 4.236474, rse -> 4.353348, mse0 -> 17.940887, rmse -> 4.235668, mae -> 3.263531, smape -> 2.629784, bmae -> 8.741737, m -> 300.000000, dfr -> 15.000000, df -> 284.000000, fStat -> 33.015653, aic -> -827.545950, bic -> -768.285430, mape -> 2.633039, mase -> 0.921621, smapeC -> 2.736451, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.635540,	0.616290,	14767.8,	5382.27,	4.23647,	4.35335,	17.9409,	4.23567,	3.26353,	2.62978,	8.74174,	300.000,	15.0000,	284.000,	33.0157,	-827.546,	-768.285,	2.63304,	0.921621,	2.73645,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.654059, rSqBar -> 0.635787, sst -> 13362.694337, sse -> 4622.704167, sde -> 3.913355, rse -> 4.034492, mse0 -> 15.409014, rmse -> 3.925432, mae -> 2.945801, smape -> 2.354875, bmae -> 8.245967, m -> 300.000000, dfr -> 15.000000, df -> 284.000000, fStat -> 35.796612, aic -> -804.112328, bic -> -744.851808, mape -> 2.369950, mase -> 0.879107, smapeC -> 2.461541, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.654059,	0.635787,	13362.7,	4622.70,	3.91336,	4.03449,	15.4090,	3.92543,	2.94580,	2.35487,	8.24597,	300.000,	15.0000,	284.000,	35.7966,	-804.112,	-744.852,	2.36995,	0.879107,	2.46154,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 15) ADD variable (5, suction_side_displacement_thickness^0.5) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6, 2, 5) @ 2.5156564087083195 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 17
+DEBUG @ Regression.buildModel: 1503 by 17
+DEBUG @ Regression.buildModel: 1503 by 17
+DEBUG @ Regression.buildModel: 1503 by 17
+DEBUG @ Regression.buildModel: 1503 by 17
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.592339, rSqBar -> 0.569291, sst -> 13805.490439, sse -> 5627.958745, sde -> 4.336218, rse -> 4.459460, mse0 -> 18.759862, rmse -> 4.331266, mae -> 3.452674, smape -> 2.762215, bmae -> 8.421436, m -> 300.000000, dfr -> 16.000000, df -> 283.000000, fStat -> 25.700276, aic -> -833.953650, bic -> -770.989348, mape -> 2.763131, mase -> 0.905335, smapeC -> 2.875548, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.592339,	0.569291,	13805.5,	5627.96,	4.33622,	4.45946,	18.7599,	4.33127,	3.45267,	2.76221,	8.42144,	300.000,	16.0000,	283.000,	25.7003,	-833.954,	-770.989,	2.76313,	0.905335,	2.87555,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.641488, rSqBar -> 0.621219, sst -> 14658.680363, sse -> 5255.307206, sde -> 4.191729, rse -> 4.309291, mse0 -> 17.517691, rmse -> 4.185414, mae -> 3.212854, smape -> 2.568329, bmae -> 8.404992, m -> 300.000000, dfr -> 16.000000, df -> 283.000000, fStat -> 31.648419, aic -> -822.090388, bic -> -759.126085, mape -> 2.568324, mase -> 0.896949, smapeC -> 2.681662, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.641488,	0.621219,	14658.7,	5255.31,	4.19173,	4.30929,	17.5177,	4.18541,	3.21285,	2.56833,	8.40499,	300.000,	16.0000,	283.000,	31.6484,	-822.090,	-759.126,	2.56832,	0.896949,	2.68166,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.617845, rSqBar -> 0.596239, sst -> 14777.883957, sse -> 5647.440936, sde -> 4.345941, rse -> 4.467172, mse0 -> 18.824803, rmse -> 4.338756, mae -> 3.302214, smape -> 2.657880, bmae -> 8.442198, m -> 300.000000, dfr -> 16.000000, df -> 283.000000, fStat -> 28.596087, aic -> -834.573860, bic -> -771.609558, mape -> 2.664266, mase -> 0.919783, smapeC -> 2.771213, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.617845,	0.596239,	14777.9,	5647.44,	4.34594,	4.46717,	18.8248,	4.33876,	3.30221,	2.65788,	8.44220,	300.000,	16.0000,	283.000,	28.5961,	-834.574,	-771.610,	2.66427,	0.919783,	2.77121,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.634815, rSqBar -> 0.614169, sst -> 14767.778228, sse -> 5392.968978, sde -> 4.240672, rse -> 4.365367, mse0 -> 17.976563, rmse -> 4.239878, mae -> 3.269476, smape -> 2.634886, bmae -> 8.766067, m -> 300.000000, dfr -> 16.000000, df -> 283.000000, fStat -> 30.746874, aic -> -826.472813, bic -> -763.508511, mape -> 2.637183, mase -> 0.924186, smapeC -> 2.748219, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.634815,	0.614169,	14767.8,	5392.97,	4.24067,	4.36537,	17.9766,	4.23988,	3.26948,	2.63489,	8.76607,	300.000,	16.0000,	283.000,	30.7469,	-826.473,	-763.509,	2.63718,	0.924186,	2.74822,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.656838, rSqBar -> 0.637436, sst -> 13362.694337, sse -> 4585.571771, sde -> 3.896487, rse -> 4.025349, mse0 -> 15.285239, rmse -> 3.909634, mae -> 2.958312, smape -> 2.365661, bmae -> 8.251908, m -> 300.000000, dfr -> 16.000000, df -> 283.000000, fStat -> 33.855179, aic -> -800.769539, bic -> -737.805237, mape -> 2.380044, mase -> 0.879740, smapeC -> 2.478995, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.656838,	0.637436,	13362.7,	4585.57,	3.89649,	4.02535,	15.2852,	3.90963,	2.95831,	2.36566,	8.25191,	300.000,	16.0000,	283.000,	33.8552,	-800.770,	-737.805,	2.38004,	0.879740,	2.47899,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 16) ADD variable (7, angle_of_attack^2.0) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6, 2, 5, 7) @ 2.503228104766934 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 18
+DEBUG @ Regression.buildModel: 1503 by 18
+DEBUG @ Regression.buildModel: 1503 by 18
+DEBUG @ Regression.buildModel: 1503 by 18
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.593971, rSqBar -> 0.569494, sst -> 13805.490439, sse -> 5605.428724, sde -> 4.327766, rse -> 4.458409, mse0 -> 18.684762, rmse -> 4.322587, mae -> 3.446232, smape -> 2.757107, bmae -> 8.425497, m -> 300.000000, dfr -> 17.000000, df -> 282.000000, fStat -> 24.266574, aic -> -831.247214, bic -> -764.579130, mape -> 2.758121, mase -> 0.905772, smapeC -> 2.877107, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.593971,	0.569494,	13805.5,	5605.43,	4.32777,	4.45841,	18.6848,	4.32259,	3.44623,	2.75711,	8.42550,	300.000,	17.0000,	282.000,	24.2666,	-831.247,	-764.579,	2.75812,	0.905772,	2.87711,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.638581, rSqBar -> 0.616794, sst -> 14658.680363, sse -> 5297.920571, sde -> 4.208578, rse -> 4.334392, mse0 -> 17.659735, rmse -> 4.202349, mae -> 3.223571, smape -> 2.575530, bmae -> 8.428045, m -> 300.000000, dfr -> 17.000000, df -> 282.000000, fStat -> 29.309327, aic -> -821.454061, bic -> -754.785976, mape -> 2.575128, mase -> 0.899409, smapeC -> 2.695530, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.638581,	0.616794,	14658.7,	5297.92,	4.20858,	4.33439,	17.6597,	4.20235,	3.22357,	2.57553,	8.42805,	300.000,	17.0000,	282.000,	29.3093,	-821.454,	-754.786,	2.57513,	0.899409,	2.69553,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.618189, rSqBar -> 0.595172, sst -> 14777.883957, sse -> 5642.355014, sde -> 4.343988, rse -> 4.473070, mse0 -> 18.807850, rmse -> 4.336802, mae -> 3.306317, smape -> 2.661123, bmae -> 8.425406, m -> 300.000000, dfr -> 17.000000, df -> 282.000000, fStat -> 26.857988, aic -> -832.423199, bic -> -765.755114, mape -> 2.667275, mase -> 0.917954, smapeC -> 2.781123, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.618189,	0.595172,	14777.9,	5642.36,	4.34399,	4.47307,	18.8079,	4.33680,	3.30632,	2.66112,	8.42541,	300.000,	17.0000,	282.000,	26.8580,	-832.423,	-765.755,	2.66728,	0.917954,	2.78112,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636144, rSqBar -> 0.614210, sst -> 14767.778228, sse -> 5373.342629, sde -> 4.232584, rse -> 4.365135, mse0 -> 17.911142, rmse -> 4.232156, mae -> 3.265187, smape -> 2.631650, bmae -> 8.762965, m -> 300.000000, dfr -> 17.000000, df -> 282.000000, fStat -> 29.001893, aic -> -823.856013, bic -> -757.187928, mape -> 2.633717, mase -> 0.923859, smapeC -> 2.751650, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.636144,	0.614210,	14767.8,	5373.34,	4.23258,	4.36514,	17.9111,	4.23216,	3.26519,	2.63165,	8.76297,	300.000,	17.0000,	282.000,	29.0019,	-823.856,	-757.188,	2.63372,	0.923859,	2.75165,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.654590, rSqBar -> 0.633768, sst -> 13362.694337, sse -> 4615.603516, sde -> 3.908109, rse -> 4.045663, mse0 -> 15.385345, rmse -> 3.922416, mae -> 2.957875, smape -> 2.365074, bmae -> 8.288720, m -> 300.000000, dfr -> 17.000000, df -> 282.000000, fStat -> 31.436582, aic -> -799.724440, bic -> -733.056355, mape -> 2.379132, mase -> 0.883665, smapeC -> 2.485074, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.654590,	0.633768,	13362.7,	4615.60,	3.90811,	4.04566,	15.3853,	3.92242,	2.95787,	2.36507,	8.28872,	300.000,	17.0000,	282.000,	31.4366,	-799.724,	-733.056,	2.37913,	0.883665,	2.48507,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 17) ADD variable (15, free_stream_velocity_angle_of_attack) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6, 2, 5, 7, 15) @ 2.503848404118547 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 19
+DEBUG @ Regression.buildModel: 1503 by 19
+DEBUG @ Regression.buildModel: 1503 by 19
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.594096, rSqBar -> 0.568095, sst -> 13805.490439, sse -> 5603.709917, sde -> 4.327113, rse -> 4.465650, mse0 -> 18.679033, rmse -> 4.321925, mae -> 3.445939, smape -> 2.756843, bmae -> 8.425247, m -> 300.000000, dfr -> 18.000000, df -> 281.000000, fStat -> 22.848953, aic -> -829.198788, bic -> -758.826921, mape -> 2.757870, mase -> 0.905745, smapeC -> 2.883510, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.594096,	0.568095,	13805.5,	5603.71,	4.32711,	4.46565,	18.6790,	4.32192,	3.44594,	2.75684,	8.42525,	300.000,	18.0000,	281.000,	22.8490,	-829.199,	-758.827,	2.75787,	0.905745,	2.88351,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.637633, rSqBar -> 0.614421, sst -> 14658.680363, sse -> 5311.823324, sde -> 4.214049, rse -> 4.347791, mse0 -> 17.706078, rmse -> 4.207859, mae -> 3.233781, smape -> 2.583513, bmae -> 8.437419, m -> 300.000000, dfr -> 18.000000, df -> 281.000000, fStat -> 27.469819, aic -> -819.901071, bic -> -749.529204, mape -> 2.583078, mase -> 0.900410, smapeC -> 2.710180, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.637633,	0.614421,	14658.7,	5311.82,	4.21405,	4.34779,	17.7061,	4.20786,	3.23378,	2.58351,	8.43742,	300.000,	18.0000,	281.000,	27.4698,	-819.901,	-749.529,	2.58308,	0.900410,	2.71018,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.618293, rSqBar -> 0.593842, sst -> 14777.883957, sse -> 5640.824902, sde -> 4.343396, rse -> 4.480414, mse0 -> 18.802750, rmse -> 4.336214, mae -> 3.305393, smape -> 2.660344, bmae -> 8.425102, m -> 300.000000, dfr -> 18.000000, df -> 281.000000, fStat -> 25.287019, aic -> -830.381043, bic -> -760.009176, mape -> 2.666520, mase -> 0.917920, smapeC -> 2.787011, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.618293,	0.593842,	14777.9,	5640.82,	4.34340,	4.48041,	18.8027,	4.33621,	3.30539,	2.66034,	8.42510,	300.000,	18.0000,	281.000,	25.2870,	-830.381,	-760.009,	2.66652,	0.917920,	2.78701,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636341, rSqBar -> 0.613047, sst -> 14767.778228, sse -> 5370.428840, sde -> 4.231303, rse -> 4.371710, mse0 -> 17.901429, rmse -> 4.231008, mae -> 3.263608, smape -> 2.630379, bmae -> 8.760757, m -> 300.000000, dfr -> 18.000000, df -> 281.000000, fStat -> 27.316825, aic -> -821.767883, bic -> -751.396016, mape -> 2.632386, mase -> 0.923627, smapeC -> 2.757046, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.636341,	0.613047,	14767.8,	5370.43,	4.23130,	4.37171,	17.9014,	4.23101,	3.26361,	2.63038,	8.76076,	300.000,	18.0000,	281.000,	27.3168,	-821.768,	-751.396,	2.63239,	0.923627,	2.75705,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.651883, rSqBar -> 0.629584, sst -> 13362.694337, sse -> 4651.775131, sde -> 3.922868, rse -> 4.068705, mse0 -> 15.505917, rmse -> 3.937755, mae -> 2.966894, smape -> 2.372838, bmae -> 8.302399, m -> 300.000000, dfr -> 18.000000, df -> 281.000000, fStat -> 29.233384, aic -> -798.875983, bic -> -728.504116, mape -> 2.387250, mase -> 0.885123, smapeC -> 2.499505, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.651883,	0.629584,	13362.7,	4651.78,	3.92287,	4.06870,	15.5059,	3.93776,	2.96689,	2.37284,	8.30240,	300.000,	18.0000,	281.000,	29.2334,	-798.876,	-728.504,	2.38725,	0.885123,	2.49950,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 18) ADD variable (10, suction_side_displacement_thickness^2.0) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6, 2, 5, 7, 15, 10) @ 2.5049213376331956 |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 20
+DEBUG @ Regression.buildModel: 1503 by 20
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.595057, rSqBar -> 0.567578, sst -> 13805.490439, sse -> 5590.443055, sde -> 4.321357, rse -> 4.468318, mse0 -> 18.634810, rmse -> 4.316806, mae -> 3.446877, smape -> 2.757252, bmae -> 8.413773, m -> 300.000000, dfr -> 19.000000, df -> 280.000000, fStat -> 21.655503, aic -> -826.788241, bic -> -752.712592, mape -> 2.757865, mase -> 0.904511, smapeC -> 2.890585, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.595057,	0.567578,	13805.5,	5590.44,	4.32136,	4.46832,	18.6348,	4.31681,	3.44688,	2.75725,	8.41377,	300.000,	19.0000,	280.000,	21.6555,	-826.788,	-752.713,	2.75786,	0.904511,	2.89059,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.638993, rSqBar -> 0.614496, sst -> 14658.680363, sse -> 5291.889622, sde -> 4.206054, rse -> 4.347368, mse0 -> 17.639632, rmse -> 4.199956, mae -> 3.226689, smape -> 2.577337, bmae -> 8.440196, m -> 300.000000, dfr -> 19.000000, df -> 280.000000, fStat -> 26.084617, aic -> -817.274081, bic -> -743.198432, mape -> 2.576902, mase -> 0.900706, smapeC -> 2.710670, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.638993,	0.614496,	14658.7,	5291.89,	4.20605,	4.34737,	17.6396,	4.19996,	3.22669,	2.57734,	8.44020,	300.000,	19.0000,	280.000,	26.0846,	-817.274,	-743.198,	2.57690,	0.900706,	2.71067,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.619084, rSqBar -> 0.593236, sst -> 14777.883957, sse -> 5629.131322, sde -> 4.338836, rse -> 4.483753, mse0 -> 18.763771, rmse -> 4.331717, mae -> 3.313898, smape -> 2.667420, bmae -> 8.401200, m -> 300.000000, dfr -> 19.000000, df -> 280.000000, fStat -> 23.951071, aic -> -828.021141, bic -> -753.945491, mape -> 2.673789, mase -> 0.915316, smapeC -> 2.800753, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.619084,	0.593236,	14777.9,	5629.13,	4.33884,	4.48375,	18.7638,	4.33172,	3.31390,	2.66742,	8.40120,	300.000,	19.0000,	280.000,	23.9511,	-828.021,	-753.945,	2.67379,	0.915316,	2.80075,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.635673, rSqBar -> 0.610951, sst -> 14767.778228, sse -> 5380.298426, sde -> 4.236583, rse -> 4.383532, mse0 -> 17.934328, rmse -> 4.234894, mae -> 3.261094, smape -> 2.628074, bmae -> 8.774871, m -> 300.000000, dfr -> 19.000000, df -> 280.000000, fStat -> 25.712664, aic -> -820.091452, bic -> -746.015802, mape -> 2.630700, mase -> 0.925115, smapeC -> 2.761407, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.635673,	0.610951,	14767.8,	5380.30,	4.23658,	4.38353,	17.9343,	4.23489,	3.26109,	2.62807,	8.77487,	300.000,	19.0000,	280.000,	25.7127,	-820.091,	-746.016,	2.63070,	0.925115,	2.76141,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.652304, rSqBar -> 0.628711, sst -> 13362.694337, sse -> 4646.150356, sde -> 3.920774, rse -> 4.073499, mse0 -> 15.487168, rmse -> 3.935374, mae -> 2.976183, smape -> 2.380525, bmae -> 8.295446, m -> 300.000000, dfr -> 19.000000, df -> 280.000000, fStat -> 27.647476, aic -> -796.695967, bic -> -722.620318, mape -> 2.394633, mase -> 0.884382, smapeC -> 2.513859, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.652304,	0.628711,	13362.7,	4646.15,	3.92077,	4.07350,	15.4872,	3.93537,	2.97618,	2.38053,	8.29545,	300.000,	19.0000,	280.000,	27.6475,	-796.696,	-722.620,	2.39463,	0.884382,	2.51386,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 19) ADD variable (9, free_stream_velocity^2.0) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6, 2, 5, 7, 15, 10, 9) @ 2.5087501221874957 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DEBUG @ Regression.buildModel: 1503 by 21
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.595894, rSqBar -> 0.566926, sst -> 13805.490439, sse -> 5578.883958, sde -> 4.316884, rse -> 4.471689, mse0 -> 18.596280, rmse -> 4.312340, mae -> 3.439026, smape -> 2.750373, bmae -> 8.402482, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 20.570630, aic -> -824.437528, bic -> -746.658096, mape -> 2.751214, mase -> 0.903297, smapeC -> 2.890373, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.595894,	0.566926,	13805.5,	5578.88,	4.31688,	4.47169,	18.5963,	4.31234,	3.43903,	2.75037,	8.40248,	300.000,	20.0000,	279.000,	20.5706,	-824.438,	-746.658,	2.75121,	0.903297,	2.89037,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.639605, rSqBar -> 0.613770, sst -> 14658.680363, sse -> 5282.912185, sde -> 4.202442, rse -> 4.351456, mse0 -> 17.609707, rmse -> 4.196392, mae -> 3.221356, smape -> 2.572594, bmae -> 8.433626, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 24.757551, aic -> -814.999659, bic -> -737.220227, mape -> 2.572259, mase -> 0.900005, smapeC -> 2.712594, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.639605,	0.613770,	14658.7,	5282.91,	4.20244,	4.35146,	17.6097,	4.19639,	3.22136,	2.57259,	8.43363,	300.000,	20.0000,	279.000,	24.7576,	-815.000,	-737.220,	2.57226,	0.900005,	2.71259,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.619351, rSqBar -> 0.592064, sst -> 14777.883957, sse -> 5625.189142, sde -> 4.337332, rse -> 4.490208, mse0 -> 18.750630, rmse -> 4.330200, mae -> 3.304405, smape -> 2.658540, bmae -> 8.384750, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 22.697920, aic -> -825.914095, bic -> -748.134663, mape -> 2.665563, mase -> 0.913524, smapeC -> 2.798540, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.619351,	0.592064,	14777.9,	5625.19,	4.33733,	4.49021,	18.7506,	4.33020,	3.30440,	2.65854,	8.38475,	300.000,	20.0000,	279.000,	22.6979,	-825.914,	-748.135,	2.66556,	0.913524,	2.79854,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636295, rSqBar -> 0.610222, sst -> 14767.778228, sse -> 5371.121151, sde -> 4.232978, rse -> 4.387634, mse0 -> 17.903737, rmse -> 4.231281, mae -> 3.255508, smape -> 2.622349, bmae -> 8.766936, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 24.405215, aic -> -817.812443, bic -> -740.033011, mape -> 2.625530, mase -> 0.924278, smapeC -> 2.762349, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.636295,	0.610222,	14767.8,	5371.12,	4.23298,	4.38763,	17.9037,	4.23128,	3.25551,	2.62235,	8.76694,	300.000,	20.0000,	279.000,	24.4052,	-817.812,	-740.033,	2.62553,	0.924278,	2.76235,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.647791, rSqBar -> 0.622543, sst -> 13362.694337, sse -> 4706.464745, sde -> 3.945415, rse -> 4.107195, mse0 -> 15.688216, rmse -> 3.960835, mae -> 2.982886, smape -> 2.383650, bmae -> 8.282481, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 25.657135, aic -> -796.618057, bic -> -718.838625, mape -> 2.398633, mase -> 0.883000, smapeC -> 2.523650, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.647791,	0.622543,	13362.7,	4706.46,	3.94541,	4.10719,	15.6882,	3.96084,	2.98289,	2.38365,	8.28248,	300.000,	20.0000,	279.000,	25.6571,	-796.618,	-718.839,	2.39863,	0.883000,	2.52365,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 20) ADD variable (1, frequency^0.5) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6, 2, 5, 7, 15, 10, 9, 1) @ 2.516682807392343 |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+k = 21 terms selected out of n = 21 candidate terms
+terms added, in order = one, chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0, free_stream_velocity_angle_of_attack, suction_side_displacement_thickness^2.0, free_stream_velocity^2.0, frequency^0.5
+QoF progression as each term is added (R^2, R^2bar, sMAPE, R^2cv):
+  step 1: VectorD(-1.11022e-13,	-1.11022e-13,	4.53993,	-0.0553124)
+  step 2: VectorD(33.5752,	33.5310,	3.43878,	29.0029)
+  step 3: VectorD(54.1238,	54.0626,	2.82969,	54.5226)
+  step 4: VectorD(57.7304,	57.6458,	2.70091,	58.3106)
+  step 5: VectorD(59.1852,	59.0762,	2.62395,	59.7356)
+  step 6: VectorD(60.6504,	60.5190,	2.60880,	60.8586)
+  step 7: VectorD(61.2267,	61.0712,	2.57397,	61.1255)
+  step 8: VectorD(62.2778,	62.1011,	2.52267,	61.8491)
+  step 9: VectorD(62.5012,	62.3004,	2.51149,	61.9052)
+  step 10: VectorD(62.5787,	62.3531,	2.50529,	62.1453)
+  step 11: VectorD(62.6109,	62.3603,	2.49998,	62.2276)
+  step 12: VectorD(62.6147,	62.3389,	2.49920,	62.2569)
+  step 13: VectorD(62.9004,	62.6017,	2.49928,	62.0472)
+  step 14: VectorD(63.0498,	62.7272,	2.50067,	61.9542)
+  step 15: VectorD(63.8800,	63.5402,	2.50098,	62.7430)
+  step 16: VectorD(64.0333,	63.6705,	2.48903,	62.7670)
+  step 17: VectorD(65.1442,	64.7689,	2.47494,	62.8665)
+  step 18: VectorD(65.1574,	64.7585,	2.47390,	62.8295)
+  step 19: VectorD(65.1651,	64.7426,	2.47331,	62.7649)
+  step 20: VectorD(65.1800,	64.7339,	2.47547,	62.8222)
+  step 21: VectorD(65.2021,	64.7325,	2.48174,	62.7787)
+-------------------------------------------------------------------------------
+| [Airfoil] Symbolic Regression 5-fold Cross-Validation (full expanded model) |
+-------------------------------------------------------------------------------
+----------------------------------------------------------------
+| crossValidate: fold 0: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.595894, rSqBar -> 0.566926, sst -> 13805.490439, sse -> 5578.883958, sde -> 4.316884, rse -> 4.471689, mse0 -> 18.596280, rmse -> 4.312340, mae -> 3.439026, smape -> 2.750373, bmae -> 8.402482, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 20.570630, aic -> -822.693036, bic -> -744.913604, mape -> 2.751214, mase -> 0.903297, smapeC -> 2.890373, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 0: qof = VectorD(0.595894,	0.566926,	13805.5,	5578.88,	4.31688,	4.47169,	18.5963,	4.31234,	3.43903,	2.75037,	8.40248,	300.000,	20.0000,	279.000,	20.5706,	-822.693,	-744.914,	2.75121,	0.903297,	2.89037,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 1: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.639605, rSqBar -> 0.613770, sst -> 14658.680363, sse -> 5282.912185, sde -> 4.202442, rse -> 4.351456, mse0 -> 17.609707, rmse -> 4.196392, mae -> 3.221356, smape -> 2.572594, bmae -> 8.433626, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 24.757551, aic -> -814.022941, bic -> -736.243509, mape -> 2.572259, mase -> 0.900005, smapeC -> 2.712594, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 1: qof = VectorD(0.639605,	0.613770,	14658.7,	5282.91,	4.20244,	4.35146,	17.6097,	4.19639,	3.22136,	2.57259,	8.43363,	300.000,	20.0000,	279.000,	24.7576,	-814.023,	-736.244,	2.57226,	0.900005,	2.71259,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 2: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.619351, rSqBar -> 0.592064, sst -> 14777.883957, sse -> 5625.189142, sde -> 4.337332, rse -> 4.490208, mse0 -> 18.750630, rmse -> 4.330200, mae -> 3.304405, smape -> 2.658540, bmae -> 8.384750, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 22.697920, aic -> -824.049484, bic -> -746.270052, mape -> 2.665563, mase -> 0.913524, smapeC -> 2.798540, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 2: qof = VectorD(0.619351,	0.592064,	14777.9,	5625.19,	4.33733,	4.49021,	18.7506,	4.33020,	3.30440,	2.65854,	8.38475,	300.000,	20.0000,	279.000,	22.6979,	-824.049,	-746.270,	2.66556,	0.913524,	2.79854,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 3: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.636295, rSqBar -> 0.610222, sst -> 14767.778228, sse -> 5371.121151, sde -> 4.232978, rse -> 4.387634, mse0 -> 17.903737, rmse -> 4.231281, mae -> 3.255508, smape -> 2.622349, bmae -> 8.766936, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 24.405215, aic -> -816.606904, bic -> -738.827472, mape -> 2.625530, mase -> 0.924278, smapeC -> 2.762349, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 3: qof = VectorD(0.636295,	0.610222,	14767.8,	5371.12,	4.23298,	4.38763,	17.9037,	4.23128,	3.25551,	2.62235,	8.76694,	300.000,	20.0000,	279.000,	24.4052,	-816.607,	-738.827,	2.62553,	0.924278,	2.76235,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+----------------------------------------------------------------
+| crossValidate: fold 4: train-test splits sizes = (1203, 300) |
+----------------------------------------------------------------
+DEBUG @ Regression.validate: n_test = 300, rando = true
+LinkedHashMap(rSq -> 0.647791, rSqBar -> 0.622543, sst -> 13362.694337, sse -> 4706.464745, sde -> 3.945415, rse -> 4.107195, mse0 -> 15.688216, rmse -> 3.960835, mae -> 2.982886, smape -> 2.383650, bmae -> 8.282481, m -> 300.000000, dfr -> 20.000000, df -> 279.000000, fStat -> 25.657135, aic -> -797.136688, bic -> -719.357256, mape -> 2.398633, mase -> 0.883000, smapeC -> 2.523650, picp -> -1.000000, pinc -> -1.000000, ace -> -1.000000, pinaw -> -1.000000, mis -> -1.000000, wis -> -1.000000)
+DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.647791,	0.622543,	13362.7,	4706.46,	3.94541,	4.10719,	15.6882,	3.96084,	2.98289,	2.38365,	8.28248,	300.000,	20.0000,	279.000,	25.6571,	-797.137,	-719.357,	2.39863,	0.883000,	2.52365,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000,	-1.00000)
+-----------------------------------------------
+| showQofStatTable: Statistical Table for QoF |
+-----------------------------------------------
+|        name |   num |        min |        max |       mean |      stdev |   interval |
+----------------------------------------------------------------------------------------
+|         rSq |     5 |      0.596 |      0.648 |      0.628 |      0.021 |      0.026 |
+|      rSqBar |     5 |      0.567 |      0.623 |      0.601 |      0.022 |      0.027 |
+|         sst |     5 |  13362.694 |  14777.884 |  14274.505 |    651.090 |    808.593 |
+|         sse |     5 |   4706.465 |   5625.189 |   5312.914 |    367.534 |    456.443 |
+|         sde |     5 |      3.945 |      4.337 |      4.207 |      0.157 |      0.195 |
+|         rse |     5 |      4.107 |      4.490 |      4.362 |      0.153 |      0.191 |
+|        mse0 |     5 |     15.688 |     18.751 |     17.710 |      1.225 |      1.521 |
+|        rmse |     5 |      3.961 |      4.330 |      4.206 |      0.148 |      0.184 |
+|         mae |     5 |      2.983 |      3.439 |      3.241 |      0.166 |      0.206 |
+|       smape |     5 |      2.384 |      2.750 |      2.598 |      0.136 |      0.169 |
+|        bmae |     5 |      8.282 |      8.767 |      8.454 |      0.184 |      0.228 |
+|           m |     5 |    300.000 |    300.000 |    300.000 |      0.000 |      0.000 |
+|         dfr |     5 |     20.000 |     20.000 |     20.000 |      0.000 |      0.000 |
+|          df |     5 |    279.000 |    279.000 |    279.000 |      0.000 |      0.000 |
+|       fStat |     5 |     20.571 |     25.657 |     23.618 |      2.013 |      2.500 |
+|         aic |     5 |   -824.049 |   -797.137 |   -814.902 |     10.766 |     13.371 |
+|         bic |     5 |   -746.270 |   -719.357 |   -737.122 |     10.766 |     13.371 |
+|        mape |     5 |      2.399 |      2.751 |      2.603 |      0.131 |      0.163 |
+|        mase |     5 |      0.883 |      0.924 |      0.905 |      0.015 |      0.019 |
+|      smapeC |     5 |      2.524 |      2.890 |      2.738 |      0.136 |      0.169 |
+|        picp |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|        pinc |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|         ace |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|       pinaw |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|         mis |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+|         wis |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
+----------------------------------------------------------------------------------------
+[success] elapsed time: 7 s
+[0J

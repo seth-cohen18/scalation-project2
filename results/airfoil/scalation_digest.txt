@@ -1,0 +1,94 @@
+=== airfoil: ScalaTion digest ===
+
+
+--- [Airfoil] Section 1: Regression (ScalaTion) ---
+  QoF: rSq=0.515710, rSqBar=0.514092, sse=34618.219133, rmse=4.799244, smape=2.988658, aic=-4478.057739
+  Coefficients:
+                             one = 132.834
+                       frequency = -0.00128221
+                 angle_of_attack = -0.421912
+                    chord_length = -35.6880
+            free_stream_velocity = 0.0998540
+    suction_side_displacement_thickness = -147.301
+
+--- [Airfoil] Section 1: Regression 5-fold Cross-Validation ---
+
+--- [Airfoil] Section 4a: Transformed Regression -- log(y) (ScalaTion) ---
+  QoF: rSq=0.508165, rSqBar=0.506523, sse=35157.515441, rmse=4.836482, smape=3.002154, aic=-4489.674698
+  Coefficients:
+                             one = 4.89830
+                       frequency = -1.04570e-05
+                 angle_of_attack = -0.00334188
+                    chord_length = -0.285468
+            free_stream_velocity = 0.000800624
+    suction_side_displacement_thickness = -1.23384
+
+--- [Airfoil] Section 4b: Transformed Regression -- sqrt(y) (ScalaTion) ---
+  QoF: rSq=0.512162, rSqBar=0.510533, sse=34871.785574, rmse=4.816789, smape=2.994793, aic=-4483.542157
+  Coefficients:
+                             one = 11.5302
+                       frequency = -5.81169e-05
+                 angle_of_attack = -0.0188481
+                    chord_length = -1.60189
+            free_stream_velocity = 0.00448711
+    suction_side_displacement_thickness = -6.76645
+
+--- [Airfoil] Section 4c: Transformed Regression -- Box-Cox(y), lambda = 0.4 (ScalaTion) ---
+  QoF: rSq=0.511392, rSqBar=0.509760, sse=34926.891996, rmse=4.820593, smape=2.996184, aic=-4484.728788
+  Coefficients:
+                             one = 15.1782
+                       frequency = -7.19182e-05
+                 angle_of_attack = -0.0232552
+                    chord_length = -1.97844
+            free_stream_velocity = 0.00554318
+    suction_side_displacement_thickness = -8.39595
+
+--- [Airfoil] Section 5: Symbolic Regression (ScalaTion) ---
+  QoF: rSq=0.641114, rSqBar=0.636271, sse=25654.019217, rmse=4.131409, smape=2.552527, aic=-4222.848329
+  Coefficients:
+                             one = 134.948
+                   frequency^0.5 = -0.0134804
+             angle_of_attack^0.5 = -1.28882
+                chord_length^0.5 = -21.6283
+        free_stream_velocity^0.5 = 0.0212750
+    suction_side_displacement_thickness^0.5 = 22.3291
+                   frequency^2.0 = -3.48873e-09
+             angle_of_attack^2.0 = -0.000113693
+                chord_length^2.0 = 23.3407
+        free_stream_velocity^2.0 = 0.000688147
+    suction_side_displacement_thickness^2.0 = 1192.64
+       angle_of_attack_frequency = -1.18693e-05
+          chord_length_frequency = -0.00518399
+    chord_length_angle_of_attack = 3.65848
+    free_stream_velocity_frequency = -2.09839e-07
+    free_stream_velocity_angle_of_attack = -0.00422532
+    free_stream_velocity_chord_length = 0.0914023
+    suction_side_displacement_thickness_frequency = -0.0620727
+    suction_side_displacement_thickness_angle_of_attack = -12.7796
+    suction_side_displacement_thickness_chord_length = -1912.76
+    suction_side_displacement_thickness_free_stream_velocity = 3.54073
+
+--- [Airfoil] Section 5: Symbolic Regression Forward Selection (ScalaTion) ---
+  Forward selection order:
+    step 0: INITIAL one
+    step 1: ADD chord_length_frequency (metric=3.4421086668380094)
+    step 2: ADD suction_side_displacement_thickness_frequency (metric=2.8346797140030215)
+    step 3: ADD free_stream_velocity^0.5 (metric=2.7075620594112504)
+    step 4: ADD chord_length_angle_of_attack (metric=2.6322675832390394)
+    step 5: ADD suction_side_displacement_thickness_angle_of_attack (metric=2.618785840454351)
+    step 6: ADD chord_length^0.5 (metric=2.585620662196915)
+    step 7: ADD angle_of_attack_frequency (metric=2.535979980301001)
+    step 8: ADD free_stream_velocity_chord_length (metric=2.5264670179169926)
+    step 9: ADD suction_side_displacement_thickness_free_stream_velocity (metric=2.5219276400412673)
+    step 10: ADD suction_side_displacement_thickness_chord_length (metric=2.5182785976686075)
+    step 11: ADD chord_length^2.0 (metric=2.5191686601678613)
+    step 12: ADD free_stream_velocity_frequency (metric=2.520909815863669)
+    step 13: ADD frequency^2.0 (metric=2.523964182648292)
+    step 14: ADD angle_of_attack^0.5 (metric=2.525936609000133)
+    step 15: ADD suction_side_displacement_thickness^0.5 (metric=2.5156564087083195)
+    step 16: ADD angle_of_attack^2.0 (metric=2.503228104766934)
+    step 17: ADD free_stream_velocity_angle_of_attack (metric=2.503848404118547)
+    step 18: ADD suction_side_displacement_thickness^2.0 (metric=2.5049213376331956)
+    step 19: ADD free_stream_velocity^2.0 (metric=2.5087501221874957)
+    step 20: ADD frequency^0.5 (metric=2.516682807392343)
+  k = 21 terms selected out of n = 21 candidate terms

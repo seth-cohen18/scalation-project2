@@ -1,0 +1,141 @@
+=== concrete: ScalaTion digest ===
+
+
+--- [Concrete] Section 1: Regression (ScalaTion) ---
+  QoF: rSq=0.615465, rSqBar=0.612452, sse=110428.156817, rmse=10.354313, smape=25.620627, aic=-3851.031956
+  Coefficients:
+                             one = -23.1638
+                          cement = 0.119785
+              blast_furnace_slag = 0.103847
+                         fly_ash = 0.0879431
+                           water = -0.150298
+                superplasticizer = 0.290687
+                coarse_aggregate = 0.0180302
+                  fine_aggregate = 0.0201545
+                             age = 0.114226
+
+--- [Concrete] Section 1: Regression 5-fold Cross-Validation ---
+
+--- [Concrete] Section 3: Forward Feature Selection (ScalaTion) ---
+  QoF: rSq=0.615465, rSqBar=0.612452, sse=110428.156817, rmse=10.354313, smape=25.620627, aic=-3851.031956
+  Coefficients:
+                             one = -23.1638
+                          cement = 0.119785
+              blast_furnace_slag = 0.103847
+                         fly_ash = 0.0879431
+                           water = -0.150298
+                superplasticizer = 0.290687
+                coarse_aggregate = 0.0180302
+                  fine_aggregate = 0.0201545
+                             age = 0.114226
+  Forward selection order:
+    step 0: INITIAL one
+    step 1: ADD superplasticizer (metric=38.616469282563884)
+    step 2: ADD age (metric=32.73258821040298)
+    step 3: ADD cement (metric=29.722206646008036)
+    step 4: ADD blast_furnace_slag (metric=28.4469118008942)
+    step 5: ADD fly_ash (metric=27.05591100600825)
+    step 6: ADD water (metric=26.73908563141774)
+    step 7: ADD fine_aggregate (metric=26.772340454535996)
+    step 8: ADD coarse_aggregate (metric=26.7760228745049)
+  columns added, in order = LinkedHashSet(0, 5, 8, 1, 2, 3, 4, 7, 6)
+  features added, in order = one, superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
+  best step by R^2bar = 9 of 9, features = one, superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
+
+--- [Concrete] Section 5: Symbolic Regression (ScalaTion) ---
+  QoF: rSq=0.885720, rSqBar=0.880615, sse=32818.098964, rmse=5.644664, smape=15.028165, aic=-3154.138689
+  Coefficients:
+                             one = -3284.00
+                      cement^0.5 = 16.7063
+          blast_furnace_slag^0.5 = -1.20366
+                     fly_ash^0.5 = 1.03123
+                       water^0.5 = 132.570
+            superplasticizer^0.5 = 5.35160
+            coarse_aggregate^0.5 = 24.3851
+              fine_aggregate^0.5 = 53.2407
+                         age^0.5 = 9.26467
+                      cement^2.0 = 0.000348596
+          blast_furnace_slag^2.0 = -5.64776e-05
+                     fly_ash^2.0 = 0.000676941
+                       water^2.0 = 0.00168437
+            superplasticizer^2.0 = 0.00873638
+            coarse_aggregate^2.0 = 9.13162e-05
+              fine_aggregate^2.0 = -5.72823e-05
+                         age^2.0 = 0.000515766
+       blast_furnace_slag_cement = 0.000172857
+                  fly_ash_cement = 0.000297848
+      fly_ash_blast_furnace_slag = 0.000615919
+                    water_cement = -0.00241383
+        water_blast_furnace_slag = -0.00118689
+                   water_fly_ash = -0.00275099
+         superplasticizer_cement = -0.000187073
+    superplasticizer_blast_furnace_slag = 0.00253086
+        superplasticizer_fly_ash = -0.000485352
+          superplasticizer_water = -0.0108326
+         coarse_aggregate_cement = 3.33191e-05
+    coarse_aggregate_blast_furnace_slag = 0.000223131
+        coarse_aggregate_fly_ash = 0.000213339
+          coarse_aggregate_water = -0.00230814
+    coarse_aggregate_superplasticizer = 0.00133091
+           fine_aggregate_cement = -0.000230753
+    fine_aggregate_blast_furnace_slag = 0.000180568
+          fine_aggregate_fly_ash = 0.000114729
+            fine_aggregate_water = -0.00310653
+    fine_aggregate_superplasticizer = -0.00119201
+    fine_aggregate_coarse_aggregate = -0.000209521
+                      age_cement = -0.000197348
+          age_blast_furnace_slag = -2.23590e-05
+                     age_fly_ash = -6.09152e-05
+                       age_water = -0.00114477
+            age_superplasticizer = 0.00152943
+            age_coarse_aggregate = -6.16679e-05
+              age_fine_aggregate = -0.000258016
+
+--- [Concrete] Section 5: Symbolic Regression Forward Selection (ScalaTion) ---
+  Forward selection order:
+    step 0: INITIAL one
+    step 1: ADD age_superplasticizer (metric=35.75375146810055)
+    step 2: ADD fine_aggregate_coarse_aggregate (metric=30.44679258031088)
+    step 3: ADD age^0.5 (metric=27.639066768691784)
+    step 4: ADD water^2.0 (metric=21.797633588679417)
+    step 5: ADD age_fine_aggregate (metric=19.54445810709695)
+    step 6: ADD fine_aggregate_cement (metric=16.688619468567275)
+    step 7: ADD superplasticizer_blast_furnace_slag (metric=16.116329905935924)
+    step 8: ADD superplasticizer^0.5 (metric=15.811557964331248)
+    step 9: ADD age_water (metric=15.626365450641249)
+    step 10: ADD cement^2.0 (metric=15.3147740303302)
+    step 11: ADD age_blast_furnace_slag (metric=14.926623634105384)
+    step 12: ADD superplasticizer^2.0 (metric=14.754221748283312)
+    step 13: ADD blast_furnace_slag^0.5 (metric=14.578538269535102)
+    step 14: ADD age^2.0 (metric=14.34958199709334)
+    step 15: ADD fine_aggregate_fly_ash (metric=14.303522995341913)
+    step 16: ADD water_cement (metric=14.285065578596946)
+    step 17: ADD water^0.5 (metric=14.256783636117952)
+    step 18: ADD age_fly_ash (metric=14.242802770309194)
+    step 19: ADD fine_aggregate_blast_furnace_slag (metric=14.224026060064999)
+    step 20: ADD fly_ash_blast_furnace_slag (metric=14.208173553090957)
+    step 21: ADD fine_aggregate_superplasticizer (metric=14.186935707031749)
+    step 22: ADD water_fly_ash (metric=14.138137844023092)
+    step 23: ADD blast_furnace_slag^2.0 (metric=14.108677297615362)
+    step 24: ADD water_blast_furnace_slag (metric=14.089667720715783)
+    step 25: ADD superplasticizer_water (metric=14.081861283606358)
+    step 26: ADD coarse_aggregate_fly_ash (metric=14.078181990238072)
+    step 27: ADD fly_ash^2.0 (metric=14.051419138449507)
+    step 28: ADD fly_ash^0.5 (metric=14.044602344358953)
+    step 29: ADD blast_furnace_slag_cement (metric=14.02896878447319)
+    step 30: ADD coarse_aggregate_superplasticizer (metric=14.02716789428894)
+    step 31: ADD cement^0.5 (metric=13.971840945445772)
+    step 32: ADD coarse_aggregate_water (metric=13.631284147573316)
+    step 33: ADD fine_aggregate_water (metric=13.584406209532371)
+    step 34: ADD coarse_aggregate_cement (metric=13.527457224845854)
+    step 35: ADD coarse_aggregate_blast_furnace_slag (metric=13.407731695066849)
+    step 36: ADD coarse_aggregate^2.0 (metric=13.42202792140615)
+    step 37: ADD fine_aggregate^0.5 (metric=13.27454370502015)
+    step 38: ADD superplasticizer_fly_ash (metric=13.324407162351758)
+    step 39: ADD fly_ash_cement (metric=13.321625992338193)
+    step 40: ADD coarse_aggregate^0.5 (metric=13.525009558211899)
+    step 41: ADD superplasticizer_cement (metric=13.67497132661955)
+    step 42: ADD fine_aggregate^2.0 (metric=13.861718172212633)
+    step 43: ADD age_coarse_aggregate (metric=14.152912122139135)
+    step 44: ADD age_cement (metric=14.234827096150939)
+  k = 45 terms selected out of n = 45 candidate terms
