@@ -17,3 +17,6 @@ report/*.fdb_latexmk
 # OS / editor junk
 .DS_Store
 Thumbs.db
+
+# Submission package (built from the repo with git archive)
+project2_submission.zip
