@@ -57,9 +57,19 @@
     step 5: ADD acceleration (metric=10.485444717163375)
     step 6: ADD displacement (metric=10.49998223614183)
     step 7: ADD horsepower (metric=10.586269770793178)
-  columns added, in order = LinkedHashSet(0, 4, 6, 7, 1, 5, 2, 3)
-  features added, in order = one, weight, model_year, origin, cylinders, acceleration, displacement, horsepower
-  best step by R^2bar = 8 of 8, features = one, weight, model_year, origin, cylinders, acceleration, displacement, horsepower
+  terms added, in order (excluding intercept) = weight, model_year, origin, cylinders, acceleration, displacement, horsepower
+  QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =  28.410  R^2cv =  -0.959
+  k =  1  R^2 =  75.364  R^2bar =  75.301  sMAPE =  11.905  R^2cv =  68.487
+  k =  2  R^2 =  81.433  R^2bar =  81.338  sMAPE =  10.912  R^2cv =  80.268
+  k =  3  R^2 =  81.844  R^2bar =  81.704  sMAPE =  10.578  R^2cv =  81.001
+  k =  4  R^2 =  81.887  R^2bar =  81.700  sMAPE =  10.516  R^2cv =  80.955
+  k =  5  R^2 =  81.932  R^2bar =  81.698  sMAPE =  10.447  R^2cv =  80.751
+  k =  6  R^2 =  81.999  R^2bar =  81.719  sMAPE =  10.455  R^2cv =  80.883
+  k =  7  R^2 =  82.113  R^2bar =  81.787  sMAPE =  10.535  R^2cv =  80.920
+  best by sMAPE-IC = 10.4854 (ScalaTion's selection criterion): k = 5 of 7 -> weight, model_year, origin, cylinders, acceleration
+  best by R^2bar: k = 7 of 7 -> weight, model_year, origin, cylinders, acceleration, displacement, horsepower
+  best by R^2cv: k = 3 of 7 -> weight, model_year, origin
 
 --- [AutoMPG] Section 4a: Transformed Regression -- log(y) (ScalaTion) ---
   QoF: rSq=0.855249, rSqBar=0.852610, sse=3447.830802, rmse=2.965719, smape=9.017517, aic=-966.376308
@@ -175,4 +185,44 @@
     step 33: ADD origin_horsepower (metric=7.0042360840107545)
     step 34: ADD origin_model_year (metric=7.037945979390989)
     step 35: ADD origin^2.0 (metric=7.063170566262361)
-  k = 36 terms selected out of n = 36 candidate terms
+  terms added, in order (excluding intercept) = weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement, acceleration_displacement, acceleration^2.0, origin^0.5, horsepower_displacement, acceleration_weight, displacement^2.0, horsepower^2.0, weight_horsepower, acceleration^0.5, horsepower_cylinders, weight_cylinders, cylinders^2.0, weight_displacement, displacement_cylinders, acceleration_cylinders, model_year_cylinders, origin_cylinders, model_year_horsepower, cylinders^0.5, model_year_acceleration, model_year_displacement, origin_horsepower, origin_model_year, origin^2.0
+  QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =  28.410  R^2cv =  -0.959
+  k =  1  R^2 =  77.259  R^2bar =  77.201  sMAPE =  11.259  R^2cv =  69.864
+  k =  2  R^2 =  84.810  R^2bar =  84.732  sMAPE =   9.371  R^2cv =  82.002
+  k =  3  R^2 =  85.475  R^2bar =  85.362  sMAPE =   8.949  R^2cv =  82.268
+  k =  4  R^2 =  87.736  R^2bar =  87.609  sMAPE =   8.401  R^2cv =  85.332
+  k =  5  R^2 =  88.175  R^2bar =  88.022  sMAPE =   8.035  R^2cv =  85.697
+  k =  6  R^2 =  89.336  R^2bar =  89.170  sMAPE =   7.883  R^2cv =  86.097
+  k =  7  R^2 =  89.656  R^2bar =  89.467  sMAPE =   7.647  R^2cv =  86.138
+  k =  8  R^2 =  89.719  R^2bar =  89.504  sMAPE =   7.608  R^2cv =  86.529
+  k =  9  R^2 =  90.172  R^2bar =  89.940  sMAPE =   7.582  R^2cv =  86.720
+  k = 10  R^2 =  90.306  R^2bar =  90.051  sMAPE =   7.441  R^2cv =  86.635
+  k = 11  R^2 =  90.461  R^2bar =  90.184  sMAPE =   7.328  R^2cv =  86.889
+  k = 12  R^2 =  90.533  R^2bar =  90.234  sMAPE =   7.268  R^2cv =  86.863
+  k = 13  R^2 =  90.682  R^2bar =  90.361  sMAPE =   7.170  R^2cv =  86.773
+  k = 14  R^2 =  90.783  R^2bar =  90.441  sMAPE =   7.116  R^2cv =  86.778
+  k = 15  R^2 =  90.803  R^2bar =  90.437  sMAPE =   7.052  R^2cv =  86.794
+  k = 16  R^2 =  90.938  R^2bar =  90.552  sMAPE =   7.010  R^2cv =  86.694
+  k = 17  R^2 =  90.949  R^2bar =  90.538  sMAPE =   6.995  R^2cv =  86.678
+  k = 18  R^2 =  91.070  R^2bar =  90.639  sMAPE =   6.921  R^2cv =  86.520
+  k = 19  R^2 =  91.090  R^2bar =  90.635  sMAPE =   6.871  R^2cv =  86.037
+  k = 20  R^2 =  91.091  R^2bar =  90.611  sMAPE =   6.861  R^2cv =  86.333
+  k = 21  R^2 =  91.103  R^2bar =  90.598  sMAPE =   6.845  R^2cv =  86.301
+  k = 22  R^2 =  91.137  R^2bar =  90.608  sMAPE =   6.833  R^2cv =  86.295
+  k = 23  R^2 =  91.137  R^2bar =  90.583  sMAPE =   6.831  R^2cv =  86.161
+  k = 24  R^2 =  91.137  R^2bar =  90.558  sMAPE =   6.830  R^2cv =  86.165
+  k = 25  R^2 =  91.137  R^2bar =  90.532  sMAPE =   6.831  R^2cv =  86.001
+  k = 26  R^2 =  91.247  R^2bar =  90.623  sMAPE =   6.818  R^2cv =  85.976
+  k = 27  R^2 =  91.255  R^2bar =  90.607  sMAPE =   6.801  R^2cv =  85.928
+  k = 28  R^2 =  91.255  R^2bar =  90.581  sMAPE =   6.798  R^2cv =  85.839
+  k = 29  R^2 =  91.273  R^2bar =  90.574  sMAPE =   6.798  R^2cv =  85.802
+  k = 30  R^2 =  91.283  R^2bar =  90.558  sMAPE =   6.794  R^2cv =  85.706
+  k = 31  R^2 =  91.285  R^2bar =  90.535  sMAPE =   6.789  R^2cv =  85.893
+  k = 32  R^2 =  91.350  R^2bar =  90.579  sMAPE =   6.787  R^2cv =  86.049
+  k = 33  R^2 =  91.442  R^2bar =  90.653  sMAPE =   6.787  R^2cv =  85.851
+  k = 34  R^2 =  91.614  R^2bar =  90.815  sMAPE =   6.814  R^2cv =  85.883
+  k = 35  R^2 =  91.626  R^2bar =  90.802  sMAPE =   6.833  R^2cv =  85.956
+  best by sMAPE-IC = 6.9795 (ScalaTion's selection criterion): k = 27 of 35 -> weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement, acceleration_displacement, acceleration^2.0, origin^0.5, horsepower_displacement, acceleration_weight, displacement^2.0, horsepower^2.0, weight_horsepower, acceleration^0.5, horsepower_cylinders, weight_cylinders, cylinders^2.0, weight_displacement, displacement_cylinders, acceleration_cylinders, model_year_cylinders
+  best by R^2bar: k = 34 of 35 -> weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement, acceleration_displacement, acceleration^2.0, origin^0.5, horsepower_displacement, acceleration_weight, displacement^2.0, horsepower^2.0, weight_horsepower, acceleration^0.5, horsepower_cylinders, weight_cylinders, cylinders^2.0, weight_displacement, displacement_cylinders, acceleration_cylinders, model_year_cylinders, origin_cylinders, model_year_horsepower, cylinders^0.5, model_year_acceleration, model_year_displacement, origin_horsepower, origin_model_year
+  best by R^2cv: k = 11 of 35 -> weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement

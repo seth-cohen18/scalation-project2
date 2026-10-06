@@ -91,4 +91,29 @@
     step 18: ADD suction_side_displacement_thickness^2.0 (metric=2.5049213376331956)
     step 19: ADD free_stream_velocity^2.0 (metric=2.5087501221874957)
     step 20: ADD frequency^0.5 (metric=2.516682807392343)
-  k = 21 terms selected out of n = 21 candidate terms
+  terms added, in order (excluding intercept) = chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0, free_stream_velocity_angle_of_attack, suction_side_displacement_thickness^2.0, free_stream_velocity^2.0, frequency^0.5
+  QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =   4.540  R^2cv =  -0.055
+  k =  1  R^2 =  33.575  R^2bar =  33.531  sMAPE =   3.439  R^2cv =  29.003
+  k =  2  R^2 =  54.124  R^2bar =  54.063  sMAPE =   2.830  R^2cv =  54.523
+  k =  3  R^2 =  57.730  R^2bar =  57.646  sMAPE =   2.701  R^2cv =  58.311
+  k =  4  R^2 =  59.185  R^2bar =  59.076  sMAPE =   2.624  R^2cv =  59.736
+  k =  5  R^2 =  60.650  R^2bar =  60.519  sMAPE =   2.609  R^2cv =  60.859
+  k =  6  R^2 =  61.227  R^2bar =  61.071  sMAPE =   2.574  R^2cv =  61.125
+  k =  7  R^2 =  62.278  R^2bar =  62.101  sMAPE =   2.523  R^2cv =  61.849
+  k =  8  R^2 =  62.501  R^2bar =  62.300  sMAPE =   2.511  R^2cv =  61.905
+  k =  9  R^2 =  62.579  R^2bar =  62.353  sMAPE =   2.505  R^2cv =  62.145
+  k = 10  R^2 =  62.611  R^2bar =  62.360  sMAPE =   2.500  R^2cv =  62.228
+  k = 11  R^2 =  62.615  R^2bar =  62.339  sMAPE =   2.499  R^2cv =  62.257
+  k = 12  R^2 =  62.900  R^2bar =  62.602  sMAPE =   2.499  R^2cv =  62.047
+  k = 13  R^2 =  63.050  R^2bar =  62.727  sMAPE =   2.501  R^2cv =  61.954
+  k = 14  R^2 =  63.880  R^2bar =  63.540  sMAPE =   2.501  R^2cv =  62.743
+  k = 15  R^2 =  64.033  R^2bar =  63.671  sMAPE =   2.489  R^2cv =  62.767
+  k = 16  R^2 =  65.144  R^2bar =  64.769  sMAPE =   2.475  R^2cv =  62.867
+  k = 17  R^2 =  65.157  R^2bar =  64.759  sMAPE =   2.474  R^2cv =  62.830
+  k = 18  R^2 =  65.165  R^2bar =  64.743  sMAPE =   2.473  R^2cv =  62.765
+  k = 19  R^2 =  65.180  R^2bar =  64.734  sMAPE =   2.475  R^2cv =  62.822
+  k = 20  R^2 =  65.202  R^2bar =  64.732  sMAPE =   2.482  R^2cv =  62.779
+  best by sMAPE-IC = 2.5032 (ScalaTion's selection criterion): k = 16 of 20 -> chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0
+  best by R^2bar: k = 16 of 20 -> chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0
+  best by R^2cv: k = 16 of 20 -> chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0

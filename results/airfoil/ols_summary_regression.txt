@@ -5,8 +5,8 @@ Regression: scaled_sound_pressure_level ~ frequency + angle_of_attack + chord_le
 Dep. Variable:                      y   R-squared:                       0.516
 Model:                            OLS   Adj. R-squared:                  0.514
 Method:                 Least Squares   F-statistic:                     318.8
-Date:                Tue, 15 Sep 2026   Prob (F-statistic):          1.15e-232
-Time:                        16:54:29   Log-Likelihood:                -4490.1
+Date:                Tue, 06 Oct 2026   Prob (F-statistic):          1.15e-232
+Time:                        01:56:21   Log-Likelihood:                -4490.1
 No. Observations:                1503   AIC:                             8992.
 Df Residuals:                    1497   BIC:                             9024.
 Df Model:                           5                                         

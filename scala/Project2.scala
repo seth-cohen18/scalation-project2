@@ -1,6 +1,6 @@
 package project2
 
-import scala.collection.mutable.{LinkedHashSet => LSET}
+import scala.collection.mutable.{ArrayBuffer, LinkedHashSet => LSET}
 
 import scalation.*
 import scalation.mathstat._
@@ -16,10 +16,16 @@ import scalation.modeling.given
  *    3. Forward Feature Selection         - 2 of 3 datasets
  *    4. Transformed Regression (log, sqrt, Box-Cox) - 2 of 3 datasets
  *    5. Symbolic Regression               - all 3 datasets
+ *
+ *  Run from a ScalaTion app directory with this file in src/main/scala/project2/.
+ *  Set PROJECT2_DATA_DIR to the folder holding the CSVs (the repo's data/ folder);
+ *  it defaults to "../project 2/data/" (the course folder layout).
  */
 object Project2:
 
-    private val DATA_DIR = "../project 2/data/"
+    private val DATA_DIR =
+        val d = sys.env.getOrElse ("PROJECT2_DATA_DIR", "../project 2/data/")
+        if d.endsWith ("/") || d.endsWith ("\\") then d else d + "/"
 
     /** Bundles the loaded matrices/vectors/names needed by every section below.
      *  @param x         predictor matrix, no intercept column
@@ -114,15 +120,31 @@ object Project2:
         mod.inSample_Test ()
 
         val (cols, rSq) = mod.forwardSelAll ()
-        println (s"columns added, in order = $cols")
-        println (s"features added, in order = ${newFname (ds.ox_fname, cols).mkString (", ")}")
-        println ("QoF progression as each feature is added (R^2, R^2bar, sMAPE, R^2cv):")
-        for i <- rSq.indices do println (s"  step ${i + 1}: ${rSq (i)}")
-
-        val kBest = rSq.map (v => v (QoF.rSqBar.ordinal)).zipWithIndex.maxBy (_._1)._2
-        println (s"best step by R^2bar = ${kBest + 1} of ${rSq.size}, " +
-                 s"features = ${newFname (ds.ox_fname, cols).take (kBest + 1).mkString (", ")}")
+        reportSelection (mod, cols, rSq)
     end sectionForwardSelection
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    /** Print the forward-selection path and the best subset under each criterion.
+     *  k counts predictors/terms excluding the intercept.  ScalaTion chooses each
+     *  added term by sMAPE-IC (sMAPE + 2(k+1)/m) on the training split; R^2 and
+     *  R^2bar are also on the training split, R^2cv is the 5-fold CV mean.
+     */
+    private def reportSelection (mod: Predictor, cols: LSET [Int], rSq: ArrayBuffer [VectorD]): Unit =
+        val fn = newFname (mod.getFname, cols)
+        println (s"terms added, in order (excluding intercept) = ${fn.drop (1).mkString (", ")}")
+        println ("QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):")
+        for i <- rSq.indices do
+            val v = rSq (i)
+            println (f"  k = $i%2d  R^2 = ${v(0)}%7.3f  R^2bar = ${v(1)}%7.3f  sMAPE = ${v(2)}%7.3f  R^2cv = ${v(3)}%7.3f")
+
+        def show (label: String, k: Int): Unit =
+            println (s"best by $label: k = $k of ${rSq.size - 1} -> ${fn.slice (1, k + 1).mkString (", ")}")
+        val best = mod.getBest
+        show (f"sMAPE-IC = ${best.qof (QoF.smapeC.ordinal)}%.4f (ScalaTion's selection criterion)",
+              best.mod_cols.size - 1)
+        show ("R^2bar", rSq.indices.maxBy (rSq (_)(1)))
+        show ("R^2cv", rSq.indices.maxBy (rSq (_)(3)))
+    end reportSelection
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Section 4: Transformed Regression (ScalaTion `TranRegression`):
@@ -164,11 +186,7 @@ object Project2:
 
         banner (s"[$name] Section 5: Symbolic Regression Forward Selection (ScalaTion)")
         val (cols, rSq) = mod.forwardSelAll ()
-        val k = cols.size
-        println (s"k = $k terms selected out of n = ${mod.getFname.size} candidate terms")
-        println (s"terms added, in order = ${newFname (mod.getFname, cols).mkString (", ")}")
-        println ("QoF progression as each term is added (R^2, R^2bar, sMAPE, R^2cv):")
-        for i <- rSq.indices do println (s"  step ${i + 1}: ${rSq (i)}")
+        reportSelection (mod, cols, rSq)
 
         banner (s"[$name] Symbolic Regression 5-fold Cross-Validation (full expanded model)")
         FitM.showQofStatTable (mod.crossValidate ())

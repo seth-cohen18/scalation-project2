@@ -12,7 +12,7 @@ load: read in an 1030-by-9 matrix from ../project 2/data/concrete.csv
 | In-Sample Test: Regression_8.0 |
 ----------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(-23.1638,	0.119785,	0.103847,	0.0879431,	-0.150298,	0.290687,	0.0180302,	0.0201545,	0.114226)
-b = VectorD(-23.1638,	0.119785,	0.103847,	0.0879431,	-0.150298,	0.290687,	0.0180302,	0.0201545,	0.114226), fn = [Ljava.lang.String;@18a70f16
+b = VectorD(-23.1638,	0.119785,	0.103847,	0.0879431,	-0.150298,	0.290687,	0.0180302,	0.0201545,	0.114226), fn = [Ljava.lang.String;@8e0379d
 
 REPORT
     ----------------------------------------------------------------------------
@@ -120,7 +120,7 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.636229,	0.621457,	54989
 | In-Sample Test: Regression_8.0 |
 ----------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(-23.1638,	0.119785,	0.103847,	0.0879431,	-0.150298,	0.290687,	0.0180302,	0.0201545,	0.114226)
-b = VectorD(-23.1638,	0.119785,	0.103847,	0.0879431,	-0.150298,	0.290687,	0.0180302,	0.0201545,	0.114226), fn = [Ljava.lang.String;@18a70f16
+b = VectorD(-23.1638,	0.119785,	0.103847,	0.0879431,	-0.150298,	0.290687,	0.0180302,	0.0201545,	0.114226), fn = [Ljava.lang.String;@8e0379d
 
 REPORT
     ----------------------------------------------------------------------------
@@ -470,19 +470,20 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.636229,	0.621457,	54989
 -----------------------------------------------------------------------------------------------------------------------------------
 | forwardSelAll: (l = 8) ADD variable (6, coarse_aggregate) => cols = LinkedHashSet(0, 5, 8, 1, 2, 3, 4, 7, 6) @ 26.7760228745049 |
 -----------------------------------------------------------------------------------------------------------------------------------
-columns added, in order = LinkedHashSet(0, 5, 8, 1, 2, 3, 4, 7, 6)
-features added, in order = one, superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
-QoF progression as each feature is added (R^2, R^2bar, sMAPE, R^2cv):
-  step 1: VectorD(-4.44089e-14,	-4.44089e-14,	40.0805,	-0.917534)
-  step 2: VectorD(21.2743,	21.1977,	38.6116,	12.4619)
-  step 3: VectorD(39.6166,	39.4991,	32.7253,	29.0653)
-  step 4: VectorD(51.3197,	51.1773,	29.7125,	47.1120)
-  step 5: VectorD(55.9697,	55.7978,	28.4348,	54.1596)
-  step 6: VectorD(59.3527,	59.1542,	27.0413,	56.3962)
-  step 7: VectorD(61.6727,	61.4479,	26.7221,	60.2187)
-  step 8: VectorD(61.7732,	61.5114,	26.7529,	60.1815)
-  step 9: VectorD(61.8357,	61.5367,	26.7542,	60.2402)
-best step by R^2bar = 9 of 9, features = one, superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
+terms added, in order (excluding intercept) = superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
+QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =  40.080  R^2cv =  -0.918
+  k =  1  R^2 =  21.274  R^2bar =  21.198  sMAPE =  38.612  R^2cv =  12.462
+  k =  2  R^2 =  39.617  R^2bar =  39.499  sMAPE =  32.725  R^2cv =  29.065
+  k =  3  R^2 =  51.320  R^2bar =  51.177  sMAPE =  29.712  R^2cv =  47.112
+  k =  4  R^2 =  55.970  R^2bar =  55.798  sMAPE =  28.435  R^2cv =  54.160
+  k =  5  R^2 =  59.353  R^2bar =  59.154  sMAPE =  27.041  R^2cv =  56.396
+  k =  6  R^2 =  61.673  R^2bar =  61.448  sMAPE =  26.722  R^2cv =  60.219
+  k =  7  R^2 =  61.773  R^2bar =  61.511  sMAPE =  26.753  R^2cv =  60.181
+  k =  8  R^2 =  61.836  R^2bar =  61.537  sMAPE =  26.754  R^2cv =  60.240
+best by sMAPE-IC = 26.7391 (ScalaTion's selection criterion): k = 6 of 8 -> superplasticizer, age, cement, blast_furnace_slag, fly_ash, water
+best by R^2bar: k = 8 of 8 -> superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
+best by R^2cv: k = 8 of 8 -> superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
 ---------------------------------------------------------
 | [Concrete] Section 5: Symbolic Regression (ScalaTion) |
 ---------------------------------------------------------
@@ -492,7 +493,7 @@ DEBUG @ MatrixD.crossAll: create matrix with dims = (1030, 28)
 | In-Sample Test: SymbolicRegression_LinkedHashSet(0.5, 2.0)_null |
 -------------------------------------------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(-3284.00,	16.7063,	-1.20366,	1.03123,	132.570,	5.35160,	24.3851,	53.2407,	9.26467,	0.000348596,	-5.64776e-05,	0.000676941,	0.00168437,	0.00873638,	9.13162e-05,	-5.72823e-05,	0.000515766,	0.000172857,	0.000297848,	0.000615919,	-0.00241383,	-0.00118689,	-0.00275099,	-0.000187073,	0.00253086,	-0.000485352,	-0.0108326,	3.33191e-05,	0.000223131,	0.000213339,	-0.00230814,	0.00133091,	-0.000230753,	0.000180568,	0.000114729,	-0.00310653,	-0.00119201,	-0.000209521,	-0.000197348,	-2.23590e-05,	-6.09152e-05,	-0.00114477,	0.00152943,	-6.16679e-05,	-0.000258016)
-b = VectorD(-3284.00,	16.7063,	-1.20366,	1.03123,	132.570,	5.35160,	24.3851,	53.2407,	9.26467,	0.000348596,	-5.64776e-05,	0.000676941,	0.00168437,	0.00873638,	9.13162e-05,	-5.72823e-05,	0.000515766,	0.000172857,	0.000297848,	0.000615919,	-0.00241383,	-0.00118689,	-0.00275099,	-0.000187073,	0.00253086,	-0.000485352,	-0.0108326,	3.33191e-05,	0.000223131,	0.000213339,	-0.00230814,	0.00133091,	-0.000230753,	0.000180568,	0.000114729,	-0.00310653,	-0.00119201,	-0.000209521,	-0.000197348,	-2.23590e-05,	-6.09152e-05,	-0.00114477,	0.00152943,	-6.16679e-05,	-0.000258016), fn = [Ljava.lang.String;@1e6a3214
+b = VectorD(-3284.00,	16.7063,	-1.20366,	1.03123,	132.570,	5.35160,	24.3851,	53.2407,	9.26467,	0.000348596,	-5.64776e-05,	0.000676941,	0.00168437,	0.00873638,	9.13162e-05,	-5.72823e-05,	0.000515766,	0.000172857,	0.000297848,	0.000615919,	-0.00241383,	-0.00118689,	-0.00275099,	-0.000187073,	0.00253086,	-0.000485352,	-0.0108326,	3.33191e-05,	0.000223131,	0.000213339,	-0.00230814,	0.00133091,	-0.000230753,	0.000180568,	0.000114729,	-0.00310653,	-0.00119201,	-0.000209521,	-0.000197348,	-2.23590e-05,	-6.09152e-05,	-0.00114477,	0.00152943,	-6.16679e-05,	-0.000258016), fn = [Ljava.lang.String;@1ca3b418
 
 REPORT
     ----------------------------------------------------------------------------
@@ -3043,54 +3044,56 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.877779,	0.844376,	54989
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | forwardSelAll: (l = 44) ADD variable (38, age_cement) => cols = LinkedHashSet(0, 42, 37, 8, 12, 44, 32, 24, 5, 41, 9, 39, 13, 2, 16, 34, 20, 4, 40, 33, 19, 36, 22, 10, 21, 26, 29, 11, 3, 17, 31, 1, 30, 35, 27, 28, 14, 7, 25, 18, 6, 23, 15, 43, 38) @ 14.234827096150939 |
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-k = 45 terms selected out of n = 45 candidate terms
-terms added, in order = one, age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5, superplasticizer_fly_ash, fly_ash_cement, coarse_aggregate^0.5, superplasticizer_cement, fine_aggregate^2.0, age_coarse_aggregate, age_cement
-QoF progression as each term is added (R^2, R^2bar, sMAPE, R^2cv):
-  step 1: VectorD(-4.44089e-14,	-4.44089e-14,	40.0805,	-0.917534)
-  step 2: VectorD(33.5390,	33.4744,	35.7489,	26.5113)
-  step 3: VectorD(48.9358,	48.8364,	30.4395,	35.6505)
-  step 4: VectorD(56.1829,	56.0547,	27.6293,	44.7895)
-  step 5: VectorD(71.2400,	71.1277,	21.7855,	60.9871)
-  step 6: VectorD(76.6778,	76.5639,	19.5299,	65.0062)
-  step 7: VectorD(80.5972,	80.4834,	16.6716,	74.9533)
-  step 8: VectorD(82.0499,	81.9270,	16.0969,	76.2422)
-  step 9: VectorD(82.1774,	82.0378,	15.7897,	76.2054)
-  step 10: VectorD(83.2327,	83.0848,	15.6021,	76.8302)
-  step 11: VectorD(83.6175,	83.4568,	15.2880,	76.8870)
-  step 12: VectorD(84.2144,	84.0438,	14.8975,	78.0224)
-  step 13: VectorD(85.1508,	84.9756,	14.7226,	79.8737)
-  step 14: VectorD(85.4385,	85.2522,	14.5445,	81.4247)
-  step 15: VectorD(86.2835,	86.0943,	14.3131,	81.7216)
-  step 16: VectorD(86.2910,	86.0882,	14.2646,	81.9450)
-  step 17: VectorD(86.3014,	86.0850,	14.2438,	82.4461)
-  step 18: VectorD(86.3669,	86.1379,	14.2130,	82.5942)
-  step 19: VectorD(86.3737,	86.1311,	14.1966,	82.6440)
-  step 20: VectorD(86.4582,	86.2034,	14.1754,	82.9246)
-  step 21: VectorD(86.5041,	86.2366,	14.1571,	82.7890)
-  step 22: VectorD(86.5068,	86.2257,	14.1335,	83.1597)
-  step 23: VectorD(86.5993,	86.3066,	14.0822,	83.3112)
-  step 24: VectorD(86.6225,	86.3167,	14.0504,	83.3023)
-  step 25: VectorD(86.7222,	86.4051,	14.0289,	83.5426)
-  step 26: VectorD(86.7723,	86.4429,	14.0187,	83.5453)
-  step 27: VectorD(86.8760,	86.5358,	14.0126,	83.5454)
-  step 28: VectorD(86.8817,	86.5282,	13.9834,	83.6097)
-  step 29: VectorD(86.9564,	86.5915,	13.9741,	83.4550)
-  step 30: VectorD(86.9571,	86.5789,	13.9561,	83.4353)
-  step 31: VectorD(87.3418,	86.9617,	13.9518,	84.0381)
-  step 32: VectorD(88.3729,	88.0117,	13.8941,	85.2222)
-  step 33: VectorD(88.5458,	88.1782,	13.5511,	85.3036)
-  step 34: VectorD(89.1892,	88.8310,	13.5018,	85.9602)
-  step 35: VectorD(89.2995,	88.9338,	13.4424,	85.8119)
-  step 36: VectorD(89.4585,	89.0873,	13.3202,	85.9690)
-  step 37: VectorD(89.6564,	89.2814,	13.3321,	86.1743)
-  step 38: VectorD(89.6923,	89.3078,	13.1822,	86.3329)
-  step 39: VectorD(89.7073,	89.3127,	13.2296,	86.3179)
-  step 40: VectorD(89.7831,	89.3807,	13.2244,	86.4822)
-  step 41: VectorD(90.0134,	89.6095,	13.4254,	86.5886)
-  step 42: VectorD(90.1699,	89.7620,	13.5729,	86.5625)
-  step 43: VectorD(90.3569,	89.9466,	13.7572,	86.5032)
-  step 44: VectorD(90.5766,	90.1657,	14.0460,	86.6764)
-  step 45: VectorD(90.6284,	90.2098,	14.1255,	86.6489)
+terms added, in order (excluding intercept) = age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5, superplasticizer_fly_ash, fly_ash_cement, coarse_aggregate^0.5, superplasticizer_cement, fine_aggregate^2.0, age_coarse_aggregate, age_cement
+QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =  40.080  R^2cv =  -0.918
+  k =  1  R^2 =  33.539  R^2bar =  33.474  sMAPE =  35.749  R^2cv =  26.511
+  k =  2  R^2 =  48.936  R^2bar =  48.836  sMAPE =  30.440  R^2cv =  35.650
+  k =  3  R^2 =  56.183  R^2bar =  56.055  sMAPE =  27.629  R^2cv =  44.790
+  k =  4  R^2 =  71.240  R^2bar =  71.128  sMAPE =  21.785  R^2cv =  60.987
+  k =  5  R^2 =  76.678  R^2bar =  76.564  sMAPE =  19.530  R^2cv =  65.006
+  k =  6  R^2 =  80.597  R^2bar =  80.483  sMAPE =  16.672  R^2cv =  74.953
+  k =  7  R^2 =  82.050  R^2bar =  81.927  sMAPE =  16.097  R^2cv =  76.242
+  k =  8  R^2 =  82.177  R^2bar =  82.038  sMAPE =  15.790  R^2cv =  76.205
+  k =  9  R^2 =  83.233  R^2bar =  83.085  sMAPE =  15.602  R^2cv =  76.830
+  k = 10  R^2 =  83.618  R^2bar =  83.457  sMAPE =  15.288  R^2cv =  76.887
+  k = 11  R^2 =  84.214  R^2bar =  84.044  sMAPE =  14.897  R^2cv =  78.022
+  k = 12  R^2 =  85.151  R^2bar =  84.976  sMAPE =  14.723  R^2cv =  79.874
+  k = 13  R^2 =  85.439  R^2bar =  85.252  sMAPE =  14.545  R^2cv =  81.425
+  k = 14  R^2 =  86.283  R^2bar =  86.094  sMAPE =  14.313  R^2cv =  81.722
+  k = 15  R^2 =  86.291  R^2bar =  86.088  sMAPE =  14.265  R^2cv =  81.945
+  k = 16  R^2 =  86.301  R^2bar =  86.085  sMAPE =  14.244  R^2cv =  82.446
+  k = 17  R^2 =  86.367  R^2bar =  86.138  sMAPE =  14.213  R^2cv =  82.594
+  k = 18  R^2 =  86.374  R^2bar =  86.131  sMAPE =  14.197  R^2cv =  82.644
+  k = 19  R^2 =  86.458  R^2bar =  86.203  sMAPE =  14.175  R^2cv =  82.925
+  k = 20  R^2 =  86.504  R^2bar =  86.237  sMAPE =  14.157  R^2cv =  82.789
+  k = 21  R^2 =  86.507  R^2bar =  86.226  sMAPE =  14.133  R^2cv =  83.160
+  k = 22  R^2 =  86.599  R^2bar =  86.307  sMAPE =  14.082  R^2cv =  83.311
+  k = 23  R^2 =  86.623  R^2bar =  86.317  sMAPE =  14.050  R^2cv =  83.302
+  k = 24  R^2 =  86.722  R^2bar =  86.405  sMAPE =  14.029  R^2cv =  83.543
+  k = 25  R^2 =  86.772  R^2bar =  86.443  sMAPE =  14.019  R^2cv =  83.545
+  k = 26  R^2 =  86.876  R^2bar =  86.536  sMAPE =  14.013  R^2cv =  83.545
+  k = 27  R^2 =  86.882  R^2bar =  86.528  sMAPE =  13.983  R^2cv =  83.610
+  k = 28  R^2 =  86.956  R^2bar =  86.592  sMAPE =  13.974  R^2cv =  83.455
+  k = 29  R^2 =  86.957  R^2bar =  86.579  sMAPE =  13.956  R^2cv =  83.435
+  k = 30  R^2 =  87.342  R^2bar =  86.962  sMAPE =  13.952  R^2cv =  84.038
+  k = 31  R^2 =  88.373  R^2bar =  88.012  sMAPE =  13.894  R^2cv =  85.222
+  k = 32  R^2 =  88.546  R^2bar =  88.178  sMAPE =  13.551  R^2cv =  85.304
+  k = 33  R^2 =  89.189  R^2bar =  88.831  sMAPE =  13.502  R^2cv =  85.960
+  k = 34  R^2 =  89.299  R^2bar =  88.934  sMAPE =  13.442  R^2cv =  85.812
+  k = 35  R^2 =  89.459  R^2bar =  89.087  sMAPE =  13.320  R^2cv =  85.969
+  k = 36  R^2 =  89.656  R^2bar =  89.281  sMAPE =  13.332  R^2cv =  86.174
+  k = 37  R^2 =  89.692  R^2bar =  89.308  sMAPE =  13.182  R^2cv =  86.333
+  k = 38  R^2 =  89.707  R^2bar =  89.313  sMAPE =  13.230  R^2cv =  86.318
+  k = 39  R^2 =  89.783  R^2bar =  89.381  sMAPE =  13.224  R^2cv =  86.482
+  k = 40  R^2 =  90.013  R^2bar =  89.609  sMAPE =  13.425  R^2cv =  86.589
+  k = 41  R^2 =  90.170  R^2bar =  89.762  sMAPE =  13.573  R^2cv =  86.562
+  k = 42  R^2 =  90.357  R^2bar =  89.947  sMAPE =  13.757  R^2cv =  86.503
+  k = 43  R^2 =  90.577  R^2bar =  90.166  sMAPE =  14.046  R^2cv =  86.676
+  k = 44  R^2 =  90.628  R^2bar =  90.210  sMAPE =  14.125  R^2cv =  86.649
+best by sMAPE-IC = 13.2745 (ScalaTion's selection criterion): k = 37 of 44 -> age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5
+best by R^2bar: k = 44 of 44 -> age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5, superplasticizer_fly_ash, fly_ash_cement, coarse_aggregate^0.5, superplasticizer_cement, fine_aggregate^2.0, age_coarse_aggregate, age_cement
+best by R^2cv: k = 43 of 44 -> age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5, superplasticizer_fly_ash, fly_ash_cement, coarse_aggregate^0.5, superplasticizer_cement, fine_aggregate^2.0, age_coarse_aggregate
 --------------------------------------------------------------------------------
 | [Concrete] Symbolic Regression 5-fold Cross-Validation (full expanded model) |
 --------------------------------------------------------------------------------
@@ -3156,5 +3159,5 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.877779,	0.844376,	54989
 |         mis |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
 |         wis |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
 ----------------------------------------------------------------------------------------
-[success] elapsed time: 279 s (0:04:39.0)
+[success] elapsed time: 11 s
 [0J

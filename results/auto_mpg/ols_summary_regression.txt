@@ -5,8 +5,8 @@ Regression: mpg ~ cylinders + displacement + horsepower + weight + acceleration 
 Dep. Variable:                      y   R-squared:                       0.821
 Model:                            OLS   Adj. R-squared:                  0.818
 Method:                 Least Squares   F-statistic:                     252.4
-Date:                Tue, 15 Sep 2026   Prob (F-statistic):          2.04e-139
-Time:                        16:54:26   Log-Likelihood:                -1023.5
+Date:                Tue, 06 Oct 2026   Prob (F-statistic):          2.04e-139
+Time:                        01:56:17   Log-Likelihood:                -1023.5
 No. Observations:                 392   AIC:                             2063.
 Df Residuals:                     384   BIC:                             2095.
 Df Model:                           7                                         

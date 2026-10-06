@@ -38,9 +38,20 @@
     step 6: ADD water (metric=26.73908563141774)
     step 7: ADD fine_aggregate (metric=26.772340454535996)
     step 8: ADD coarse_aggregate (metric=26.7760228745049)
-  columns added, in order = LinkedHashSet(0, 5, 8, 1, 2, 3, 4, 7, 6)
-  features added, in order = one, superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
-  best step by R^2bar = 9 of 9, features = one, superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
+  terms added, in order (excluding intercept) = superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
+  QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =  40.080  R^2cv =  -0.918
+  k =  1  R^2 =  21.274  R^2bar =  21.198  sMAPE =  38.612  R^2cv =  12.462
+  k =  2  R^2 =  39.617  R^2bar =  39.499  sMAPE =  32.725  R^2cv =  29.065
+  k =  3  R^2 =  51.320  R^2bar =  51.177  sMAPE =  29.712  R^2cv =  47.112
+  k =  4  R^2 =  55.970  R^2bar =  55.798  sMAPE =  28.435  R^2cv =  54.160
+  k =  5  R^2 =  59.353  R^2bar =  59.154  sMAPE =  27.041  R^2cv =  56.396
+  k =  6  R^2 =  61.673  R^2bar =  61.448  sMAPE =  26.722  R^2cv =  60.219
+  k =  7  R^2 =  61.773  R^2bar =  61.511  sMAPE =  26.753  R^2cv =  60.181
+  k =  8  R^2 =  61.836  R^2bar =  61.537  sMAPE =  26.754  R^2cv =  60.240
+  best by sMAPE-IC = 26.7391 (ScalaTion's selection criterion): k = 6 of 8 -> superplasticizer, age, cement, blast_furnace_slag, fly_ash, water
+  best by R^2bar: k = 8 of 8 -> superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
+  best by R^2cv: k = 8 of 8 -> superplasticizer, age, cement, blast_furnace_slag, fly_ash, water, fine_aggregate, coarse_aggregate
 
 --- [Concrete] Section 5: Symbolic Regression (ScalaTion) ---
   QoF: rSq=0.885720, rSqBar=0.880615, sse=32818.098964, rmse=5.644664, smape=15.028165, aic=-3154.138689
@@ -138,4 +149,53 @@
     step 42: ADD fine_aggregate^2.0 (metric=13.861718172212633)
     step 43: ADD age_coarse_aggregate (metric=14.152912122139135)
     step 44: ADD age_cement (metric=14.234827096150939)
-  k = 45 terms selected out of n = 45 candidate terms
+  terms added, in order (excluding intercept) = age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5, superplasticizer_fly_ash, fly_ash_cement, coarse_aggregate^0.5, superplasticizer_cement, fine_aggregate^2.0, age_coarse_aggregate, age_cement
+  QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =  40.080  R^2cv =  -0.918
+  k =  1  R^2 =  33.539  R^2bar =  33.474  sMAPE =  35.749  R^2cv =  26.511
+  k =  2  R^2 =  48.936  R^2bar =  48.836  sMAPE =  30.440  R^2cv =  35.650
+  k =  3  R^2 =  56.183  R^2bar =  56.055  sMAPE =  27.629  R^2cv =  44.790
+  k =  4  R^2 =  71.240  R^2bar =  71.128  sMAPE =  21.785  R^2cv =  60.987
+  k =  5  R^2 =  76.678  R^2bar =  76.564  sMAPE =  19.530  R^2cv =  65.006
+  k =  6  R^2 =  80.597  R^2bar =  80.483  sMAPE =  16.672  R^2cv =  74.953
+  k =  7  R^2 =  82.050  R^2bar =  81.927  sMAPE =  16.097  R^2cv =  76.242
+  k =  8  R^2 =  82.177  R^2bar =  82.038  sMAPE =  15.790  R^2cv =  76.205
+  k =  9  R^2 =  83.233  R^2bar =  83.085  sMAPE =  15.602  R^2cv =  76.830
+  k = 10  R^2 =  83.618  R^2bar =  83.457  sMAPE =  15.288  R^2cv =  76.887
+  k = 11  R^2 =  84.214  R^2bar =  84.044  sMAPE =  14.897  R^2cv =  78.022
+  k = 12  R^2 =  85.151  R^2bar =  84.976  sMAPE =  14.723  R^2cv =  79.874
+  k = 13  R^2 =  85.439  R^2bar =  85.252  sMAPE =  14.545  R^2cv =  81.425
+  k = 14  R^2 =  86.283  R^2bar =  86.094  sMAPE =  14.313  R^2cv =  81.722
+  k = 15  R^2 =  86.291  R^2bar =  86.088  sMAPE =  14.265  R^2cv =  81.945
+  k = 16  R^2 =  86.301  R^2bar =  86.085  sMAPE =  14.244  R^2cv =  82.446
+  k = 17  R^2 =  86.367  R^2bar =  86.138  sMAPE =  14.213  R^2cv =  82.594
+  k = 18  R^2 =  86.374  R^2bar =  86.131  sMAPE =  14.197  R^2cv =  82.644
+  k = 19  R^2 =  86.458  R^2bar =  86.203  sMAPE =  14.175  R^2cv =  82.925
+  k = 20  R^2 =  86.504  R^2bar =  86.237  sMAPE =  14.157  R^2cv =  82.789
+  k = 21  R^2 =  86.507  R^2bar =  86.226  sMAPE =  14.133  R^2cv =  83.160
+  k = 22  R^2 =  86.599  R^2bar =  86.307  sMAPE =  14.082  R^2cv =  83.311
+  k = 23  R^2 =  86.623  R^2bar =  86.317  sMAPE =  14.050  R^2cv =  83.302
+  k = 24  R^2 =  86.722  R^2bar =  86.405  sMAPE =  14.029  R^2cv =  83.543
+  k = 25  R^2 =  86.772  R^2bar =  86.443  sMAPE =  14.019  R^2cv =  83.545
+  k = 26  R^2 =  86.876  R^2bar =  86.536  sMAPE =  14.013  R^2cv =  83.545
+  k = 27  R^2 =  86.882  R^2bar =  86.528  sMAPE =  13.983  R^2cv =  83.610
+  k = 28  R^2 =  86.956  R^2bar =  86.592  sMAPE =  13.974  R^2cv =  83.455
+  k = 29  R^2 =  86.957  R^2bar =  86.579  sMAPE =  13.956  R^2cv =  83.435
+  k = 30  R^2 =  87.342  R^2bar =  86.962  sMAPE =  13.952  R^2cv =  84.038
+  k = 31  R^2 =  88.373  R^2bar =  88.012  sMAPE =  13.894  R^2cv =  85.222
+  k = 32  R^2 =  88.546  R^2bar =  88.178  sMAPE =  13.551  R^2cv =  85.304
+  k = 33  R^2 =  89.189  R^2bar =  88.831  sMAPE =  13.502  R^2cv =  85.960
+  k = 34  R^2 =  89.299  R^2bar =  88.934  sMAPE =  13.442  R^2cv =  85.812
+  k = 35  R^2 =  89.459  R^2bar =  89.087  sMAPE =  13.320  R^2cv =  85.969
+  k = 36  R^2 =  89.656  R^2bar =  89.281  sMAPE =  13.332  R^2cv =  86.174
+  k = 37  R^2 =  89.692  R^2bar =  89.308  sMAPE =  13.182  R^2cv =  86.333
+  k = 38  R^2 =  89.707  R^2bar =  89.313  sMAPE =  13.230  R^2cv =  86.318
+  k = 39  R^2 =  89.783  R^2bar =  89.381  sMAPE =  13.224  R^2cv =  86.482
+  k = 40  R^2 =  90.013  R^2bar =  89.609  sMAPE =  13.425  R^2cv =  86.589
+  k = 41  R^2 =  90.170  R^2bar =  89.762  sMAPE =  13.573  R^2cv =  86.562
+  k = 42  R^2 =  90.357  R^2bar =  89.947  sMAPE =  13.757  R^2cv =  86.503
+  k = 43  R^2 =  90.577  R^2bar =  90.166  sMAPE =  14.046  R^2cv =  86.676
+  k = 44  R^2 =  90.628  R^2bar =  90.210  sMAPE =  14.125  R^2cv =  86.649
+  best by sMAPE-IC = 13.2745 (ScalaTion's selection criterion): k = 37 of 44 -> age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5
+  best by R^2bar: k = 44 of 44 -> age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5, superplasticizer_fly_ash, fly_ash_cement, coarse_aggregate^0.5, superplasticizer_cement, fine_aggregate^2.0, age_coarse_aggregate, age_cement
+  best by R^2cv: k = 43 of 44 -> age_superplasticizer, fine_aggregate_coarse_aggregate, age^0.5, water^2.0, age_fine_aggregate, fine_aggregate_cement, superplasticizer_blast_furnace_slag, superplasticizer^0.5, age_water, cement^2.0, age_blast_furnace_slag, superplasticizer^2.0, blast_furnace_slag^0.5, age^2.0, fine_aggregate_fly_ash, water_cement, water^0.5, age_fly_ash, fine_aggregate_blast_furnace_slag, fly_ash_blast_furnace_slag, fine_aggregate_superplasticizer, water_fly_ash, blast_furnace_slag^2.0, water_blast_furnace_slag, superplasticizer_water, coarse_aggregate_fly_ash, fly_ash^2.0, fly_ash^0.5, blast_furnace_slag_cement, coarse_aggregate_superplasticizer, cement^0.5, coarse_aggregate_water, fine_aggregate_water, coarse_aggregate_cement, coarse_aggregate_blast_furnace_slag, coarse_aggregate^2.0, fine_aggregate^0.5, superplasticizer_fly_ash, fly_ash_cement, coarse_aggregate^0.5, superplasticizer_cement, fine_aggregate^2.0, age_coarse_aggregate

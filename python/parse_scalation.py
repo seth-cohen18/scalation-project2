@@ -21,8 +21,8 @@ ADDVAR_RE = re.compile(
     r"\| forwardSelAll: \(l = (\d+)\) (INITIAL|ADD) variable \((\d+), (\S+?)\)"
     r"(?: => cols = LinkedHashSet\(([^)]*)\)(?: @ ([\d.eE+-]+))?)?"
 )
-SELECTED_RE = re.compile(r"^(selected (?:columns|features) .*|columns added.*|features added.*|"
-                          r"best step by.*|k = \d+ terms.*)$", re.MULTILINE)
+SELECTED_RE = re.compile(r"^(terms added.*|QoF after each addition.*|\s+k = +\d+ +R\^2 = .*|best by .*)$",
+                          re.MULTILINE)
 QOF_KEYS = ["rSq", "rSqBar", "sse", "rmse", "smape", "aic"]
 
 

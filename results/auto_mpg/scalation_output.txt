@@ -11,7 +11,7 @@ load: read in an 392-by-8 matrix from ../project 2/data/auto_mpg.csv
 | In-Sample Test: Regression_7.0 |
 ----------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(-17.2184,	-0.493376,	0.0198956,	-0.0169511,	-0.00647404,	0.0805758,	0.750773,	1.42614)
-b = VectorD(-17.2184,	-0.493376,	0.0198956,	-0.0169511,	-0.00647404,	0.0805758,	0.750773,	1.42614), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(-17.2184,	-0.493376,	0.0198956,	-0.0169511,	-0.00647404,	0.0805758,	0.750773,	1.42614), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -400,7 +400,7 @@ lambda =   500.00  ->  cv sse =     918.1347
 | In-Sample Test: RidgeRegression_10.0 |
 ----------------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(-0.441325,	0.0184330,	-0.0158187,	-0.00649962,	0.0805576,	0.749257,	1.32980)
-b = VectorD(-0.441325,	0.0184330,	-0.0158187,	-0.00649962,	0.0805576,	0.749257,	1.32980), fn = [Ljava.lang.String;@4803b726
+b = VectorD(-0.441325,	0.0184330,	-0.0158187,	-0.00649962,	0.0805576,	0.749257,	1.32980), fn = [Ljava.lang.String;@6bd61f98
 
 REPORT
     ----------------------------------------------------------------------------
@@ -769,7 +769,7 @@ lambda =   500.00  ->  cv sse =     942.9541
 ---------------------------------------------
 DEBUG @ LassoRegression.train: LassoAdmm estimates parameter b = VectorD(-0.442053,	0.0187830,	-0.0166508,	-0.00647841,	0.0771713,	0.749656,	1.38668)
 DEBUG @ Predictor.trainNTest: b = VectorD(-0.442053,	0.0187830,	-0.0166508,	-0.00647841,	0.0771713,	0.749656,	1.38668)
-b = VectorD(-0.442053,	0.0187830,	-0.0166508,	-0.00647841,	0.0771713,	0.749656,	1.38668), fn = [Ljava.lang.String;@4803b726
+b = VectorD(-0.442053,	0.0187830,	-0.0166508,	-0.00647841,	0.0771713,	0.749656,	1.38668), fn = [Ljava.lang.String;@6bd61f98
 
 REPORT
     ----------------------------------------------------------------------------
@@ -810,7 +810,7 @@ SUMMARY
 | In-Sample Test: Regression_7.0 |
 ----------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(-17.2184,	-0.493376,	0.0198956,	-0.0169511,	-0.00647404,	0.0805758,	0.750773,	1.42614)
-b = VectorD(-17.2184,	-0.493376,	0.0198956,	-0.0169511,	-0.00647404,	0.0805758,	0.750773,	1.42614), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(-17.2184,	-0.493376,	0.0198956,	-0.0169511,	-0.00647404,	0.0805758,	0.750773,	1.42614), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -1119,18 +1119,19 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.809897,	0.790887,	5671.
 ----------------------------------------------------------------------------------------------------------------------------
 | forwardSelAll: (l = 7) ADD variable (3, horsepower) => cols = LinkedHashSet(0, 4, 6, 7, 1, 5, 2, 3) @ 10.586269770793178 |
 ----------------------------------------------------------------------------------------------------------------------------
-columns added, in order = LinkedHashSet(0, 4, 6, 7, 1, 5, 2, 3)
-features added, in order = one, weight, model_year, origin, cylinders, acceleration, displacement, horsepower
-QoF progression as each feature is added (R^2, R^2bar, sMAPE, R^2cv):
-  step 1: VectorD(-2.22045e-14,	-2.22045e-14,	28.4099,	-0.958570)
-  step 2: VectorD(75.3643,	75.3012,	11.9055,	68.4868)
-  step 3: VectorD(81.4330,	81.3376,	10.9122,	80.2683)
-  step 4: VectorD(81.8444,	81.7040,	10.5778,	81.0011)
-  step 5: VectorD(81.8874,	81.7002,	10.5163,	80.9548)
-  step 6: VectorD(81.9325,	81.6985,	10.4471,	80.7510)
-  step 7: VectorD(81.9992,	81.7187,	10.4553,	80.8833)
-  step 8: VectorD(82.1132,	81.7871,	10.5352,	80.9199)
-best step by R^2bar = 8 of 8, features = one, weight, model_year, origin, cylinders, acceleration, displacement, horsepower
+terms added, in order (excluding intercept) = weight, model_year, origin, cylinders, acceleration, displacement, horsepower
+QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =  28.410  R^2cv =  -0.959
+  k =  1  R^2 =  75.364  R^2bar =  75.301  sMAPE =  11.905  R^2cv =  68.487
+  k =  2  R^2 =  81.433  R^2bar =  81.338  sMAPE =  10.912  R^2cv =  80.268
+  k =  3  R^2 =  81.844  R^2bar =  81.704  sMAPE =  10.578  R^2cv =  81.001
+  k =  4  R^2 =  81.887  R^2bar =  81.700  sMAPE =  10.516  R^2cv =  80.955
+  k =  5  R^2 =  81.932  R^2bar =  81.698  sMAPE =  10.447  R^2cv =  80.751
+  k =  6  R^2 =  81.999  R^2bar =  81.719  sMAPE =  10.455  R^2cv =  80.883
+  k =  7  R^2 =  82.113  R^2bar =  81.787  sMAPE =  10.535  R^2cv =  80.920
+best by sMAPE-IC = 10.4854 (ScalaTion's selection criterion): k = 5 of 7 -> weight, model_year, origin, cylinders, acceleration
+best by R^2bar: k = 7 of 7 -> weight, model_year, origin, cylinders, acceleration, displacement, horsepower
+best by R^2cv: k = 3 of 7 -> weight, model_year, origin
 ----------------------------------------------------------------------
 | [AutoMPG] Section 4a: Transformed Regression -- log(y) (ScalaTion) |
 ----------------------------------------------------------------------
@@ -1138,7 +1139,7 @@ best step by R^2bar = 8 of 8, features = one, weight, model_year, origin, cylind
 | In-Sample Test: TranRegression |
 ----------------------------------
 DEBUG @ TranRegression.trainNTest: b = VectorD(1.83990,	-0.0265166,	0.000611948,	-0.00135901,	-0.000244734,	-0.00103933,	0.0283677,	0.0397121)
-b = VectorD(1.83990,	-0.0265166,	0.000611948,	-0.00135901,	-0.000244734,	-0.00103933,	0.0283677,	0.0397121), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(1.83990,	-0.0265166,	0.000611948,	-0.00135901,	-0.000244734,	-0.00103933,	0.0283677,	0.0397121), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -1181,7 +1182,7 @@ SUMMARY
 | In-Sample Test: TranRegression |
 ----------------------------------
 DEBUG @ TranRegression.trainNTest: b = VectorD(1.07531,	-0.0594164,	0.00175227,	-0.00251184,	-0.000636681,	0.00273832,	0.0738117,	0.121662)
-b = VectorD(1.07531,	-0.0594164,	0.00175227,	-0.00251184,	-0.000636681,	0.00273832,	0.0738117,	0.121662), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(1.07531,	-0.0594164,	0.00175227,	-0.00251184,	-0.000636681,	0.00273832,	0.0738117,	0.121662), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -1224,7 +1225,7 @@ SUMMARY
 | In-Sample Test: TranRegression |
 ----------------------------------
 DEBUG @ TranRegression.trainNTest: b = VectorD(0.948700,	-0.0890924,	0.00248357,	-0.00393378,	-0.000921838,	0.00232109,	0.106865,	0.170492)
-b = VectorD(0.948700,	-0.0890924,	0.00248357,	-0.00393378,	-0.000921838,	0.00232109,	0.106865,	0.170492), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(0.948700,	-0.0890924,	0.00248357,	-0.00393378,	-0.000921838,	0.00232109,	0.106865,	0.170492), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -1269,7 +1270,7 @@ DEBUG @ MatrixD.crossAll: create matrix with dims = (392, 21)
 | In-Sample Test: SymbolicRegression_LinkedHashSet(0.5, 2.0)_null |
 -------------------------------------------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(814.119,	17.8804,	-9.43281,	1.45915,	1.14444,	-37.2218,	-101.075,	-35.6933,	0.0577574,	-0.000323487,	-0.000181517,	8.51797e-07,	-0.0342968,	0.0404923,	-1.94085,	-0.00476966,	-0.00818055,	0.000596289,	0.000911320,	3.32363e-06,	-1.42382e-05,	0.132644,	0.00227052,	-0.00360192,	-5.10942e-05,	-0.103498,	0.00434541,	-0.000908754,	-0.000284706,	0.0547872,	0.151413,	0.0521768,	0.00179206,	-0.00134730,	0.570265,	0.111416)
-b = VectorD(814.119,	17.8804,	-9.43281,	1.45915,	1.14444,	-37.2218,	-101.075,	-35.6933,	0.0577574,	-0.000323487,	-0.000181517,	8.51797e-07,	-0.0342968,	0.0404923,	-1.94085,	-0.00476966,	-0.00818055,	0.000596289,	0.000911320,	3.32363e-06,	-1.42382e-05,	0.132644,	0.00227052,	-0.00360192,	-5.10942e-05,	-0.103498,	0.00434541,	-0.000908754,	-0.000284706,	0.0547872,	0.151413,	0.0521768,	0.00179206,	-0.00134730,	0.570265,	0.111416), fn = [Ljava.lang.String;@305ffe9e
+b = VectorD(814.119,	17.8804,	-9.43281,	1.45915,	1.14444,	-37.2218,	-101.075,	-35.6933,	0.0577574,	-0.000323487,	-0.000181517,	8.51797e-07,	-0.0342968,	0.0404923,	-1.94085,	-0.00476966,	-0.00818055,	0.000596289,	0.000911320,	3.32363e-06,	-1.42382e-05,	0.132644,	0.00227052,	-0.00360192,	-5.10942e-05,	-0.103498,	0.00434541,	-0.000908754,	-0.000284706,	0.0547872,	0.151413,	0.0521768,	0.00179206,	-0.00134730,	0.570265,	0.111416), fn = [Ljava.lang.String;@5b38c1ec
 
 REPORT
     ----------------------------------------------------------------------------
@@ -3154,45 +3155,47 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.879650,	0.779359,	5671.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | forwardSelAll: (l = 35) ADD variable (14, origin^2.0) => cols = LinkedHashSet(0, 4, 28, 11, 13, 23, 6, 2, 34, 33, 3, 31, 22, 12, 7, 17, 24, 9, 10, 20, 5, 16, 18, 8, 19, 15, 21, 25, 30, 27, 1, 29, 26, 32, 35, 14) @ 7.063170566262361 |
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-k = 36 terms selected out of n = 36 candidate terms
-terms added, in order = one, weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement, acceleration_displacement, acceleration^2.0, origin^0.5, horsepower_displacement, acceleration_weight, displacement^2.0, horsepower^2.0, weight_horsepower, acceleration^0.5, horsepower_cylinders, weight_cylinders, cylinders^2.0, weight_displacement, displacement_cylinders, acceleration_cylinders, model_year_cylinders, origin_cylinders, model_year_horsepower, cylinders^0.5, model_year_acceleration, model_year_displacement, origin_horsepower, origin_model_year, origin^2.0
-QoF progression as each term is added (R^2, R^2bar, sMAPE, R^2cv):
-  step 1: VectorD(-2.22045e-14,	-2.22045e-14,	28.4099,	-0.958570)
-  step 2: VectorD(77.2592,	77.2009,	11.2592,	69.8641)
-  step 3: VectorD(84.8101,	84.7320,	9.37121,	82.0021)
-  step 4: VectorD(85.4747,	85.3624,	8.94890,	82.2678)
-  step 5: VectorD(87.7358,	87.6091,	8.40119,	85.3317)
-  step 6: VectorD(88.1753,	88.0221,	8.03537,	85.6974)
-  step 7: VectorD(89.3360,	89.1698,	7.88254,	86.0970)
-  step 8: VectorD(89.6560,	89.4675,	7.64749,	86.1379)
-  step 9: VectorD(89.7189,	89.5041,	7.60844,	86.5292)
-  step 10: VectorD(90.1717,	89.9402,	7.58165,	86.7196)
-  step 11: VectorD(90.3056,	90.0512,	7.44076,	86.6347)
-  step 12: VectorD(90.4605,	90.1844,	7.32796,	86.8887)
-  step 13: VectorD(90.5334,	90.2336,	7.26753,	86.8629)
-  step 14: VectorD(90.6818,	90.3614,	7.16995,	86.7730)
-  step 15: VectorD(90.7834,	90.4412,	7.11588,	86.7781)
-  step 16: VectorD(90.8034,	90.4365,	7.05168,	86.7937)
-  step 17: VectorD(90.9385,	90.5518,	7.01019,	86.6937)
-  step 18: VectorD(90.9495,	90.5381,	6.99513,	86.6783)
-  step 19: VectorD(91.0704,	90.6395,	6.92080,	86.5200)
-  step 20: VectorD(91.0898,	90.6347,	6.87138,	86.0374)
-  step 21: VectorD(91.0910,	90.6107,	6.86117,	86.3332)
-  step 22: VectorD(91.1028,	90.5978,	6.84547,	86.3014)
-  step 23: VectorD(91.1365,	90.6081,	6.83308,	86.2952)
-  step 24: VectorD(91.1371,	90.5831,	6.83098,	86.1608)
-  step 25: VectorD(91.1372,	90.5576,	6.83016,	86.1652)
-  step 26: VectorD(91.1372,	90.5318,	6.83056,	86.0010)
-  step 27: VectorD(91.2465,	90.6230,	6.81835,	85.9758)
-  step 28: VectorD(91.2552,	90.6065,	6.80056,	85.9282)
-  step 29: VectorD(91.2554,	90.5809,	6.79759,	85.8391)
-  step 30: VectorD(91.2731,	90.5739,	6.79769,	85.8016)
-  step 31: VectorD(91.2826,	90.5582,	6.79372,	85.7060)
-  step 32: VectorD(91.2852,	90.5348,	6.78859,	85.8927)
-  step 33: VectorD(91.3498,	90.5788,	6.78696,	86.0491)
-  step 34: VectorD(91.4422,	90.6533,	6.78698,	85.8510)
-  step 35: VectorD(91.6139,	90.8152,	6.81430,	85.8829)
-  step 36: VectorD(91.6257,	90.8024,	6.83314,	85.9558)
+terms added, in order (excluding intercept) = weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement, acceleration_displacement, acceleration^2.0, origin^0.5, horsepower_displacement, acceleration_weight, displacement^2.0, horsepower^2.0, weight_horsepower, acceleration^0.5, horsepower_cylinders, weight_cylinders, cylinders^2.0, weight_displacement, displacement_cylinders, acceleration_cylinders, model_year_cylinders, origin_cylinders, model_year_horsepower, cylinders^0.5, model_year_acceleration, model_year_displacement, origin_horsepower, origin_model_year, origin^2.0
+QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =  28.410  R^2cv =  -0.959
+  k =  1  R^2 =  77.259  R^2bar =  77.201  sMAPE =  11.259  R^2cv =  69.864
+  k =  2  R^2 =  84.810  R^2bar =  84.732  sMAPE =   9.371  R^2cv =  82.002
+  k =  3  R^2 =  85.475  R^2bar =  85.362  sMAPE =   8.949  R^2cv =  82.268
+  k =  4  R^2 =  87.736  R^2bar =  87.609  sMAPE =   8.401  R^2cv =  85.332
+  k =  5  R^2 =  88.175  R^2bar =  88.022  sMAPE =   8.035  R^2cv =  85.697
+  k =  6  R^2 =  89.336  R^2bar =  89.170  sMAPE =   7.883  R^2cv =  86.097
+  k =  7  R^2 =  89.656  R^2bar =  89.467  sMAPE =   7.647  R^2cv =  86.138
+  k =  8  R^2 =  89.719  R^2bar =  89.504  sMAPE =   7.608  R^2cv =  86.529
+  k =  9  R^2 =  90.172  R^2bar =  89.940  sMAPE =   7.582  R^2cv =  86.720
+  k = 10  R^2 =  90.306  R^2bar =  90.051  sMAPE =   7.441  R^2cv =  86.635
+  k = 11  R^2 =  90.461  R^2bar =  90.184  sMAPE =   7.328  R^2cv =  86.889
+  k = 12  R^2 =  90.533  R^2bar =  90.234  sMAPE =   7.268  R^2cv =  86.863
+  k = 13  R^2 =  90.682  R^2bar =  90.361  sMAPE =   7.170  R^2cv =  86.773
+  k = 14  R^2 =  90.783  R^2bar =  90.441  sMAPE =   7.116  R^2cv =  86.778
+  k = 15  R^2 =  90.803  R^2bar =  90.437  sMAPE =   7.052  R^2cv =  86.794
+  k = 16  R^2 =  90.938  R^2bar =  90.552  sMAPE =   7.010  R^2cv =  86.694
+  k = 17  R^2 =  90.949  R^2bar =  90.538  sMAPE =   6.995  R^2cv =  86.678
+  k = 18  R^2 =  91.070  R^2bar =  90.639  sMAPE =   6.921  R^2cv =  86.520
+  k = 19  R^2 =  91.090  R^2bar =  90.635  sMAPE =   6.871  R^2cv =  86.037
+  k = 20  R^2 =  91.091  R^2bar =  90.611  sMAPE =   6.861  R^2cv =  86.333
+  k = 21  R^2 =  91.103  R^2bar =  90.598  sMAPE =   6.845  R^2cv =  86.301
+  k = 22  R^2 =  91.137  R^2bar =  90.608  sMAPE =   6.833  R^2cv =  86.295
+  k = 23  R^2 =  91.137  R^2bar =  90.583  sMAPE =   6.831  R^2cv =  86.161
+  k = 24  R^2 =  91.137  R^2bar =  90.558  sMAPE =   6.830  R^2cv =  86.165
+  k = 25  R^2 =  91.137  R^2bar =  90.532  sMAPE =   6.831  R^2cv =  86.001
+  k = 26  R^2 =  91.247  R^2bar =  90.623  sMAPE =   6.818  R^2cv =  85.976
+  k = 27  R^2 =  91.255  R^2bar =  90.607  sMAPE =   6.801  R^2cv =  85.928
+  k = 28  R^2 =  91.255  R^2bar =  90.581  sMAPE =   6.798  R^2cv =  85.839
+  k = 29  R^2 =  91.273  R^2bar =  90.574  sMAPE =   6.798  R^2cv =  85.802
+  k = 30  R^2 =  91.283  R^2bar =  90.558  sMAPE =   6.794  R^2cv =  85.706
+  k = 31  R^2 =  91.285  R^2bar =  90.535  sMAPE =   6.789  R^2cv =  85.893
+  k = 32  R^2 =  91.350  R^2bar =  90.579  sMAPE =   6.787  R^2cv =  86.049
+  k = 33  R^2 =  91.442  R^2bar =  90.653  sMAPE =   6.787  R^2cv =  85.851
+  k = 34  R^2 =  91.614  R^2bar =  90.815  sMAPE =   6.814  R^2cv =  85.883
+  k = 35  R^2 =  91.626  R^2bar =  90.802  sMAPE =   6.833  R^2cv =  85.956
+best by sMAPE-IC = 6.9795 (ScalaTion's selection criterion): k = 27 of 35 -> weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement, acceleration_displacement, acceleration^2.0, origin^0.5, horsepower_displacement, acceleration_weight, displacement^2.0, horsepower^2.0, weight_horsepower, acceleration^0.5, horsepower_cylinders, weight_cylinders, cylinders^2.0, weight_displacement, displacement_cylinders, acceleration_cylinders, model_year_cylinders
+best by R^2bar: k = 34 of 35 -> weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement, acceleration_displacement, acceleration^2.0, origin^0.5, horsepower_displacement, acceleration_weight, displacement^2.0, horsepower^2.0, weight_horsepower, acceleration^0.5, horsepower_cylinders, weight_cylinders, cylinders^2.0, weight_displacement, displacement_cylinders, acceleration_cylinders, model_year_cylinders, origin_cylinders, model_year_horsepower, cylinders^0.5, model_year_acceleration, model_year_displacement, origin_horsepower, origin_model_year
+best by R^2cv: k = 11 of 35 -> weight^0.5, model_year_weight, weight^2.0, model_year^2.0, acceleration_horsepower, model_year^0.5, displacement^0.5, origin_acceleration, origin_weight, horsepower^0.5, origin_displacement
 -------------------------------------------------------------------------------
 | [AutoMPG] Symbolic Regression 5-fold Cross-Validation (full expanded model) |
 -------------------------------------------------------------------------------
@@ -3258,5 +3261,5 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.879650,	0.779359,	5671.
 |         mis |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
 |         wis |     5 |     -1.000 |     -1.000 |     -1.000 |      0.000 |      0.000 |
 ----------------------------------------------------------------------------------------
-[success] elapsed time: 135 s (0:02:15.0)
+[success] elapsed time: 18 s
 [0J

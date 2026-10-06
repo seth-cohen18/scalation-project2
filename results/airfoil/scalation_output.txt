@@ -12,7 +12,7 @@ load: read in an 1503-by-6 matrix from ../project 2/data/airfoil.csv
 | In-Sample Test: Regression_5.0 |
 ----------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(132.834,	-0.00128221,	-0.421912,	-35.6880,	0.0998540,	-147.301)
-b = VectorD(132.834,	-0.00128221,	-0.421912,	-35.6880,	0.0998540,	-147.301), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(132.834,	-0.00128221,	-0.421912,	-35.6880,	0.0998540,	-147.301), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -117,7 +117,7 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.501961,	0.493491,	13362
 | In-Sample Test: TranRegression |
 ----------------------------------
 DEBUG @ TranRegression.trainNTest: b = VectorD(4.89830,	-1.04570e-05,	-0.00334188,	-0.285468,	0.000800624,	-1.23384)
-b = VectorD(4.89830,	-1.04570e-05,	-0.00334188,	-0.285468,	0.000800624,	-1.23384), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(4.89830,	-1.04570e-05,	-0.00334188,	-0.285468,	0.000800624,	-1.23384), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -158,7 +158,7 @@ SUMMARY
 | In-Sample Test: TranRegression |
 ----------------------------------
 DEBUG @ TranRegression.trainNTest: b = VectorD(11.5302,	-5.81169e-05,	-0.0188481,	-1.60189,	0.00448711,	-6.76645)
-b = VectorD(11.5302,	-5.81169e-05,	-0.0188481,	-1.60189,	0.00448711,	-6.76645), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(11.5302,	-5.81169e-05,	-0.0188481,	-1.60189,	0.00448711,	-6.76645), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -199,7 +199,7 @@ SUMMARY
 | In-Sample Test: TranRegression |
 ----------------------------------
 DEBUG @ TranRegression.trainNTest: b = VectorD(15.1782,	-7.19182e-05,	-0.0232552,	-1.97844,	0.00554318,	-8.39595)
-b = VectorD(15.1782,	-7.19182e-05,	-0.0232552,	-1.97844,	0.00554318,	-8.39595), fn = [Ljava.lang.String;@51b7e5df
+b = VectorD(15.1782,	-7.19182e-05,	-0.0232552,	-1.97844,	0.00554318,	-8.39595), fn = [Ljava.lang.String;@35083305
 
 REPORT
     ----------------------------------------------------------------------------
@@ -242,7 +242,7 @@ DEBUG @ MatrixD.crossAll: create matrix with dims = (1503, 10)
 | In-Sample Test: SymbolicRegression_LinkedHashSet(0.5, 2.0)_null |
 -------------------------------------------------------------------
 DEBUG @ Predictor.trainNTest: b = VectorD(134.948,	-0.0134804,	-1.28882,	-21.6283,	0.0212750,	22.3291,	-3.48873e-09,	-0.000113693,	23.3407,	0.000688147,	1192.64,	-1.18693e-05,	-0.00518399,	3.65848,	-2.09839e-07,	-0.00422532,	0.0914023,	-0.0620727,	-12.7796,	-1912.76,	3.54073)
-b = VectorD(134.948,	-0.0134804,	-1.28882,	-21.6283,	0.0212750,	22.3291,	-3.48873e-09,	-0.000113693,	23.3407,	0.000688147,	1192.64,	-1.18693e-05,	-0.00518399,	3.65848,	-2.09839e-07,	-0.00422532,	0.0914023,	-0.0620727,	-12.7796,	-1912.76,	3.54073), fn = [Ljava.lang.String;@7b36aa0c
+b = VectorD(134.948,	-0.0134804,	-1.28882,	-21.6283,	0.0212750,	22.3291,	-3.48873e-09,	-0.000113693,	23.3407,	0.000688147,	1192.64,	-1.18693e-05,	-0.00518399,	3.65848,	-2.09839e-07,	-0.00422532,	0.0914023,	-0.0620727,	-12.7796,	-1912.76,	3.54073), fn = [Ljava.lang.String;@54c5a2ff
 
 REPORT
     ----------------------------------------------------------------------------
@@ -1197,30 +1197,32 @@ DEBUG @ Predictor.crossValidate: fold 4: qof = VectorD(0.647791,	0.622543,	13362
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | forwardSelAll: (l = 20) ADD variable (1, frequency^0.5) => cols = LinkedHashSet(0, 12, 17, 4, 13, 18, 3, 11, 16, 20, 19, 8, 14, 6, 2, 5, 7, 15, 10, 9, 1) @ 2.516682807392343 |
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-k = 21 terms selected out of n = 21 candidate terms
-terms added, in order = one, chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0, free_stream_velocity_angle_of_attack, suction_side_displacement_thickness^2.0, free_stream_velocity^2.0, frequency^0.5
-QoF progression as each term is added (R^2, R^2bar, sMAPE, R^2cv):
-  step 1: VectorD(-1.11022e-13,	-1.11022e-13,	4.53993,	-0.0553124)
-  step 2: VectorD(33.5752,	33.5310,	3.43878,	29.0029)
-  step 3: VectorD(54.1238,	54.0626,	2.82969,	54.5226)
-  step 4: VectorD(57.7304,	57.6458,	2.70091,	58.3106)
-  step 5: VectorD(59.1852,	59.0762,	2.62395,	59.7356)
-  step 6: VectorD(60.6504,	60.5190,	2.60880,	60.8586)
-  step 7: VectorD(61.2267,	61.0712,	2.57397,	61.1255)
-  step 8: VectorD(62.2778,	62.1011,	2.52267,	61.8491)
-  step 9: VectorD(62.5012,	62.3004,	2.51149,	61.9052)
-  step 10: VectorD(62.5787,	62.3531,	2.50529,	62.1453)
-  step 11: VectorD(62.6109,	62.3603,	2.49998,	62.2276)
-  step 12: VectorD(62.6147,	62.3389,	2.49920,	62.2569)
-  step 13: VectorD(62.9004,	62.6017,	2.49928,	62.0472)
-  step 14: VectorD(63.0498,	62.7272,	2.50067,	61.9542)
-  step 15: VectorD(63.8800,	63.5402,	2.50098,	62.7430)
-  step 16: VectorD(64.0333,	63.6705,	2.48903,	62.7670)
-  step 17: VectorD(65.1442,	64.7689,	2.47494,	62.8665)
-  step 18: VectorD(65.1574,	64.7585,	2.47390,	62.8295)
-  step 19: VectorD(65.1651,	64.7426,	2.47331,	62.7649)
-  step 20: VectorD(65.1800,	64.7339,	2.47547,	62.8222)
-  step 21: VectorD(65.2021,	64.7325,	2.48174,	62.7787)
+terms added, in order (excluding intercept) = chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0, free_stream_velocity_angle_of_attack, suction_side_displacement_thickness^2.0, free_stream_velocity^2.0, frequency^0.5
+QoF after each addition (R^2, R^2bar, sMAPE: training split; R^2cv: 5-fold CV mean; all in %):
+  k =  0  R^2 =  -0.000  R^2bar =  -0.000  sMAPE =   4.540  R^2cv =  -0.055
+  k =  1  R^2 =  33.575  R^2bar =  33.531  sMAPE =   3.439  R^2cv =  29.003
+  k =  2  R^2 =  54.124  R^2bar =  54.063  sMAPE =   2.830  R^2cv =  54.523
+  k =  3  R^2 =  57.730  R^2bar =  57.646  sMAPE =   2.701  R^2cv =  58.311
+  k =  4  R^2 =  59.185  R^2bar =  59.076  sMAPE =   2.624  R^2cv =  59.736
+  k =  5  R^2 =  60.650  R^2bar =  60.519  sMAPE =   2.609  R^2cv =  60.859
+  k =  6  R^2 =  61.227  R^2bar =  61.071  sMAPE =   2.574  R^2cv =  61.125
+  k =  7  R^2 =  62.278  R^2bar =  62.101  sMAPE =   2.523  R^2cv =  61.849
+  k =  8  R^2 =  62.501  R^2bar =  62.300  sMAPE =   2.511  R^2cv =  61.905
+  k =  9  R^2 =  62.579  R^2bar =  62.353  sMAPE =   2.505  R^2cv =  62.145
+  k = 10  R^2 =  62.611  R^2bar =  62.360  sMAPE =   2.500  R^2cv =  62.228
+  k = 11  R^2 =  62.615  R^2bar =  62.339  sMAPE =   2.499  R^2cv =  62.257
+  k = 12  R^2 =  62.900  R^2bar =  62.602  sMAPE =   2.499  R^2cv =  62.047
+  k = 13  R^2 =  63.050  R^2bar =  62.727  sMAPE =   2.501  R^2cv =  61.954
+  k = 14  R^2 =  63.880  R^2bar =  63.540  sMAPE =   2.501  R^2cv =  62.743
+  k = 15  R^2 =  64.033  R^2bar =  63.671  sMAPE =   2.489  R^2cv =  62.767
+  k = 16  R^2 =  65.144  R^2bar =  64.769  sMAPE =   2.475  R^2cv =  62.867
+  k = 17  R^2 =  65.157  R^2bar =  64.759  sMAPE =   2.474  R^2cv =  62.830
+  k = 18  R^2 =  65.165  R^2bar =  64.743  sMAPE =   2.473  R^2cv =  62.765
+  k = 19  R^2 =  65.180  R^2bar =  64.734  sMAPE =   2.475  R^2cv =  62.822
+  k = 20  R^2 =  65.202  R^2bar =  64.732  sMAPE =   2.482  R^2cv =  62.779
+best by sMAPE-IC = 2.5032 (ScalaTion's selection criterion): k = 16 of 20 -> chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0
+best by R^2bar: k = 16 of 20 -> chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0
+best by R^2cv: k = 16 of 20 -> chord_length_frequency, suction_side_displacement_thickness_frequency, free_stream_velocity^0.5, chord_length_angle_of_attack, suction_side_displacement_thickness_angle_of_attack, chord_length^0.5, angle_of_attack_frequency, free_stream_velocity_chord_length, suction_side_displacement_thickness_free_stream_velocity, suction_side_displacement_thickness_chord_length, chord_length^2.0, free_stream_velocity_frequency, frequency^2.0, angle_of_attack^0.5, suction_side_displacement_thickness^0.5, angle_of_attack^2.0
 -------------------------------------------------------------------------------
 | [Airfoil] Symbolic Regression 5-fold Cross-Validation (full expanded model) |
 -------------------------------------------------------------------------------

@@ -69,7 +69,11 @@ def section1_regression(cfg, out_dir):
 
 
 def cv_mse(X, y, alpha, L1_wt, n_splits=5, seed=0):
-    """5-fold CV MSE for OLS.fit_regularized(alpha, L1_wt) on standardized X."""
+    """5-fold CV MSE for OLS.fit_regularized(alpha, L1_wt) on standardized X.
+
+    There is no intercept column (it would be penalized), so y is centered on
+    the training-fold mean and that mean is added back to the predictions.
+    """
     kf = KFold(n_splits=n_splits, shuffle=True, random_state=seed)
     mses = []
     for train_idx, test_idx in kf.split(X):
@@ -79,8 +83,9 @@ def cv_mse(X, y, alpha, L1_wt, n_splits=5, seed=0):
         sd[sd == 0] = 1.0
         Xtr_s = (Xtr - mu) / sd
         Xte_s = (Xte - mu) / sd
-        res = sm.OLS(ytr, Xtr_s).fit_regularized(alpha=alpha, L1_wt=L1_wt)
-        yhat = Xte_s @ res.params
+        y_mean = ytr.mean()
+        res = sm.OLS(ytr - y_mean, Xtr_s).fit_regularized(alpha=alpha, L1_wt=L1_wt)
+        yhat = Xte_s @ res.params + y_mean
         mses.append(np.mean((yte - yhat) ** 2))
     return float(np.mean(mses))
 
