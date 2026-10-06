@@ -44,14 +44,14 @@ def section1_regression(cfg, out_dir):
     y = df[cfg["target"]].values
     X = df.drop(columns=[cfg["target"]])
     fname = list(X.columns)
-    Xc = sm.add_constant(X.values)
+    Xc = sm.add_constant(X)
 
-    model = sm.OLS(y, Xc).fit()
+    model = sm.OLS(df[cfg["target"]], Xc).fit()
     with open(os.path.join(out_dir, "ols_summary_regression.txt"), "w") as f:
         f.write(f"Regression: {cfg['target']} ~ {' + '.join(fname)}\n\n")
         f.write(str(model.summary()))
 
-    yhat = model.predict(Xc)
+    yhat = model.predict(Xc).values
     plt.figure(figsize=(6, 6))
     plt.scatter(y, yhat, s=12, alpha=0.6)
     lims = [min(y.min(), yhat.min()), max(y.max(), yhat.max())]

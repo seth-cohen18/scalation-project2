@@ -52,8 +52,8 @@ compact digest of coefficients and QoF is in
 
 \begin{sloppypar}
 \textbf{Reproducing the results.} The Python scripts in \texttt{python/} read
-\texttt{data/} relative to the repository and need \texttt{statsmodels}, and
-\texttt{pysr} for Section 5. To run the ScalaTion code, copy
+\texttt{data/} relative to the repository and need \texttt{statsmodels} (and
+\texttt{pysr} for Section 5). To run the ScalaTion code, copy
 \texttt{scala/Project2.scala} into a ScalaTion app at
 \texttt{src/main/scala/project2/}, set the environment variable
 \texttt{PROJECT2\_DATA\_DIR} to this repository's \texttt{data/} folder, and
@@ -69,24 +69,26 @@ ScalaTion's \texttt{Regression} and Statsmodels' \texttt{OLS} were fit on
 \texttt{mpg} against all 7 predictors (\texttt{cylinders}, \texttt{displacement},
 \texttt{horsepower}, \texttt{weight}, \texttt{acceleration},
 \texttt{model\_year}, \texttt{origin}). Both tools solve the same
-least-squares problem and, as expected, agree to at least 3 decimal places on
-every coefficient and QoF metric.
+least-squares problem and, as expected, agree to 6 significant figures on
+every coefficient, with identical $R^2$. This holds for all three datasets.
 
 \begin{table}[H]
 \centering
-\caption{Auto MPG multiple regression coefficients (ScalaTion; Statsmodels agrees).}
-\begin{tabular}{lr}
+\caption{Auto MPG multiple regression. The ScalaTion and Statsmodels
+coefficients agree to 6 significant figures. Standard errors and $p$-values
+are from Statsmodels.}
+\begin{tabular}{lrrrr}
 \toprule
-Term & Coefficient \\
+Term & ScalaTion & Statsmodels & Std.\ err. & $p$-value \\
 \midrule
-intercept & $-17.218$ \\
-cylinders & $-0.4934$ \\
-displacement & $0.01990$ \\
-horsepower & $-0.01695$ \\
-weight & $-0.006474$ \\
-acceleration & $0.08058$ \\
-model\_year & $0.7508$ \\
-origin & $1.4261$ \\
+intercept & $-17.2184$ & $-17.2184$ & 4.644 & $<0.001$ \\
+cylinders & $-0.49338$ & $-0.49338$ & 0.3233 & 0.128 \\
+displacement & $0.019896$ & $0.019896$ & 0.00752 & 0.008 \\
+horsepower & $-0.016951$ & $-0.016951$ & 0.01379 & 0.220 \\
+weight & $-0.0064740$ & $-0.0064740$ & 0.000652 & $<0.001$ \\
+acceleration & $0.080576$ & $0.080576$ & 0.09884 & 0.415 \\
+model\_year & $0.75077$ & $0.75077$ & 0.05097 & $<0.001$ \\
+origin & $1.4261$ & $1.4261$ & 0.2781 & $<0.001$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -126,20 +128,22 @@ predictors.
 
 \begin{table}[H]
 \centering
-\caption{Concrete multiple regression coefficients (ScalaTion; Statsmodels agrees).}
-\begin{tabular}{lr}
+\caption{Concrete multiple regression. The ScalaTion and Statsmodels
+coefficients agree to 6 significant figures. Standard errors and $p$-values
+are from Statsmodels.}
+\begin{tabular}{lrrrr}
 \toprule
-Term & Coefficient \\
+Term & ScalaTion & Statsmodels & Std.\ err. & $p$-value \\
 \midrule
-intercept & $-23.164$ \\
-cement & $0.1198$ \\
-blast\_furnace\_slag & $0.1038$ \\
-fly\_ash & $0.0879$ \\
-water & $-0.1503$ \\
-superplasticizer & $0.2907$ \\
-coarse\_aggregate & $0.0180$ \\
-fine\_aggregate & $0.0202$ \\
-age & $0.1142$ \\
+intercept & $-23.164$ & $-23.164$ & 26.59 & 0.384 \\
+cement & $0.11979$ & $0.11979$ & 0.00849 & $<0.001$ \\
+blast\_furnace\_slag & $0.10385$ & $0.10385$ & 0.01014 & $<0.001$ \\
+fly\_ash & $0.087943$ & $0.087943$ & 0.01259 & $<0.001$ \\
+water & $-0.15030$ & $-0.15030$ & 0.04018 & $<0.001$ \\
+superplasticizer & $0.29069$ & $0.29069$ & 0.09346 & 0.002 \\
+coarse\_aggregate & $0.018030$ & $0.018030$ & 0.00939 & 0.055 \\
+fine\_aggregate & $0.020155$ & $0.020155$ & 0.01070 & 0.060 \\
+age & $0.11423$ & $0.11423$ & 0.00543 & $<0.001$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -153,30 +157,34 @@ age & $0.1142$ \\
 \end{figure}
 
 \textbf{Interpretation:} all three cementitious materials (cement, slag, fly
-ash) and superplasticizer raise strength, while water lowers it, matching the
-textbook water/cement-ratio relationship in concrete chemistry. Age has a
-positive effect (curing), and the two aggregate fractions matter least. Using
-all 8 predictors gives about 2.5 times Project 1's best single-feature fit
-($R^2\approx0.25$ for cement alone), confirming strength is genuinely
-multivariate, but 38\% of the variance is still unexplained, likely due to
-nonlinear curing/age interactions (addressed in Section 5).
+ash) and superplasticizer raise strength, and water lowers it, which is the
+standard water/cement-ratio effect in concrete. Age has a positive effect
+because concrete keeps curing. The two aggregate fractions matter least:
+their coefficients are small and not significant at the 5\% level ($p=0.055$
+and $0.060$). With all 8 predictors the fit is about 2.5 times Project 1's
+best single-feature fit ($R^2\approx0.25$ for cement alone), so strength
+depends on several ingredients at once. Still, 38\% of the variance is
+unexplained, likely because of nonlinear curing and age interactions, which
+Section 5 takes up.
 
 \subsection{Airfoil Self-Noise}
 Regression of \texttt{scaled\_sound\_pressure\_level} on all 5 predictors.
 
 \begin{table}[H]
 \centering
-\caption{Airfoil multiple regression coefficients (ScalaTion; Statsmodels agrees).}
-\begin{tabular}{lr}
+\caption{Airfoil multiple regression. The ScalaTion and Statsmodels
+coefficients agree to 6 significant figures. Standard errors and $p$-values
+are from Statsmodels.}
+\begin{tabular}{lrrrr}
 \toprule
-Term & Coefficient \\
+Term & ScalaTion & Statsmodels & Std.\ err. & $p$-value \\
 \midrule
-intercept & $132.83$ \\
-frequency & $-0.001282$ \\
-angle\_of\_attack & $-0.4219$ \\
-chord\_length & $-35.69$ \\
-free\_stream\_velocity & $0.09985$ \\
-suction\_side\_displacement\_thickness & $-147.30$ \\
+intercept & $132.834$ & $132.834$ & 0.5447 & $<0.001$ \\
+frequency & $-0.0012822$ & $-0.0012822$ & 0.0000421 & $<0.001$ \\
+angle\_of\_attack & $-0.42191$ & $-0.42191$ & 0.0389 & $<0.001$ \\
+chord\_length & $-35.688$ & $-35.688$ & 1.630 & $<0.001$ \\
+free\_stream\_velocity & $0.099854$ & $0.099854$ & 0.00813 & $<0.001$ \\
+suction\_side\_displacement\_thickness & $-147.30$ & $-147.30$ & 15.01 & $<0.001$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -190,18 +198,18 @@ suction\_side\_displacement\_thickness & $-147.30$ \\
 \end{figure}
 
 \textbf{Interpretation:} higher free-stream velocity is the only predictor
-that \emph{raises} noise, matching aerodynamics (faster flow means louder
-self-noise); the other four all lower the fitted sound pressure level. Using
+that \emph{raises} noise, as expected, since faster flow makes more
+self-noise. The other four all lower the fitted sound pressure level. Using
 all 5 predictors more than triples Project 1's best single-feature fit
-($R^2\approx0.15$ for frequency alone), but this remains the weakest linear
-fit of the three datasets, consistent with the Project 1 finding that
-boundary-layer self-noise is a genuinely nonlinear phenomenon.
+($R^2\approx0.15$ for frequency alone), but this is still the weakest linear
+fit of the three datasets. That agrees with the Project 1 finding that
+boundary-layer self-noise is nonlinear.
 
 \clearpage
 \section{Regularized Regression (Auto MPG only)}
 \begin{sloppypar}
-Ridge (L2) and Lasso (L1) were fit on Auto MPG in both tools. ScalaTion's
-\texttt{RidgeRegression}/\texttt{LassoRegression} auto-center $x$ and $y$
+Ridge (L2) and Lasso (L1) were fit on Auto MPG in both tools. In ScalaTion,
+\texttt{RidgeRegression} and \texttt{LassoRegression} auto-center $x$ and $y$
 (coefficients are on the original predictor scale, no intercept term);
 Statsmodels' \texttt{OLS.fit\_regularized} was run on standardized predictors
 with $y$ centered (it has no intercept column, so in each cross-validation
@@ -234,6 +242,27 @@ Statsmodels & Lasso & $\alpha=0.1$ & MSE $11.46$ & 0.8178 \\
 
 \begin{table}[H]
 \centering
+\caption{ScalaTion coefficients on the original predictor scale: OLS
+(Section 1) vs.\ Ridge ($\lambda=10$) vs.\ Lasso ($\lambda=5$), Auto MPG.
+ScalaTion fits Ridge and Lasso on centered data, so they have no intercept
+term.}
+\begin{tabular}{lrrr}
+\toprule
+Predictor & OLS & Ridge & Lasso \\
+\midrule
+cylinders & $-0.49338$ & $-0.44133$ & $-0.48573$ \\
+displacement & $0.019896$ & $0.018433$ & $0.019314$ \\
+horsepower & $-0.016951$ & $-0.015819$ & $-0.019394$ \\
+weight & $-0.0064740$ & $-0.0064996$ & $-0.0064628$ \\
+acceleration & $0.080576$ & $0.080558$ & $0.030870$ \\
+model\_year & $0.75077$ & $0.74926$ & $0.76718$ \\
+origin & $1.4261$ & $1.3298$ & $1.2816$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
 \caption{Statsmodels standardized coefficients: Ridge vs.\ Lasso (Auto MPG).}
 \begin{tabular}{lrr}
 \toprule
@@ -256,35 +285,41 @@ all four models) or cross-validated error (both Statsmodels models are within
 0.04 MSE of each other). Cross-validation picks a very light Ridge penalty
 ($\alpha=0.01$), which leaves the OLS coefficients nearly intact, including
 the counter-intuitive positive \texttt{displacement} coefficient from
-Section 1. The value of regularization here is in \emph{variable importance},
-not accuracy: Lasso's L1 penalty drives \texttt{cylinders},
-\texttt{displacement}, and \texttt{acceleration} exactly to zero, leaving a
-sparse 4-predictor model (\texttt{horsepower}, \texttt{weight},
-\texttt{model\_year}, \texttt{origin}) with almost the same fit. This agrees
-with forward selection in Section 3, whose first three picks are
-\texttt{weight}, \texttt{model\_year} and \texttt{origin}: those are the
-dominant drivers of fuel economy, and the engine-size predictors are largely
-redundant with each other once weight is in the model. ScalaTion's
-Ridge/Lasso (which do not standardize predictors, so their $\lambda$ values
-are on a different scale) told the same qualitative story:
-\texttt{acceleration}'s coefficient shrinks the most under Lasso
-($0.0806\rightarrow0.0309$), while \texttt{weight} and \texttt{model\_year} are
-essentially unchanged.
+Section 1. Where regularization does help is in showing which predictors
+matter. Lasso's L1 penalty drives \texttt{cylinders}, \texttt{displacement},
+and \texttt{acceleration} exactly to zero, leaving a sparse 4-predictor model
+(\texttt{horsepower}, \texttt{weight}, \texttt{model\_year}, \texttt{origin})
+with almost the same fit. This agrees with forward selection in Section 3,
+whose first three picks are \texttt{weight}, \texttt{model\_year} and
+\texttt{origin}. Those three drive fuel economy, and the engine-size
+predictors are largely redundant with each other once weight is in the model.
+
+ScalaTion's Ridge and Lasso do not standardize predictors, so their $\lambda$ values and
+coefficients are on a different scale from Statsmodels'. At its CV-chosen
+$\lambda$, ScalaTion's Lasso doesn't set any coefficient exactly to zero, but
+it tells a similar story. \texttt{acceleration}, the least significant
+predictor in Section 1 ($p=0.415$), shrinks the most ($0.0806\rightarrow
+0.0309$, down 62\%). \texttt{weight} and \texttt{model\_year}, the two most
+significant predictors, are almost unchanged. Ridge shrinks the
+\texttt{cylinders}, \texttt{displacement}, \texttt{horsepower} and
+\texttt{origin} coefficients by about 7--11\% (\texttt{cylinders} the
+most). It leaves \texttt{weight}, \texttt{acceleration} and
+\texttt{model\_year} within 0.4\% of their OLS values.
 
 \clearpage
 \section{Forward Feature Selection}
-ScalaTion's \texttt{forwardSelAll} was run on Auto MPG and Concrete (Airfoil
-was left out, since it has only 5 predictors -- too few for the ordering to
-be very informative -- while the other two datasets have 7--8).
+ScalaTion's \texttt{forwardSelAll} was run on Auto MPG and Concrete, which
+have 7 and 8 predictors. Airfoil was left out because with only 5 predictors
+the selection order says little.
 
 \textbf{Selection criterion.} At each step ScalaTion adds the predictor that
 most lowers sMAPE-IC, an information criterion equal to sMAPE plus a size
 penalty $2(k+1)/m$ ($k$ predictors, $m$ rows). It is computed on ScalaTion's
 training split (the first 80\% of rows), so it is \emph{not} a cross-validated
 measure. For each step we also report $\bar R^2$ (training split) and the
-5-fold cross-validated $R^2_{cv}$. The three criteria do not always agree on
-the best subset size, so all three are shown; $k$ counts predictors and
-excludes the intercept.
+5-fold cross-validated $R^2_{cv}$, because the three criteria do not always
+agree on the best subset size. $k$ counts predictors and excludes the
+intercept.
 
 \subsection{Auto MPG}
 \begin{table}[H]
@@ -338,12 +373,12 @@ and drops the two aggregate fractions. $\bar R^2$ and $R^2_{cv}$ are both
 highest for the full model, but only by 0.02--0.09 percentage points.
 
 \textbf{Interpretation:} forward selection does shrink both models under
-ScalaTion's criterion: AutoMPG from 7 to 5 predictors, and Concrete from 8 to 6.
-The predictors it drops add almost nothing. After AutoMPG's third step and
+ScalaTion's criterion: Auto MPG from 7 to 5 predictors, and Concrete from 8 to
+6. The predictors it drops add almost nothing. After Auto MPG's third step and
 Concrete's sixth, $\bar R^2$ and $R^2_{cv}$ move by less than 0.3 percentage
 points, so the choice between the reduced and full models is a near-tie that
-depends on the criterion. The more robust result is the \emph{order} of
-selection, which acts as a model-based importance ranking. For AutoMPG,
+depends on the criterion. The \emph{order} in which predictors enter tells us
+more, because it ranks them by how much each one adds. For Auto MPG,
 \texttt{weight}, \texttt{model\_year} and \texttt{origin} come first, and
 cross-validation says those three alone predict as well as any larger subset.
 They are also three of the four predictors Lasso keeps in Section 2. The
@@ -352,24 +387,40 @@ last because they carry little information that \texttt{weight} doesn't
 already. For Concrete, superplasticizer and age are selected before cement:
 once workability (superplasticizer) and curing time (age) are accounted for,
 cement adds less marginal predictive power than its Section 1 coefficient
-alone would suggest. The two aggregates, which also had the smallest
-Section 1 coefficients, are the ones dropped.
+alone would suggest. The two aggregates are the ones dropped. They also had
+the smallest Section 1 coefficients and were the only non-significant
+predictors there.
 
 \clearpage
 \section{Transformed Regression}
-ScalaTion's \texttt{TranRegression} was run on Auto MPG and Airfoil,
-applying \texttt{log(y)}, \texttt{sqrt(y)}, and Box-Cox($y$)
-with $\lambda=0.4$ (the library default; Yeo-Johnson is not exposed as a
-ready-made \texttt{Transform} in this ScalaTion build, so Box-Cox was used, as
-permitted by the rubric). Both target variables are strictly positive, so all
-three transforms are well-defined.
+ScalaTion's \texttt{TranRegression} was run on Auto MPG and Airfoil. In
+every model the transformed variable is the response $y$ (\texttt{mpg} and
+\texttt{scaled\_sound\_pressure\_level}); the predictors are left
+untransformed. Three transforms were applied, each with ScalaTion's default
+parameters:
+\begin{itemize}
+    \item \textbf{log:} \texttt{LogForm()}, which computes $\log(y+1)$. Its
+    default shift is 1, so this is $\log(1+y)$ rather than $\log y$. Since
+    mpg ranges from 9 to 46.6 and sound level from 103 to 141 dB, the shift
+    barely changes the shape.
+    \item \textbf{sqrt:} \texttt{RootForm()}, which computes $\sqrt{y}$.
+    \item \textbf{Box-Cox:} \texttt{BoxcoxForm()}, which computes
+    $(y^{\lambda}-1)/\lambda$ with $\lambda=0.4$. The rubric allows either
+    Box-Cox or Yeo-Johnson. We used Box-Cox, since Yeo-Johnson is not exposed
+    as a ready-made \texttt{Transform} in this ScalaTion build.
+\end{itemize}
+Both targets are strictly positive, so all three transforms are well-defined.
+The model is fit on the transformed scale, and predictions are
+back-transformed to the original units before computing $R^2$, so every
+$R^2$ below is comparable to Section 1.
 
 \begin{table}[H]
 \centering
-\caption{Effect of transforming the response on in-sample $R^2$.}
+\caption{Effect of transforming the response on in-sample $R^2$ (original
+units).}
 \begin{tabular}{lrrrr}
 \toprule
-Dataset & Untransformed & log($y$) & sqrt($y$) & Box-Cox($y$), $\lambda=0.4$ \\
+Dataset & Untransformed & $\log(y+1)$ & $\sqrt{y}$ & Box-Cox, $\lambda=0.4$ \\
 \midrule
 Auto MPG (mpg) & 0.8215 & \textbf{0.8552} & 0.8437 & 0.8468 \\
 Airfoil (dB) & \textbf{0.5157} & 0.5082 & 0.5122 & 0.5114 \\
@@ -377,28 +428,75 @@ Airfoil (dB) & \textbf{0.5157} & 0.5082 & 0.5122 & 0.5114 \\
 \end{tabular}
 \end{table}
 
-\textbf{Interpretation:} the two datasets tell opposite stories, which is
-itself the interesting finding. \texttt{mpg} is a reciprocal-like, right-skewed
-quantity (efficiency measured as distance/fuel rather than the more
-physically additive fuel/distance), so every transform toward a
-more-symmetric scale improves the fit; log is best, gaining $\Delta R^2
-\approx 0.034$ over the untransformed model, consistent with standard
-practice of regressing $\log(\text{mpg})$ or gallons-per-100-miles instead of
-mpg directly. \texttt{scaled\_sound\_pressure\_level}, by contrast, is
-\emph{already} a decibel (logarithmic) quantity, so applying a further
-log/sqrt/Box-Cox transform does not help: it slightly worsens $R^2$, RMSE
-and sMAPE on the original scale, because it fights against a scale that is already close to linear in the
-underlying physics. This is a clean illustration that transformed regression
-should be guided by the target's native scale, not applied by default.
+\begin{table}[H]
+\centering
+\caption{Auto MPG transformed-regression coefficients (on the transformed
+scale of $y$).}
+\begin{tabular}{lrrr}
+\toprule
+Term & $\log(y+1)$ & $\sqrt{y}$ & Box-Cox, $\lambda=0.4$ \\
+\midrule
+intercept & $1.8399$ & $1.0753$ & $0.94870$ \\
+cylinders & $-0.026517$ & $-0.059416$ & $-0.089092$ \\
+displacement & $0.00061195$ & $0.0017523$ & $0.0024836$ \\
+horsepower & $-0.0013590$ & $-0.0025118$ & $-0.0039338$ \\
+weight & $-0.00024473$ & $-0.00063668$ & $-0.00092184$ \\
+acceleration & $-0.0010393$ & $0.0027383$ & $0.0023211$ \\
+model\_year & $0.028368$ & $0.073812$ & $0.10687$ \\
+origin & $0.039712$ & $0.12166$ & $0.17049$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Airfoil transformed-regression coefficients (on the transformed
+scale of $y$).}
+\begin{tabular}{lrrr}
+\toprule
+Term & $\log(y+1)$ & $\sqrt{y}$ & Box-Cox, $\lambda=0.4$ \\
+\midrule
+intercept & $4.8983$ & $11.530$ & $15.178$ \\
+frequency & $-0.000010457$ & $-0.000058117$ & $-0.000071918$ \\
+angle\_of\_attack & $-0.0033419$ & $-0.018848$ & $-0.023255$ \\
+chord\_length & $-0.28547$ & $-1.6019$ & $-1.9784$ \\
+free\_stream\_velocity & $0.00080062$ & $0.0044871$ & $0.0055432$ \\
+suction\_side\_displacement\_thickness & $-1.2338$ & $-6.7665$ & $-8.3960$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Reading the coefficients:} every transform keeps the same sign as the
+untransformed model for each predictor, with one exception:
+\texttt{acceleration} in the Auto MPG log model, whose coefficient is tiny
+and was not significant in Section 1 ($p=0.415$). The log model is the
+easiest to read, because a coefficient $b$ multiplies $y+1$ by roughly
+$e^{b}$. In Auto MPG, each model year raises mpg by about 2.9\%
+($e^{0.0284}$), and each extra 1000 lbs lowers it by about 22\%
+($e^{-0.245}$). These are percentage effects, which fit fuel economy better
+than the constant per-pound effect of the linear model. In Airfoil, each
+extra 1000 Hz lowers the sound level by about 1.0\%, and each extra 0.1 m of
+chord by about 2.8\%.
+
+\textbf{Interpretation:} the transforms help Auto MPG and do not help
+Airfoil. \texttt{mpg} is skewed to the right and behaves like a reciprocal, since it
+measures distance per unit of fuel, while fuel per unit of distance is the
+quantity that adds up physically. Every transform toward a more symmetric
+scale improves the fit, and log is best, gaining $\Delta R^2\approx0.034$
+over the untransformed model. Regressing $\log(\text{mpg})$ or gallons per
+100 miles instead of mpg is standard practice for the same reason.
+\texttt{scaled\_sound\_pressure\_level} is \emph{already} measured in
+decibels, a logarithmic scale, so a further log, sqrt or Box-Cox transform
+slightly worsens $R^2$, RMSE and sMAPE on the original scale.
 
 \clearpage
 \section{Symbolic Regression}
 Both a power/cross-term expansion in ScalaTion and a genetic symbolic search
 in PySR were run on all three datasets.
 
-\subsection{Where the Two Approaches Fit}
-Symbolic regression covers several quite different search strategies.
-Table~\ref{tab:sr-strategies} summarizes the main families.
+\subsection{Types of Symbolic Regression}
+Symbolic regression covers several different search strategies; the main
+families are listed in Table~\ref{tab:sr-strategies}.
 
 \begin{table}[H]
 \centering
@@ -434,16 +532,14 @@ trees, so it can produce forms the fixed library cannot represent, such as
 quotients and logarithms.
 \end{sloppypar}
 
-The table's trade-offs show up directly in our results. The fixed-library
-fits ran in seconds (each dataset's full ScalaTion run, including
-cross-validation and forward selection, took under 20 seconds) and were
-deterministic, but they can only reweight the terms they were given. PySR
-needed one to two minutes per dataset, plus a one-time Julia compilation,
-but it
-returned compact closed-form equations (Section~\ref{sec:pysr}) built from
-operators outside the library. None of our three datasets is a time series
-or an ODE system, which is why the time-delay and sparse-dynamics families
-weren't applicable here.
+Our runs show the speed and flexibility trade-off from the table. Each
+dataset's full ScalaTion run, including cross-validation and forward
+selection, took under 20 seconds and gave the same answer every time, but it
+can only reweight the terms it was given. PySR needed one to two minutes per
+dataset, plus a one-time Julia compilation, and returned compact closed-form
+equations (Section~\ref{sec:pysr}) built from operators outside the library.
+None of our three datasets is a time series or an ODE system, so the
+time-delay and sparse-dynamics families don't apply here.
 
 \subsection{ScalaTion}
 Each dataset's predictors were expanded with $x^{0.5}$, $x^{2}$, an
@@ -483,9 +579,8 @@ $R^2_{cv}$, linear regression (Section 1) &0.809 & 0.602 & 0.511 \\
 \end{tabular}
 \end{table}
 
-\textbf{Interpretation:} the power/cross-term expansion is a real
-improvement over linear regression on all three datasets, and it holds up out
-of sample: cross-validated $R^2$ rises from 0.81 to 0.86 (Auto MPG), 0.60 to
+\textbf{Interpretation:} the power/cross-term expansion improves on linear
+regression for all three datasets, and the gain holds up out of sample: cross-validated $R^2$ rises from 0.81 to 0.86 (Auto MPG), 0.60 to
 0.87 (Concrete), and 0.51 to 0.63 (Airfoil). Concrete gains the most,
 consistent with its strength depending on interactions between ingredients
 and age.
@@ -493,18 +588,17 @@ and age.
 Forward selection behaves differently on each dataset. For Auto MPG,
 ScalaTion's criterion keeps 27 of 35 terms, but cross-validation peaks much
 earlier: the first 11 terms ($R^2_{cv}=0.869$) predict slightly better than
-either the 27-term subset or the full model (0.860). The extra terms mostly fit
-noise, and a compact model is enough. For Concrete, sMAPE-IC stops at 37 of
+either the 27-term subset or the full model (0.860), so the later terms mostly
+fit noise. For Concrete, sMAPE-IC stops at 37 of
 44 terms, leaving out the last 7 added (superplasticizer\_fly\_ash,
 fly\_ash\_cement, coarse\_aggregate$^{0.5}$, superplasticizer\_cement,
 fine\_aggregate$^2$, age\_coarse\_aggregate, age\_cement). Cross-validation
 does not support dropping them: $R^2_{cv}$ is 0.863 at 37 terms and 0.866 for
-the full model. The criteria disagree here, and the honest conclusion is that
-those 7 terms neither clearly help nor clearly hurt. For Airfoil, all three
-criteria agree on the same 16 of 20 terms ($R^2_{cv}=0.629$, essentially
-equal to the full model's 0.628). Even so, Airfoil remains the weakest of the
-three datasets, pointing to nonlinear structure beyond what a low-order
-power/cross-term basis captures.
+the full model. The two criteria disagree, and those 7 terms neither clearly
+help nor clearly hurt. For Airfoil, all three criteria agree on the same 16
+of 20 terms ($R^2_{cv}=0.629$, essentially equal to the full model's 0.628).
+Airfoil is still the weakest of the three datasets, which suggests nonlinear
+structure that a low-order power/cross-term basis can't capture.
 
 \subsection{PySR}
 \label{sec:pysr}
@@ -545,11 +639,8 @@ Airfoil & $\text{spl} = 131.38 - \sqrt{25.816\;\text{freq}\cdot\text{chord}\cdot
 \end{figure}
 
 \textbf{Interpretation:} all PySR $R^2$ values are in-sample on all rows, so
-they compare directly with the full-model $R^2$ in Table~\ref{tab:symbolic} and with
-Section~1. The two approaches trade accuracy for compactness differently.
-ScalaTion fits coefficients for a fixed basis of up to 44 terms. PySR searches
-over expression trees, so it can find operators the fixed basis doesn't
-contain, such as division and logarithms.
+they compare directly with the full-model $R^2$ in Table~\ref{tab:symbolic}
+and with Section~1.
 
 PySR's Auto MPG equation is close to physical reasoning: it finds that fuel
 economy scales with a (model-year-adjusted) constant divided by weight. It
@@ -557,48 +648,44 @@ uses only 2 fitted constants, yet reaches $R^2=0.851$, \emph{beating} the
 8-parameter linear model ($R^2=0.822$), though not ScalaTion's 35-term
 expansion ($R^2=0.895$). For Concrete, PySR clearly beats the linear model
 ($R^2=0.756$ vs.\ $0.616$) but falls well short of ScalaTion's 44-term
-expansion ($R^2=0.886$). What it offers instead is a compact, readable
-equation: a $\log(\text{age})\times\text{cement}/\text{water}$ interaction that
-ScalaTion's $\{x^{0.5},x^2,x_ix_j\}$ basis cannot express. This lines up
-with concrete science, where strength gain follows a roughly logarithmic
-curing curve in age and depends on the cement/water ratio. For Airfoil,
-PySR's equation ($R^2=0.556$) improves modestly on linear regression
-($0.516$) but is below ScalaTion's 20-term expansion ($R^2=0.641$). The
+expansion ($R^2=0.886$). Its equation is much shorter, though, and contains
+a $\log(\text{age})\times\text{cement}/\text{water}$ interaction that
+ScalaTion's $\{x^{0.5},x^2,x_ix_j\}$ basis cannot express. That matches
+concrete science: strength gain follows a roughly logarithmic curing curve
+in age and depends on the cement/water ratio. For Airfoil, PySR's equation
+($R^2=0.556$) improves modestly on linear regression ($0.516$) but is below
+ScalaTion's 20-term expansion ($R^2=0.641$). The
 $\texttt{frequency}\times\texttt{chord\_length}\times\texttt{thickness}$
 product it finds is consistent with airfoil self-noise scaling, in which
-noise depends on these geometric and aerodynamic quantities jointly. The
-modest $R^2$ of every method in this section confirms that much of Airfoil's
-noise variance is not captured by low-order combinations of these five
-predictors.
+noise depends on these geometric and aerodynamic quantities jointly.
 
 \clearpage
 \section*{Cross-Section Summary}
 \begin{itemize}
-    \item \textbf{Linear regression accuracy ranks Auto MPG $>$ Concrete $>$
-    Airfoil}, reflecting how close to linear each underlying physical
-    process is. Once interaction terms are allowed (Section 5), Concrete
-    catches up with Auto MPG (cross-validated $R^2$ 0.866 vs.\ 0.860), since
-    much of its structure is in ingredient and age interactions. Airfoil
-    stays last under every method.
-    \item \textbf{Regularization} (Section 2) matters for interpretability
-    (Lasso's sparsity confirms which of Auto MPG's correlated engine-size
-    features are redundant) more than for raw accuracy, since the
-    unregularized model was not overfitting to begin with.
+    \item \textbf{Accuracy by dataset}: linear regression fits Auto MPG best,
+    then Concrete, then Airfoil. Once interaction terms are allowed
+    (Section 5), Concrete catches up with Auto MPG (cross-validated $R^2$
+    0.866 vs.\ 0.860), since much of its structure is in ingredient and age
+    interactions. Airfoil stays last under every method.
+    \item \textbf{Regularization} (Section 2) barely changed accuracy, since
+    the unregularized Auto MPG model was not overfitting. It was more useful
+    for interpretation: Lasso's sparsity shows which of the correlated
+    engine-size features are redundant.
     \item \textbf{Forward selection} (Section 3) shrank Auto MPG from 7 to 5
     predictors and Concrete from 8 to 6 under ScalaTion's sMAPE-IC
     criterion. The dropped predictors change $\bar R^2$ and $R^2_{cv}$ by
     under 0.3 percentage points. Its selection order agrees with Lasso:
     weight, model year and origin carry most of Auto MPG's signal.
-    \item \textbf{Transformed regression} (Section 4) only helps when the
-    transform matches the target's native scale: it clearly helped Auto MPG
-    (already skewed) and did not help Airfoil (already log-scaled in dB).
+    \item \textbf{Transformed regression} (Section 4) helped Auto MPG, whose
+    target is skewed, and did not help Airfoil, whose target is already on a
+    logarithmic decibel scale.
     \item \textbf{Symbolic regression} (Section 5) gave the largest accuracy
     gains of any technique, and the gains hold up under cross-validation.
-    ScalaTion's power/cross-term expansion was the most accurate, while
-    PySR's search produced much more compact equations. Only PySR found
-    terms outside a fixed polynomial basis: a $1/\text{weight}$ scaling for
-    Auto MPG and a $\log(\text{age})$ curing term for Concrete. Both have
-    clear physical justification, not just statistical support.
+    ScalaTion's power/cross-term expansion was the most accurate, and PySR's
+    equations were much more compact. Only PySR found terms outside a fixed
+    polynomial basis: a $1/\text{weight}$ scaling for Auto MPG and a
+    $\log(\text{age})$ curing term for Concrete, both of which match the
+    physics of the problem.
 \end{itemize}
 
 \end{document}
