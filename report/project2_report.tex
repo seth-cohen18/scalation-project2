@@ -9,6 +9,8 @@
 \usepackage{xcolor}
 \usepackage{subcaption}
 \usepackage{longtable}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \lstset{
     basicstyle=\ttfamily\scriptsize,
@@ -394,6 +396,55 @@ should be guided by the target's native scale, not applied by default.
 Both a power/cross-term expansion in ScalaTion and a genetic symbolic search
 in PySR were run on all three datasets.
 
+\subsection{Where the Two Approaches Fit}
+Symbolic regression covers several quite different search strategies.
+Table~\ref{tab:sr-strategies} summarizes the main families.
+
+\begin{table}[H]
+\centering
+\caption{Comparison of equation search and generation strategies in
+AI4Science.}
+\label{tab:sr-strategies}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{L{0.16\textwidth}L{0.25\textwidth}L{0.15\textwidth}L{0.12\textwidth}L{0.21\textwidth}}
+\toprule
+\textbf{Search Strategy} & \textbf{Mechanism} & \textbf{Discovery Speed} & \textbf{Complexity Limit} & \textbf{Best For} \\
+\midrule
+\textbf{Pathwise Matrix (FFX)} & Sparse deterministic linear regression over fixed libraries & Instantaneous (seconds) & Low to Medium & Ultra-fast baselines, large datasets \\ \addlinespace[3pt]
+\textbf{Time-Delay Search (NARX-SR)} & Recurrent, lag-aware tree or orthogonal regressions & Fast to Medium (minutes) & Medium to High & Time series with feedback loops and historical memory \\ \addlinespace[3pt]
+\textbf{Physics Decomposition (AI Feynman)} & Structural breakdown via physics priors (symmetries, units) + NN fit & Slow (hours) & High & Uncovering exact analytic laws of physics from raw data \\ \addlinespace[3pt]
+\textbf{Evolutionary Tree (PySR)} & Genetic mutations and crossover of operator trees & Slow to Medium (mins/hrs) & High & Open-ended scientific discovery \\ \addlinespace[3pt]
+\textbf{Sparse Dynamics (SINDy)} & Sequentially thresholded ridge regression & Fast & Medium & Physical systems (ODEs/PDEs) \\ \addlinespace[3pt]
+\textbf{Neural Generation (DSR)} & Token-by-token sequence generation via RL & Medium & Medium & Finding specific structural patterns \\ \addlinespace[3pt]
+\textbf{Agentic Loop (SR-Scientist)} & LLM code writing, execution, and optimization & Slow (agent loops) & Very High & Noisy data needing domain knowledge \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{sloppypar}
+The two tools used in this project come from different rows of this table.
+ScalaTion's \texttt{SymbolicRegression} belongs to the first family: it builds
+a fixed library of candidate terms ($x^{0.5}$, $x^2$, $x_ix_j$) and fits them
+with deterministic least squares. It differs from FFX in how it prunes the
+library: it uses greedy forward selection rather than a regularization path.
+PySR is the evolutionary-tree approach. It mutates and recombines expression
+trees, so it can produce forms the fixed library cannot represent, such as
+quotients and logarithms.
+\end{sloppypar}
+
+The table's trade-offs show up directly in our results. The fixed-library
+fits ran in seconds (each dataset's full ScalaTion run, including
+cross-validation and forward selection, took under 20 seconds) and were
+deterministic, but they can only reweight the terms they were given. PySR
+needed one to two minutes per dataset, plus a one-time Julia compilation,
+but it
+returned compact closed-form equations (Section~\ref{sec:pysr}) built from
+operators outside the library. None of our three datasets is a time series
+or an ODE system, which is why the time-delay and sparse-dynamics families
+weren't applicable here.
+
 \subsection{ScalaTion}
 Each dataset's predictors were expanded with $x^{0.5}$, $x^{2}$, an
 intercept, and all pairwise cross terms $x_ix_j$, then \texttt{forwardSelAll}
@@ -456,6 +507,7 @@ three datasets, pointing to nonlinear structure beyond what a low-order
 power/cross-term basis captures.
 
 \subsection{PySR}
+\label{sec:pysr}
 PySR (binary operators $+,-,\times,\div$; unary operators
 $\mathrm{square}, \mathrm{sqrt}, \exp, \log$; 60 iterations, population size
 33) searched directly over closed-form expressions rather than a fixed basis.
