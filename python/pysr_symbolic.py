@@ -12,9 +12,10 @@ Outputs are written to project 2/results/<dataset>/:
 """
 
 import platform
-platform.machine = lambda: "AMD64"          # this Windows-on-ARM64 machine has no native
-                                             # Julia build; force resolution of the x64
-                                             # build, which runs fine under Windows' x64 emulation
+# Julia has no native Windows-on-ARM64 build. On that platform only, make PySR's
+# installer fetch the x64 build, which runs under Windows' built-in x64 emulation.
+if platform.system() == "Windows" and platform.machine().upper() == "ARM64":
+    platform.machine = lambda: "AMD64"
 
 import os
 import numpy as np

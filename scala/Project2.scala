@@ -18,13 +18,16 @@ import scalation.modeling.given
  *    5. Symbolic Regression               - all 3 datasets
  *
  *  Run from a ScalaTion app directory with this file in src/main/scala/project2/.
- *  Set PROJECT2_DATA_DIR to the folder holding the CSVs (the repo's data/ folder);
- *  it defaults to "../project 2/data/" (the course folder layout).
+ *  The CSV folder is PROJECT2_DATA_DIR if set, otherwise the first of
+ *  "../project 2/data", "../data", "data" that contains the datasets.
  */
 object Project2:
 
     private val DATA_DIR =
-        val d = sys.env.getOrElse ("PROJECT2_DATA_DIR", "../project 2/data/")
+        val candidates = sys.env.get ("PROJECT2_DATA_DIR").toSeq ++
+                         Seq ("../project 2/data", "../data", "data")
+        val d = candidates.find (c => new java.io.File (c, "auto_mpg.csv").isFile)
+                          .getOrElse (candidates.head)
         if d.endsWith ("/") || d.endsWith ("\\") then d else d + "/"
 
     /** Bundles the loaded matrices/vectors/names needed by every section below.
